@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Request a Sample — Love BUDS</title>
+<meta name="description" content="Foodservice? Request a free BUDS sample pack — burgers, mince, nuggets, arancini, sausages and more." />
+<meta name="theme-color" content="#224289" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="buds.css" />
+<style>
+  /* page-only tweaks */
+  .sample-layout { display: grid; grid-template-columns: 1.55fr 0.95fr; gap: 32px; align-items: start; }
+  .sample-aside { display: flex; flex-direction: column; gap: 20px; }
+  .sample-aside .aside-card.is-white { background: #fff; border: 2px solid var(--line); }
+  .sample-aside .photo { aspect-ratio: 4 / 3; border-radius: var(--radius-xl); }
+  .sample-aside .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-frame { width: min(440px, 100%); border-radius: var(--radius-lg); overflow: hidden; transform: rotate(-3deg); box-shadow: var(--shadow-lg); border: 6px solid #fff; }
+  .hero-frame img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; animation: none; filter: none; }
+  .page-hero-art .sticker { left: 0; bottom: -18px; }
+  .sent-icon { background: var(--yellow); color: var(--navy-deep); }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .chosen { font-family: var(--font-display); font-size: 16px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--red); }
+  .pill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+  .sent-label { font-family: var(--font-display); font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-top: 30px; }
+  .steps li span:last-child { font-size: 15.5px; line-height: 1.5; color: var(--navy-deep); }
+  @media (max-width: 1040px) {
+    .sample-layout { grid-template-columns: 1fr; }
+    .hero-frame { width: min(360px, 90%); }
+  }
+  @media (max-width: 760px) {
+    .pill-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg aria-hidden="true" width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-tt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v10.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.5 2.5 4 5 4"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></symbol>
+  </defs>
+</svg>
+
+<div id="top">
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a href="index.html" class="logo" aria-label="Love BUDS — home">
+        <img src="https://welovebuds.com/wp-content/uploads/2021/11/cropped-Layer-358.png" alt="Love BUDS — You won’t believe it’s not meat" onerror="this.hidden=true;this.nextElementSibling.hidden=false" />
+        <span class="logo-text" hidden aria-hidden="true"><span class="love">Love</span><span class="buds">BUDS</span></span>
+      </a>
+      <nav id="primary-nav" class="nav" aria-label="Primary">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="recipes.html" class="nav-link">Recipes</a>
+        <a href="where-to-buy.html" class="nav-link">Where to Buy</a>
+        <a href="about-us.html" class="nav-link">About Us</a>
+      </nav>
+      <div class="header-actions">
+        <a href="where-to-buy.html" class="btn btn-coral btn-sm">Find Near You</a>
+        <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+          <svg class="ico-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="ico-close" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Page hero -------------------------------------------------------- -->
+    <section class="page-hero surface-navy paper" aria-labelledby="page-title">
+      <div class="wrap">
+        <div>
+          <h1 id="page-title" class="h1 rise rise-1">Request a <span class="block block-coral">sample</span></h1>
+          <p class="lede rise rise-2">On the hunt for top-quality plant-based protein? We’re confident enough in the range to send it free of charge. Currently available for foodservice only.</p>
+        </div>
+        <div class="page-hero-art rise rise-3">
+          <div class="hero-frame">
+            <img src="https://welovebuds.com/wp-content/uploads/2022/06/BUDS_BURGER_1st.jpg" alt="A BUDS plant-based burger stacked with cheese and salad" width="440" height="330" fetchpriority="high" />
+          </div>
+          <div class="sticker sticker-yellow" aria-hidden="true"><span class="big">Free</span><span class="sml">of charge</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form --------------------------------------------------------------- -->
+    <section class="section" aria-label="Sample request form">
+      <div class="wrap sample-layout" data-r="split">
+
+        <div class="form-card reveal">
+
+          <div id="sample-sent" hidden>
+            <span class="ico-box sent-icon" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
+            <h2 class="h2" style="font-size:clamp(32px,4vw,40px);margin-top:20px">Thanks, <span id="sent-name"></span> — request received.</h2>
+            <p class="copy" style="margin-top:14px">Our foodservice team will be in touch within two business days to confirm your sample pack and delivery window.</p>
+            <p class="sent-label">You asked for</p>
+            <div id="sent-products" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"></div>
+            <button type="button" id="sample-reset" class="btn btn-outline" style="margin-top:32px">Submit another request</button>
+          </div>
+
+          <form id="sample-form" novalidate>
+            <div id="sample-error" class="note note-error" hidden role="alert" tabindex="-1" style="margin-bottom:28px">
+              <svg aria-hidden="true"><use href="#i-alert"/></svg>
+              <span id="sample-error-text"></span>
+            </div>
+
+            <div class="form-section">
+              <h2 class="h3"><span class="num" aria-hidden="true">1</span>About you</h2>
+              <div class="form-grid">
+                <label class="field">
+                  <span>First name *</span>
+                  <input id="f-first" class="fld" type="text" placeholder="Alex" required autocomplete="given-name" />
+                </label>
+                <label class="field">
+                  <span>Last name *</span>
+                  <input id="f-last" class="fld" type="text" placeholder="Nguyen" required autocomplete="family-name" />
+                </label>
+                <label class="field">
+                  <span>Work email *</span>
+                  <input id="f-email" class="fld" type="email" placeholder="alex@venue.com.au" required autocomplete="email" />
+                </label>
+                <label class="field">
+                  <span>I am a *</span>
+                  <select id="f-iam" class="fld" required>
+                    <option value="Distributor / Wholesaler">Distributor / Wholesaler</option>
+                    <option value="Major Retailer">Major Retailer</option>
+                    <option value="Exporter">Exporter</option>
+                    <option value="Foodservice Venue" selected>Foodservice Venue</option>
+                    <option value="Retail Venue">Retail Venue</option>
+                    <option value="Consumer">Consumer</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="h3"><span class="num" aria-hidden="true">2</span>Your business</h2>
+              <div class="form-grid">
+                <label class="field">
+                  <span>Company *</span>
+                  <input id="f-company" class="fld" type="text" placeholder="The Beach Burger Co." required autocomplete="organization" />
+                </label>
+                <label class="field">
+                  <span>Business website</span>
+                  <input id="f-website" class="fld" type="text" placeholder="beachburger.com.au" autocomplete="url" />
+                </label>
+                <label class="field">
+                  <span>Business sub type</span>
+                  <select id="f-subtype" class="fld">
+                    <option value="">Select…</option>
+                    <option value="Restaurant - Independent">Restaurant - Independent</option>
+                    <option value="Restaurant Chain">Restaurant Chain</option>
+                    <option value="Cafe / Coffee Chain">Cafe / Coffee Chain</option>
+                    <option value="Cafe / Coffee Independent">Cafe / Coffee Independent</option>
+                    <option value="QSR / Fast Food Chain">QSR / Fast Food Chain</option>
+                    <option value="Fast Food - Independent">Fast Food - Independent</option>
+                    <option value="Catering and Function Centre">Catering and Function Centre</option>
+                    <option value="Caterer - Independent">Caterer - Independent</option>
+                    <option value="Club">Club</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Hospital">Hospital</option>
+                    <option value="Aged Care">Aged Care</option>
+                    <option value="Education">Education</option>
+                    <option value="Mobile Food">Mobile Food</option>
+                    <option value="Specialty Stores">Specialty Stores</option>
+                    <option value="Online Retail">Online Retail</option>
+                    <option value="Butcher">Butcher</option>
+                    <option value="Hotels / Motels">Hotels / Motels</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span>State / region *</span>
+                  <select id="f-region" class="fld" required>
+                    <option value="">Select…</option>
+                    <option value="New South Wales">New South Wales</option>
+                    <option value="Victoria">Victoria</option>
+                    <option value="Queensland">Queensland</option>
+                    <option value="South Australia">South Australia</option>
+                    <option value="Tasmania">Tasmania</option>
+                    <option value="Australian Capital Territory">Australian Capital Territory</option>
+                    <option value="Northern Territory">Northern Territory</option>
+                    <option value="Western Australia">Western Australia</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span>City *</span>
+                  <input id="f-city" class="fld" type="text" placeholder="St Kilda" required autocomplete="address-level2" />
+                </label>
+                <label class="field">
+                  <span>Street address</span>
+                  <input id="f-address" class="fld" type="text" placeholder="90 Acland St" autocomplete="street-address" />
+                </label>
+                <label class="field">
+                  <span>Buying group</span>
+                  <select id="f-buying-group" class="fld">
+                    <option value="">Select…</option>
+                    <option value="BidFood">BidFood</option>
+                    <option value="PFD">PFD</option>
+                    <option value="CW">CW</option>
+                    <option value="CW SUPA">CW SUPA</option>
+                    <option value="NAFDA">NAFDA</option>
+                    <option value="TDG">TDG</option>
+                    <option value="AIDA">AIDA</option>
+                    <option value="Independent">Independent</option>
+                    <option value="Metcash">Metcash</option>
+                    <option value="Meat Supplier">Meat Supplier</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span>Preferred distributor</span>
+                  <select id="f-distributor" class="fld">
+                    <option value="">Select…</option>
+                    <option value="Bidfood">Bidfood</option>
+                    <option value="PFD">PFD</option>
+                    <option value="Superior Food Service">Superior Food Service</option>
+                    <option value="Moco Food Services">Moco Food Services</option>
+                    <option value="Global Food and Wine">Global Food and Wine</option>
+                    <option value="Andrews Meats">Andrews Meats</option>
+                    <option value="Markis Foods">Markis Foods</option>
+                    <option value="North Coast Foods">North Coast Foods</option>
+                    <option value="Quality Food Services">Quality Food Services</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="h3"><span class="num" aria-hidden="true">3</span>What you’d like</h2>
+              <div class="pill-grid" role="group" aria-label="What you would like">
+                <button type="button" class="pill" data-intent="Request a Sample" aria-pressed="true">Request a Sample</button>
+                <button type="button" class="pill" data-intent="Request a cookup / demonstration" aria-pressed="false">Request a cookup / demonstration</button>
+                <button type="button" class="pill" data-intent="Get more Information" aria-pressed="false">Get more Information</button>
+                <button type="button" class="pill" data-intent="All of the above" aria-pressed="false">All of the above</button>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="section-head">
+                <h2 class="h3"><span class="num" aria-hidden="true">4</span>Products to try *</h2>
+                <span id="chosen-count" class="chosen" role="status">0 selected</span>
+              </div>
+              <div class="pill-grid" role="group" aria-label="Products to try">
+                <button type="button" class="pill" data-sample-product="BUDS Burger Patties" aria-pressed="false">BUDS Burger Patties</button>
+                <button type="button" class="pill" data-sample-product="BUDS Slider Patties" aria-pressed="false">BUDS Slider Patties</button>
+                <button type="button" class="pill" data-sample-product="BUDS Italian Seasoning Sausages" aria-pressed="false">BUDS Italian Seasoning Sausages</button>
+                <button type="button" class="pill" data-sample-product="BUDS Nuggets" aria-pressed="false">BUDS Nuggets</button>
+                <button type="button" class="pill" data-sample-product="BUDS Bolognese &amp; Cheese Arancini" aria-pressed="false">BUDS Bolognese &amp; Cheese Arancini</button>
+                <button type="button" class="pill" data-sample-product="BUDS Mince" aria-pressed="false">BUDS Mince</button>
+                <button type="button" class="pill" data-sample-product="BUDS Crumbed Burger Patties" aria-pressed="false">BUDS Crumbed Burger Patties</button>
+                <button type="button" class="pill" data-sample-product="BUDS Garlic, Ginger &amp; Chive Dumplings" aria-pressed="false">BUDS Garlic, Ginger &amp; Chive Dumplings</button>
+                <button type="button" class="pill" data-sample-product="BUDS Chook Free Big Schnitzel" aria-pressed="false">BUDS Chook Free Big Schnitzel</button>
+              </div>
+            </div>
+
+            <div class="form-foot">
+              <button type="submit" class="btn btn-coral btn-lg">Send my request <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+              <span class="small" style="max-width:32ch">We’ll only use these details to organise your samples.</span>
+            </div>
+          </form>
+        </div>
+
+        <aside class="sample-aside" aria-label="About your sample request">
+          <div class="aside-card surface-yellow paper reveal">
+            <span class="badge badge-red">Free of charge</span>
+            <h2 class="h3" style="margin-top:16px">What happens next</h2>
+            <ol class="steps">
+              <li><span class="num" aria-hidden="true">1</span><span>We confirm your details and the formats that suit your menu.</span></li>
+              <li><span class="num" aria-hidden="true">2</span><span>Samples ship frozen to your venue, with cook cards.</span></li>
+              <li><span class="num" aria-hidden="true">3</span><span>Optional cookup — we come in and run it with your team.</span></li>
+            </ol>
+          </div>
+          <div class="aside-card is-white reveal">
+            <h2 class="h3">Not foodservice?</h2>
+            <p class="copy" style="margin-top:10px;font-size:16px">If you cook for yourself, find BUDS in store instead.</p>
+            <a href="where-to-buy.html" class="btn btn-outline" style="margin-top:18px">Find a retailer</a>
+          </div>
+          <div class="tone tone-coral photo reveal">
+            <img src="https://welovebuds.com/wp-content/uploads/2022/05/BUDS_NUGGETS_1.png" alt="BUDS Nuggets" loading="lazy" width="600" height="450" />
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer ------------------------------------------------------------ -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <a href="index.html" class="logo" aria-label="Love BUDS — home">
+            <img src="https://welovebuds.com/wp-content/uploads/2021/11/cropped-Layer-358.png" alt="Love BUDS" loading="lazy" style="height:84px" onerror="this.hidden=true;this.nextElementSibling.hidden=false" />
+            <span class="logo-text" hidden aria-hidden="true"><span class="love">Love</span><span class="buds">BUDS</span></span>
+          </a>
+          <p class="copy" style="margin-top:18px;max-width:30ch;font-size:15.5px">The new plant-based protein brand that unites and excites. Made in Melbourne, Australia.</p>
+          <div class="socials">
+            <a href="#top" class="social" aria-label="BUDS on Instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+            <a href="#top" class="social" aria-label="BUDS on TikTok"><svg aria-hidden="true"><use href="#i-tt"/></svg></a>
+            <a href="#top" class="social" aria-label="BUDS on Facebook"><svg aria-hidden="true"><use href="#i-fb"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h2 class="col-title">Our Products</h2>
+          <div class="links">
+            <a href="products.html" class="flink">BUDS Mince</a>
+            <a href="products.html" class="flink">BUDS Burgers</a>
+            <a href="products.html" class="flink">BUDS Arancini</a>
+            <a href="products.html" class="flink">BUDS Nuggets</a>
+            <a href="products.html" class="flink">BUDS Sausages</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="col-title">Quick Links</h2>
+          <div class="links">
+            <a href="recipes.html" class="flink">Recipes</a>
+            <a href="where-to-buy.html" class="flink">Where to Buy</a>
+            <a href="request-a-sample.html" class="flink">Foodservice</a>
+            <a href="about-us.html" class="flink">About Us</a>
+            <a href="request-a-sample.html" class="flink">Request a Sample</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="col-title">Stay in the loop</h2>
+          <p class="copy" style="margin-top:14px;font-size:15.5px">New formats, new stockists, new recipes. No spam, promise.</p>
+          <div id="subscribed-note" class="note note-success" hidden style="margin-top:18px">
+            <svg aria-hidden="true"><use href="#i-check"/></svg>
+            <span>You’re in. Welcome to BUDS.</span>
+          </div>
+          <form id="subscribe-form" class="subscribe" novalidate>
+            <label for="subscribe-email" class="sr-only">Email address</label>
+            <input id="subscribe-email" type="email" class="fld" placeholder="you@email.com" autocomplete="email" />
+            <button type="submit" class="btn btn-red">Sign up</button>
+          </form>
+          <p id="subscribe-error" class="small" hidden role="alert" style="margin-top:10px;color:var(--red);font-weight:600">Enter a valid email address, like you@email.com.</p>
+          <div style="display:flex;gap:18px;margin-top:22px">
+            <a href="products.html" class="flink">Nutrition FAQs</a>
+            <a href="request-a-sample.html" class="flink">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="legal">
+        <span>© 2026 welovebuds.com · The Aussie Plant Based Co.</span>
+        <div style="display:flex;gap:22px">
+          <a href="#top">Privacy Policy</a>
+          <a href="#top">Terms</a>
+          <a href="#top">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script src="buds.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ---- newsletter sign-up ------------------------------------------ */
+  var subForm = document.getElementById('subscribe-form');
+  if (subForm) {
+    var subInput = document.getElementById('subscribe-email');
+    var subError = document.getElementById('subscribe-error');
+    subForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!subInput.value || !/.+@.+\..+/.test(subInput.value)) {
+        subInput.focus();
+        subInput.setAttribute('aria-invalid', 'true');
+        if (subError) subError.hidden = false;
+        return;
+      }
+      subInput.removeAttribute('aria-invalid');
+      if (subError) subError.hidden = true;
+      subForm.hidden = true;
+      document.getElementById('subscribed-note').hidden = false;
+    });
+    subInput.addEventListener('input', function () {
+      if (subInput.getAttribute('aria-invalid') && /.+@.+\..+/.test(subInput.value)) {
+        subInput.removeAttribute('aria-invalid');
+        if (subError) subError.hidden = true;
+      }
+    });
+  }
+
+  /* ---- sample request form ----------------------------------------- */
+  var sampleForm = document.getElementById('sample-form');
+  if (sampleForm) {
+    var errorBox = document.getElementById('sample-error');
+    var errorText = document.getElementById('sample-error-text');
+    var sentPanel = document.getElementById('sample-sent');
+    var chosenCount = document.getElementById('chosen-count');
+    var chosen = [];
+
+    document.querySelectorAll('[data-intent]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        document.querySelectorAll('[data-intent]').forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+      });
+    });
+
+    document.querySelectorAll('[data-sample-product]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var name = b.getAttribute('data-sample-product');
+        var i = chosen.indexOf(name);
+        if (i > -1) { chosen.splice(i, 1); } else { chosen.push(name); }
+        b.setAttribute('aria-pressed', String(i === -1));
+        chosenCount.textContent = chosen.length + ' selected';
+      });
+    });
+
+    /* clear invalid state as soon as the user edits a field */
+    ['f-first', 'f-last', 'f-email', 'f-company', 'f-region', 'f-city'].forEach(function (id) {
+      var field = document.getElementById(id);
+      if (!field) return;
+      var evt = field.tagName === 'SELECT' ? 'change' : 'input';
+      field.addEventListener(evt, function () { field.removeAttribute('aria-invalid'); });
+    });
+
+    sampleForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var v = function (id) { return (document.getElementById(id).value || '').trim(); };
+      var missing = [];
+      var invalid = [];
+      if (!v('f-first')) { missing.push('first name'); invalid.push('f-first'); }
+      if (!v('f-last')) { missing.push('last name'); invalid.push('f-last'); }
+      if (!/.+@.+\..+/.test(v('f-email'))) { missing.push('a valid email'); invalid.push('f-email'); }
+      if (!v('f-company')) { missing.push('company'); invalid.push('f-company'); }
+      if (!v('f-region')) { missing.push('state/region'); invalid.push('f-region'); }
+      if (!v('f-city')) { missing.push('city'); invalid.push('f-city'); }
+      if (!chosen.length) missing.push('at least one product');
+
+      ['f-first', 'f-last', 'f-email', 'f-company', 'f-region', 'f-city'].forEach(function (id) {
+        var field = document.getElementById(id);
+        if (invalid.indexOf(id) > -1) { field.setAttribute('aria-invalid', 'true'); } else { field.removeAttribute('aria-invalid'); }
+      });
+
+      if (missing.length) {
+        errorText.textContent = 'Still needed: ' + missing.join(', ') + '.';
+        errorBox.hidden = false;
+        errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        errorBox.focus({ preventScroll: true });
+        return;
+      }
+
+      errorBox.hidden = true;
+      document.getElementById('sent-name').textContent = v('f-first');
+      var wrap = document.getElementById('sent-products');
+      wrap.innerHTML = '';
+      chosen.forEach(function (c, i) {
+        var s = document.createElement('span');
+        s.className = 'tag' + (i % 2 ? ' tag-yellow' : '');
+        s.textContent = c;
+        wrap.appendChild(s);
+      });
+      sampleForm.hidden = true;
+      sentPanel.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    var reset = document.getElementById('sample-reset');
+    if (reset) {
+      reset.addEventListener('click', function () {
+        sentPanel.hidden = true;
+        sampleForm.hidden = false;
+        errorBox.hidden = true;
+        document.getElementById('f-first').focus();
+      });
+    }
+  }
+})();
+</script>
+</body>
+</html>
