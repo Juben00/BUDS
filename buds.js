@@ -1,6 +1,7 @@
 /* Love BUDS — shared behaviour: mobile nav, scroll reveals */
 (function () {
   'use strict';
+  document.documentElement.classList.add('js');
 
   /* ---- mobile navigation ------------------------------------------- */
   var toggle = document.querySelector('[data-nav-toggle]');
