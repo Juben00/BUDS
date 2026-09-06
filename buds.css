@@ -53,6 +53,12 @@
   --gutter: 32px;
   --section: clamp(80px, 10vw, 128px);
 
+  /* Hero banner band. Every .has-banner hero resolves to this one height so
+     the full-bleed banner plates line up page to page, whatever the copy. */
+  --banner-h: 640px;
+  --banner-pad-t: 56px;
+  --banner-pad-b: 48px;
+
   --paper: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -527,13 +533,13 @@ select.fld {
 
 /* Home hero */
 .hero { overflow: hidden; }
-.hero .wrap { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 48px; align-items: center; padding-top: 56px; padding-bottom: 48px; min-height: 640px; }
-.hero .h1 { max-width: 11ch; }
-.hero .lede { margin-top: 26px; max-width: 48ch; }
-.hero .actions { display: flex; align-items: center; gap: 14px; margin-top: 36px; flex-wrap: wrap; }
-.hero .proof { display: inline-flex; align-items: center; gap: 10px; margin-top: 34px; font-size: 15px; font-weight: 700; color: #4A4227; }
+.hero .wrap { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 48px; align-items: center; padding-top: var(--banner-pad-t); padding-bottom: var(--banner-pad-b); min-height: var(--banner-h); }
+.hero .h1 { max-width: 11ch; font-size: clamp(52px, 7vw, 96px); }
+.hero .lede { margin-top: 20px; max-width: 48ch; }
+.hero .actions { display: flex; align-items: center; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+.hero .proof { display: inline-flex; align-items: center; gap: 10px; margin-top: 24px; font-size: 15px; font-weight: 700; color: #4A4227; }
 .hero .proof svg { width: 20px; height: 20px; color: var(--red); }
-.hero-visual { position: relative; display: flex; align-items: center; justify-content: center; min-height: 520px; }
+.hero-visual { position: relative; display: flex; align-items: center; justify-content: center; align-self: stretch; min-height: 0; }
 .hero-visual .ring { position: absolute; width: 480px; height: 480px; border-radius: 50%; border: 3px dashed rgba(23, 34, 74, 0.22); animation: budsSpin 80s linear infinite; }
 .hero-visual .disc { position: absolute; width: 400px; height: 400px; border-radius: 50%; background: var(--coral); opacity: 0.9; }
 .hero-visual .dish { position: relative; width: 480px; max-width: 100%; animation: budsFloat 7s ease-in-out infinite; filter: drop-shadow(0 30px 34px rgba(23, 34, 74, 0.28)); }
@@ -650,7 +656,7 @@ select.fld {
 
 /* Inner page hero (colored header) */
 .page-hero { overflow: hidden; }
-.page-hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: end; padding-top: 64px; padding-bottom: 56px; min-height: 380px; }
+.page-hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; padding-top: var(--banner-pad-t); padding-bottom: var(--banner-pad-b); min-height: var(--banner-h); }
 .page-hero .h1 { font-size: clamp(52px, 7vw, 96px); }
 .page-hero .lede { margin-top: 22px; }
 .page-hero-art { position: relative; display: flex; align-items: center; justify-content: flex-end; min-height: 260px; }
@@ -685,9 +691,10 @@ select.fld {
 .subscribe .fld { flex: 1; }
 
 @media (max-width: 1040px) {
-  .hero .wrap { grid-template-columns: 1fr; padding-top: 48px; }
+  .hero .wrap { grid-template-columns: 1fr; }
   .hero .h1 { max-width: none; }
-  .hero-visual { min-height: 460px; }
+  :root { --banner-h: 560px; }
+  .hero-visual { min-height: 260px; }
   .why .grid { grid-template-columns: 1fr 1fr; }
   .why .item:nth-child(2) { border-right: 0; margin-right: 0; }
   .product-grid, .recipe-grid { grid-template-columns: 1fr 1fr; }
@@ -703,8 +710,8 @@ select.fld {
   .form-card { padding: 34px 28px; }
 }
 @media (max-width: 760px) {
-  .hero .wrap { padding-top: 36px; padding-bottom: 36px; min-height: 0; }
-  .hero-visual { min-height: 380px; }
+  :root { --banner-h: 440px; --banner-pad-t: 40px; --banner-pad-b: 40px; }
+  .hero-visual { min-height: 240px; }
   .hero-visual .ring { width: 340px; height: 340px; }
   .hero-visual .disc { width: 280px; height: 280px; }
   .hero-visual .dish { width: 340px; }
@@ -724,5 +731,4 @@ select.fld {
   .form-card { padding: 28px 20px; }
   .subscribe { flex-direction: column; }
   .promo-visual .bubble { width: 120px; height: 120px; font-size: 14px; top: -10px; }
-  .page-hero .wrap { padding-top: 44px; padding-bottom: 44px; }
 }
