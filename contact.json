@@ -1,0 +1,77 @@
+{
+  "_note": "Source of truth for the contact section and the footer social links. Run: node pages/build-contact.js. A channel with \"value\": null is not rendered — fill it in and rebuild to make the row appear.",
+  "heading": { "lead": "Let’s talk", "accent": "BUDS" },
+  "intro": "Foodservice, retail, media or just a question about the range — here is how to reach the team.",
+  "channels": [
+    {
+      "id": "sales",
+      "type": "email",
+      "icon": "i-mail",
+      "label": "Sales & foodservice",
+      "value": "salesenquiries@allgfoods.com",
+      "note": "Menus, wholesale pricing and distribution",
+      "verified": true,
+      "source": "All G Foods trade press, 2022"
+    },
+    {
+      "id": "samples",
+      "type": "link",
+      "icon": "i-leaf",
+      "label": "Free samples",
+      "value": "request-a-sample.html",
+      "display": "Request a sample pack",
+      "note": "Tell us your venue — samples ship frozen with cook cards",
+      "verified": true
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "icon": "i-phone",
+      "label": "Telephone",
+      "value": null,
+      "note": "Mon–Fri, 9am–5pm AEST",
+      "verified": false,
+      "todo": "No phone number is published publicly. Add it as \"value\" (e.g. \"+61 2 8000 0000\") and rebuild."
+    },
+    {
+      "id": "office",
+      "type": "address",
+      "icon": "i-pin",
+      "label": "Head office",
+      "value": null,
+      "note": "All G Foods",
+      "verified": false,
+      "suggested": "723–725 Elizabeth St, Waterloo NSW 2017",
+      "todo": "Address comes from a third-party business directory, not from Love BUDS. Confirm it, then move it into \"value\"."
+    }
+  ],
+  "socials": [
+    {
+      "id": "instagram",
+      "icon": "i-ig",
+      "label": "BUDS on Instagram",
+      "handle": "@welovebuds",
+      "url": "https://www.instagram.com/welovebuds/"
+    },
+    {
+      "id": "tiktok",
+      "icon": "i-tt",
+      "label": "BUDS on TikTok",
+      "handle": "@welovebuds",
+      "url": "https://www.tiktok.com/@welovebuds"
+    },
+    {
+      "id": "facebook",
+      "icon": "i-fb",
+      "label": "BUDS on Facebook",
+      "handle": "@welovebuds",
+      "url": "https://www.facebook.com/welovebuds/"
+    }
+  ],
+  "invite": {
+    "title": "Want to taste first?",
+    "copy": "Foodservice samples are free of charge. Pick your formats and we will get them to your kitchen.",
+    "label": "Request a Sample",
+    "href": "request-a-sample.html"
+  }
+}

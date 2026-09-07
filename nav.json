@@ -1,0 +1,21 @@
+{
+  "brand": {
+    "href": "index.html",
+    "ariaLabel": "Love BUDS — home",
+    "logo": "https://welovebuds.com/wp-content/uploads/2021/11/cropped-Layer-358.png",
+    "logoAlt": "Love BUDS — You won’t believe it’s not meat",
+    "wordmark": { "love": "Love", "buds": "BUDS" }
+  },
+  "links": [
+    { "label": "Home", "href": "index.html" },
+    { "label": "Products", "href": "products.html" },
+    { "label": "Recipes", "href": "recipes.html", "hidden": true },
+    { "label": "Where to Buy", "href": "where-to-buy.html", "hidden": true },
+    { "label": "About Us", "href": "about-us.html" }
+  ],
+  "cta": {
+    "label": "Contact Us",
+    "href": "#contact",
+    "class": "btn btn-coral btn-sm"
+  }
+}

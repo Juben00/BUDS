@@ -1,0 +1,42 @@
+{
+  "_note": "Source of truth for the footer. Run: node pages/build-footer.js. A link is dropped when its own \"hidden\" is true, OR when its href matches a nav.json link that is hidden — so parking a page in nav.json takes it out of the footer too. Footer socials come from contact.json, not this file.",
+  "blurb": "The new plant-based protein brand that unites and excites.",
+  "columns": [
+    {
+      "title": "Our Products",
+      "links": [
+        { "label": "BUDS Mince", "href": "products.html" },
+        { "label": "BUDS Burgers", "href": "products.html" },
+        { "label": "BUDS Arancini", "href": "products.html" },
+        { "label": "BUDS Nuggets", "href": "products.html" },
+        { "label": "BUDS Sausages", "href": "products.html" }
+      ]
+    },
+    {
+      "title": "Quick Links",
+      "links": [
+        { "label": "Recipes", "href": "recipes.html" },
+        { "label": "Where to Buy", "href": "where-to-buy.html" },
+        { "label": "Foodservice", "href": "request-a-sample.html" },
+        { "label": "About Us", "href": "about-us.html" },
+        { "label": "Request a Sample", "href": "request-a-sample.html" }
+      ]
+    }
+  ],
+  "subscribe": {
+    "title": "Stay in the loop",
+    "copy": "New formats, new menu ideas, first look at what’s next. No spam, promise."
+  },
+  "extra": [
+    { "label": "Nutrition FAQs", "href": "products.html" },
+    { "label": "Contact", "href": "request-a-sample.html" }
+  ],
+  "legal": {
+    "copyright": "© 2026 welovebuds.com · The Aussie Plant Based Co.",
+    "links": [
+      { "label": "Privacy Policy", "href": "#top" },
+      { "label": "Terms", "href": "#top" },
+      { "label": "Accessibility", "href": "#top" }
+    ]
+  }
+}

@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Love BUDS — You Won’t Believe It’s Not Meat</title>
-<meta name="description" content="Chef-crafted, 100% plant-based meats made in Melbourne — mince, burgers, nuggets, arancini and more." />
+<meta name="description" content="Chef-crafted, 100% plant-based meats — mince, burgers, nuggets, arancini and more." />
 <meta name="theme-color" content="#F7C51E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
@@ -627,38 +627,31 @@ select.fld {
 }
 .promo-visual .bubble::after { content: ""; position: absolute; left: 22px; bottom: -10px; width: 26px; height: 26px; background: #fff; clip-path: polygon(0 0, 100% 0, 30% 100%); }
 
-/* Stockists */
-.stockists-card { background: #fff; border: 2px solid var(--line); border-radius: var(--radius-xl); overflow: hidden; display: grid; grid-template-columns: 1fr 0.85fr; box-shadow: var(--shadow); }
-.stockists-card .panel { padding: 48px 44px; }
-.stockists-card .h2 { font-size: clamp(38px, 4vw, 52px); }
-.store-form { display: flex; gap: 10px; margin-top: 26px; }
-.store-form .fld { flex: 1; }
-.quick-row { display: flex; align-items: center; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
-.result-row { display: flex; align-items: center; justify-content: space-between; margin-top: 28px; padding-bottom: 12px; border-bottom: 2px solid var(--coral); gap: 16px; flex-wrap: wrap; }
-.result-row .summary { font-family: var(--font-display); font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--navy); }
-.store-row { display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 2px solid var(--line); }
-.store-pin { width: 42px; height: 42px; border-radius: 12px; background: var(--yellow); color: var(--navy); font-family: var(--font-display); font-size: 18px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.store-row:nth-child(2n) .store-pin { background: var(--coral); }
-.store-row:nth-child(3n) .store-pin { background: var(--navy-100); }
-.store-main { flex: 1; min-width: 0; }
-.store-name-row { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
-.store-name { font-size: 16px; font-weight: 700; color: var(--ink); }
-.store-type { font-size: 11.5px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); background: var(--navy-100); padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
-.store-address { font-size: 14px; color: var(--muted); margin-top: 3px; }
-.store-side { text-align: right; flex-shrink: 0; }
-.store-distance { font-family: var(--font-display); font-size: 17px; color: var(--navy); }
-.store-side a { font-size: 13.5px; font-weight: 700; }
-.map { position: relative; background: var(--coral-100); min-height: 520px; overflow: hidden; border-left: 2px solid var(--line); }
-.map .grid-lines { position: absolute; inset: 0; background-image: linear-gradient(rgba(34, 66, 137, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 66, 137, 0.12) 1px, transparent 1px); background-size: 52px 52px; }
-.map .road-a { position: absolute; left: -10%; top: 30%; width: 130%; height: 64px; background: var(--yellow-100); transform: rotate(-8deg); border-top: 3px dashed var(--yellow); border-bottom: 3px dashed var(--yellow); }
-.map .road-b { position: absolute; left: 42%; top: -10%; width: 58px; height: 130%; background: var(--yellow-100); transform: rotate(6deg); border-left: 3px dashed var(--yellow); border-right: 3px dashed var(--yellow); }
-.map .park { position: absolute; right: -16%; bottom: 8%; width: 300px; height: 300px; border-radius: 50%; background: var(--coral-200); }
-.map-pin { position: absolute; transform: translate(-50%, -50%); }
-.map-pin .label { background: #fff; border-radius: 12px; padding: 8px 12px; box-shadow: var(--shadow); white-space: nowrap; }
-.map-pin .label .n { font-size: 13px; font-weight: 800; color: var(--ink); }
-.map-pin .label .d { font-size: 11.5px; font-weight: 700; color: var(--red); }
-.map-pin .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--red); border: 3px solid #fff; box-shadow: 0 3px 8px rgba(23, 34, 74, 0.3); margin: 6px auto 0; }
-.map .map-note { position: absolute; left: 20px; right: 20px; bottom: 20px; }
+/* Contact */
+.contact-card { background: #fff; border: 2px solid var(--line); border-radius: var(--radius-xl); overflow: hidden; display: grid; grid-template-columns: 1fr 0.78fr; box-shadow: var(--shadow); }
+.contact-card .panel { padding: 48px 44px; }
+.contact-card .h2 { font-size: clamp(38px, 4vw, 52px); }
+.contact-list { display: grid; gap: 12px; margin-top: 30px; }
+.contact-row { display: flex; align-items: center; gap: 16px; padding: 16px 18px; border: 2px solid var(--line); border-radius: var(--radius); background: #fff; text-decoration: none; }
+a.contact-row { transition: border-color 0.18s ease-in-out, transform 0.18s var(--ease-spring), box-shadow 0.18s ease-in-out; }
+a.contact-row:hover { border-color: var(--navy); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+a.contact-row:active { transform: translateY(0) scale(0.995); }
+.contact-ico { width: 44px; height: 44px; border-radius: 12px; background: var(--yellow); color: var(--navy); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-row:nth-child(2n) .contact-ico { background: var(--coral); }
+.contact-row:nth-child(3n) .contact-ico { background: var(--navy-100); }
+.contact-ico svg { width: 20px; height: 20px; }
+.contact-main { flex: 1; min-width: 0; }
+.contact-label { display: block; font-size: 11.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); }
+.contact-value { display: block; margin-top: 4px; font-size: 16.5px; font-weight: 700; color: var(--ink); overflow-wrap: anywhere; }
+.contact-note { display: block; margin-top: 3px; font-size: 13.5px; color: var(--muted); }
+.contact-go { width: 20px; height: 20px; color: var(--red); flex-shrink: 0; transition: transform 0.18s var(--ease-spring); }
+a.contact-row:hover .contact-go { transform: translateX(3px); }
+.contact-aside { padding: 48px 40px; border-left: 2px solid var(--line); display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+.contact-aside .socials { margin-top: 14px; }
+.contact-aside .social { width: 52px; height: 52px; border-radius: 12px; }
+.contact-aside .social svg { width: 22px; height: 22px; }
+.contact-handle { margin-top: 14px; font-family: var(--font-display); font-size: 20px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--yellow); }
+.contact-invite .btn { width: fit-content; }
 
 /* About split */
 .about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
@@ -720,8 +713,8 @@ select.fld {
   .why .item:nth-child(2) { border-right: 0; margin-right: 0; }
   .product-grid, .recipe-grid { grid-template-columns: 1fr 1fr; }
   .promo .wrap { grid-template-columns: 1fr; }
-  .stockists-card { grid-template-columns: 1fr; }
-  .map { min-height: 420px; border-left: 0; border-top: 2px solid var(--line); }
+  .contact-card { grid-template-columns: 1fr; }
+  .contact-aside { border-left: 0; border-top: 2px solid var(--line); }
   .about .wrap { grid-template-columns: 1fr; }
   .cta-band .wrap { grid-template-columns: 1fr; }
   .cta-band .actions { justify-content: flex-start; }
@@ -747,8 +740,9 @@ select.fld {
   .range-callout { gap: 18px; padding: 24px 22px; margin-top: 34px; }
   .range-callout .count { font-size: 44px; }
   .range-callout .btn { width: 100%; justify-content: center; }
-  .stockists-card .panel { padding: 32px 22px; }
-  .store-form { flex-direction: column; }
+  .contact-card .panel { padding: 32px 22px; }
+  .contact-aside { padding: 32px 22px; }
+  .contact-invite .btn { width: 100%; justify-content: center; }
   .table-row { grid-template-columns: 1.6fr 1fr 1fr; padding: 14px 16px; }
   .table-row > :nth-child(4) { display: none; }
   .form-grid { grid-template-columns: 1fr; }
@@ -798,6 +792,7 @@ select.fld {
     <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></symbol>
     <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
     <symbol id="i-chef" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10M7 20v-5M17 20v-5M6 15h12M6.5 15a3.5 3.5 0 1 1 1-6.9A5 5 0 0 1 16.5 8a3.5 3.5 0 1 1 1 7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h3l1.5 4-2 1.4a12 12 0 0 0 5.6 5.6L16 12l4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 6.2 2 2 0 0 1 5 4z"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
     <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
     <symbol id="i-spark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.6H22l-6.2 4.5 2.4 7.6L12 17.2l-6.2 4.5 2.4-7.6L2 9.6h7.6z"/></symbol>
@@ -814,19 +809,23 @@ select.fld {
 
   <header class="site-header">
     <div class="wrap bar">
+      <!-- @generated:nav-brand -->
       <a href="index.html" class="logo" aria-label="Love BUDS — home">
         <img src="https://welovebuds.com/wp-content/uploads/2021/11/cropped-Layer-358.png" alt="Love BUDS — You won’t believe it’s not meat" onerror="this.hidden=true;this.nextElementSibling.hidden=false" />
         <span class="logo-text" hidden aria-hidden="true"><span class="love">Love</span><span class="buds">BUDS</span></span>
       </a>
+      <!-- /@generated:nav-brand -->
       <nav id="primary-nav" class="nav" aria-label="Primary">
+        <!-- @generated:nav-links -->
         <a href="index.html" class="nav-link" aria-current="page">Home</a>
         <a href="products.html" class="nav-link">Products</a>
-        <a href="recipes.html" class="nav-link">Recipes</a>
-        <a href="where-to-buy.html" class="nav-link">Where to Buy</a>
         <a href="about-us.html" class="nav-link">About Us</a>
+        <!-- /@generated:nav-links -->
       </nav>
       <div class="header-actions">
-        <a href="where-to-buy.html" class="btn btn-coral btn-sm">Find Near You</a>
+        <!-- @generated:nav-cta -->
+        <a href="#contact" class="btn btn-coral btn-sm">Contact Us</a>
+        <!-- /@generated:nav-cta -->
         <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
           <svg class="ico-menu" aria-hidden="true"><use href="#i-menu"/></svg>
           <svg class="ico-close" aria-hidden="true"><use href="#i-close"/></svg>
@@ -848,9 +847,8 @@ select.fld {
           <p class="lede rise rise-2">Chef-crafted, 100% plant-based meats designed for flavour, texture, and everyday meals — mince, burgers, nuggets and more.</p>
           <div class="actions rise rise-3">
             <a href="#products" class="btn btn-navy btn-lg">Explore Products <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a href="where-to-buy.html" class="btn btn-outline btn-lg">Find a Retailer</a>
+            <a href="request-a-sample.html" class="btn btn-outline btn-lg">Request a Sample</a>
           </div>
-          <p class="proof rise rise-4"><svg aria-hidden="true"><use href="#i-pin"/></svg> Now in selected Woolworths, IGA &amp; independent grocers</p>
         </div>
         <div class="hero-visual">
           <div class="float-card fc-a">
@@ -869,15 +867,13 @@ select.fld {
     <div class="marquee surface-navy hero-marquee" aria-hidden="true">
       <div class="marquee-track">
         <span class="marquee-item">You won’t believe it’s not meat <svg class="mark-yellow"><use href="#i-spark"/></svg></span>
-        <span class="marquee-item">Made in Melbourne <svg class="mark-coral"><use href="#i-spark"/></svg></span>
-        <span class="marquee-item">100% plant-based <svg class="mark-yellow"><use href="#i-spark"/></svg></span>
-        <span class="marquee-item">Non-GMO <svg class="mark-coral"><use href="#i-spark"/></svg></span>
-        <span class="marquee-item">Chef formulated <svg class="mark-yellow"><use href="#i-spark"/></svg></span>
+        <span class="marquee-item">100% plant-based <svg class="mark-coral"><use href="#i-spark"/></svg></span>
+        <span class="marquee-item">Non-GMO <svg class="mark-yellow"><use href="#i-spark"/></svg></span>
+        <span class="marquee-item">Chef formulated <svg class="mark-coral"><use href="#i-spark"/></svg></span>
         <span class="marquee-item">You won’t believe it’s not meat <svg class="mark-yellow"><use href="#i-spark"/></svg></span>
-        <span class="marquee-item">Made in Melbourne <svg class="mark-coral"><use href="#i-spark"/></svg></span>
-        <span class="marquee-item">100% plant-based <svg class="mark-yellow"><use href="#i-spark"/></svg></span>
-        <span class="marquee-item">Non-GMO <svg class="mark-coral"><use href="#i-spark"/></svg></span>
-        <span class="marquee-item">Chef formulated <svg class="mark-yellow"><use href="#i-spark"/></svg></span>
+        <span class="marquee-item">100% plant-based <svg class="mark-coral"><use href="#i-spark"/></svg></span>
+        <span class="marquee-item">Non-GMO <svg class="mark-yellow"><use href="#i-spark"/></svg></span>
+        <span class="marquee-item">Chef formulated <svg class="mark-coral"><use href="#i-spark"/></svg></span>
       </div>
     </div>
 
@@ -1070,49 +1066,58 @@ select.fld {
       </div>
     </section>
 
-    <!-- Stockists -------------------------------------------------------- -->
-    <section id="stockists" class="section" aria-labelledby="stockists-title">
+    <!-- Contact ---------------------------------------------------------- -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
       <div class="wrap">
-        <div class="stockists-card reveal">
+        <!-- @generated:contact -->
+        <div class="contact-card reveal">
           <div class="panel">
-            <h2 id="stockists-title" class="h2">Find BUDS <span class="mark-red">near you</span></h2>
-            <p class="copy" style="margin-top:14px">Enter your postcode or suburb to see the supermarkets, grocers and venues stocking BUDS this week.</p>
-
-            <form id="store-form" class="store-form">
-              <label for="store-query" class="sr-only">Postcode or suburb</label>
-              <input id="store-query" class="fld" type="search" placeholder="Postcode or suburb, e.g. 3000" autocomplete="postal-code" />
-              <button type="submit" class="btn btn-red"><svg aria-hidden="true"><use href="#i-search"/></svg> Search</button>
-            </form>
-            <div class="quick-row">
-              <span class="meta">Popular:</span>
-              <button type="button" class="quick" data-quick-area="Melbourne CBD">Melbourne CBD</button>
-              <button type="button" class="quick" data-quick-area="Richmond">Richmond</button>
-              <button type="button" class="quick" data-quick-area="Prahran">Prahran</button>
-              <button type="button" class="quick" data-quick-area="St Kilda">St Kilda</button>
+            <h2 id="contact-title" class="h2">Let’s talk <span class="mark-red">BUDS</span></h2>
+            <p class="copy" style="margin-top:14px">Foodservice, retail, media or just a question about the range — here is how to reach the team.</p>
+            <div class="contact-list">
+              <a class="contact-row" href="mailto:salesenquiries@allgfoods.com">
+                <span class="contact-ico"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+                <span class="contact-main">
+                  <span class="contact-label">Sales &amp; foodservice</span>
+                  <span class="contact-value">salesenquiries@allgfoods.com</span>
+                  <span class="contact-note">Menus, wholesale pricing and distribution</span>
+                </span>
+                <svg class="contact-go" aria-hidden="true"><use href="#i-arrow"/></svg>
+              </a>
+              <a class="contact-row" href="request-a-sample.html">
+                <span class="contact-ico"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>
+                <span class="contact-main">
+                  <span class="contact-label">Free samples</span>
+                  <span class="contact-value">Request a sample pack</span>
+                  <span class="contact-note">Tell us your venue — samples ship frozen with cook cards</span>
+                </span>
+                <svg class="contact-go" aria-hidden="true"><use href="#i-arrow"/></svg>
+              </a>
             </div>
-            <div class="result-row">
-              <span id="result-summary" class="summary" role="status"></span>
-              <span class="meta">Sorted by distance</span>
-            </div>
-            <div id="store-list"></div>
           </div>
-          <div class="map">
-            <div class="grid-lines" aria-hidden="true"></div>
-            <div class="road-a" aria-hidden="true"></div>
-            <div class="road-b" aria-hidden="true"></div>
-            <div class="park" aria-hidden="true"></div>
-            <div id="map-pins" aria-hidden="true"></div>
-            <p class="note map-note">
-              <svg aria-hidden="true"><use href="#i-pin"/></svg>
-              <span>Stock updated weekly. Can’t find us? <a href="request-a-sample.html">Ask your grocer to order BUDS.</a></span>
-            </p>
+          <div class="contact-aside surface-navy">
+            <div>
+              <p class="meta">Follow BUDS</p>
+              <div class="socials">
+                <a href="https://www.instagram.com/welovebuds/" class="social" target="_blank" rel="noopener" aria-label="BUDS on Instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+                <a href="https://www.tiktok.com/@welovebuds" class="social" target="_blank" rel="noopener" aria-label="BUDS on TikTok"><svg aria-hidden="true"><use href="#i-tt"/></svg></a>
+                <a href="https://www.facebook.com/welovebuds/" class="social" target="_blank" rel="noopener" aria-label="BUDS on Facebook"><svg aria-hidden="true"><use href="#i-fb"/></svg></a>
+              </div>
+              <p class="contact-handle">@welovebuds</p>
+            </div>
+            <div class="contact-invite">
+              <h3 class="h3">Want to taste first?</h3>
+              <p class="copy" style="margin-top:10px">Foodservice samples are free of charge. Pick your formats and we will get them to your kitchen.</p>
+              <a href="request-a-sample.html" class="btn btn-yellow" style="margin-top:22px">Request a Sample</a>
+            </div>
           </div>
         </div>
+        <!-- /@generated:contact -->
       </div>
     </section>
 
     <!-- Recipes ---------------------------------------------------------- -->
-    <section id="recipes" class="section surface-cream" aria-labelledby="recipes-title">
+    <section id="recipes" class="section surface-cream" aria-labelledby="recipes-title" data-nav-section="recipes.html" hidden>
       <div class="wrap">
         <div class="title-row reveal">
           <div style="max-width:620px">
@@ -1167,11 +1172,10 @@ select.fld {
       <div class="wrap">
         <div class="reveal">
           <h2 id="about-title" class="h2">How we make <span class="mark-red">meat</span> from plants</h2>
-          <p class="copy" style="margin-top:20px">Without knowing, you’d never guess BUDS is made from plants. Natural ingredients are combined so brilliantly the result is full of delicious taste — all without GMOs, hormones, antibiotics or cholesterol. Made in a dedicated plant-protein facility in Melbourne.</p>
+          <p class="copy" style="margin-top:20px">Without knowing, you’d never guess BUDS is made from plants. Natural ingredients are combined so brilliantly the result is full of delicious taste — all without GMOs, hormones, antibiotics or cholesterol. Made in a dedicated plant-protein facility.</p>
           <div class="stats">
             <div class="sticker sticker-yellow"><span class="big">4</span><span class="sml">core proteins matched</span></div>
             <div class="sticker sticker-coral"><span class="big">0</span><span class="sml">GMOs, hormones or antibiotics</span></div>
-            <div class="sticker sticker-navy"><span class="big">100%</span><span class="sml">made in Melbourne</span></div>
           </div>
           <a href="about-us.html" class="link-arrow" style="margin-top:34px">Our story <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
@@ -1188,12 +1192,11 @@ select.fld {
     <section id="foodservice" class="cta-band surface-navy paper" aria-labelledby="cta-title">
       <div class="wrap">
         <div class="reveal">
-          <h2 id="cta-title" class="h2">Cooking <span class="mark-yellow">for others?</span></h2>
+          <h2 id="cta-title" class="h2">Put BUDS <span class="mark-yellow">on your menu</span></h2>
           <p class="lede">Chefs, venue owners and distributors — request a sample pack and we’ll show you how BUDS performs on your line. Samples are free of charge.</p>
         </div>
         <div class="actions reveal">
           <a href="request-a-sample.html" class="btn btn-coral btn-lg">Request a Sample</a>
-          <a href="where-to-buy.html" class="btn btn-outline-white btn-lg">I cook for myself</a>
         </div>
       </div>
     </section>
@@ -1209,13 +1212,18 @@ select.fld {
             <img src="https://welovebuds.com/wp-content/uploads/2021/11/cropped-Layer-358.png" alt="Love BUDS" loading="lazy" style="height:84px" onerror="this.hidden=true;this.nextElementSibling.hidden=false" />
             <span class="logo-text" hidden aria-hidden="true"><span class="love">Love</span><span class="buds">BUDS</span></span>
           </a>
-          <p class="copy" style="margin-top:18px;max-width:30ch;font-size:15.5px">The new plant-based protein brand that unites and excites. Made in Melbourne, Australia.</p>
+          <!-- @generated:footer-blurb -->
+          <p class="copy" style="margin-top:18px;max-width:30ch;font-size:15.5px">The new plant-based protein brand that unites and excites.</p>
+          <!-- /@generated:footer-blurb -->
           <div class="socials">
-            <a href="#top" class="social" aria-label="BUDS on Instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
-            <a href="#top" class="social" aria-label="BUDS on TikTok"><svg aria-hidden="true"><use href="#i-tt"/></svg></a>
-            <a href="#top" class="social" aria-label="BUDS on Facebook"><svg aria-hidden="true"><use href="#i-fb"/></svg></a>
+            <!-- @generated:footer-socials -->
+            <a href="https://www.instagram.com/welovebuds/" class="social" target="_blank" rel="noopener" aria-label="BUDS on Instagram"><svg aria-hidden="true"><use href="#i-ig"/></svg></a>
+            <a href="https://www.tiktok.com/@welovebuds" class="social" target="_blank" rel="noopener" aria-label="BUDS on TikTok"><svg aria-hidden="true"><use href="#i-tt"/></svg></a>
+            <a href="https://www.facebook.com/welovebuds/" class="social" target="_blank" rel="noopener" aria-label="BUDS on Facebook"><svg aria-hidden="true"><use href="#i-fb"/></svg></a>
+            <!-- /@generated:footer-socials -->
           </div>
         </div>
+        <!-- @generated:footer-cols -->
         <div>
           <h2 class="col-title">Our Products</h2>
           <div class="links">
@@ -1229,16 +1237,17 @@ select.fld {
         <div>
           <h2 class="col-title">Quick Links</h2>
           <div class="links">
-            <a href="recipes.html" class="flink">Recipes</a>
-            <a href="where-to-buy.html" class="flink">Where to Buy</a>
             <a href="request-a-sample.html" class="flink">Foodservice</a>
             <a href="about-us.html" class="flink">About Us</a>
             <a href="request-a-sample.html" class="flink">Request a Sample</a>
           </div>
         </div>
+        <!-- /@generated:footer-cols -->
         <div>
+          <!-- @generated:footer-subscribe -->
           <h2 class="col-title">Stay in the loop</h2>
-          <p class="copy" style="margin-top:14px;font-size:15.5px">New formats, new stockists, new recipes. No spam, promise.</p>
+          <p class="copy" style="margin-top:14px;font-size:15.5px">New formats, new menu ideas, first look at what’s next. No spam, promise.</p>
+          <!-- /@generated:footer-subscribe -->
           <div id="subscribed-note" class="note note-success" hidden style="margin-top:18px">
             <svg aria-hidden="true"><use href="#i-check"/></svg>
             <span>You’re in. Welcome to BUDS.</span>
@@ -1250,18 +1259,22 @@ select.fld {
           </form>
           <p id="subscribe-error" class="small" hidden role="alert" style="margin-top:10px;color:var(--red);font-weight:600">Enter a valid email address, like you@email.com.</p>
           <div style="display:flex;gap:18px;margin-top:22px">
+            <!-- @generated:footer-extra -->
             <a href="products.html" class="flink">Nutrition FAQs</a>
             <a href="request-a-sample.html" class="flink">Contact</a>
+            <!-- /@generated:footer-extra -->
           </div>
         </div>
       </div>
       <div class="legal">
+        <!-- @generated:footer-legal -->
         <span>© 2026 welovebuds.com · The Aussie Plant Based Co.</span>
         <div style="display:flex;gap:22px">
           <a href="#top">Privacy Policy</a>
           <a href="#top">Terms</a>
           <a href="#top">Accessibility</a>
         </div>
+        <!-- /@generated:footer-legal -->
       </div>
     </div>
   </footer>
@@ -1281,8 +1294,7 @@ select.fld {
         <p class="meta" style="margin-top:24px;text-transform:uppercase;letter-spacing:0.08em">Claims &amp; certifications</p>
         <div id="product-modal-uses" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"></div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:30px">
-          <a href="where-to-buy.html" class="btn btn-coral">Find Near You</a>
-          <a href="recipes.html" class="btn btn-outline">See recipes</a>
+          <a href="recipes.html" class="btn btn-coral">See recipes</a>
         </div>
       </div>
     </div>
@@ -1438,85 +1450,6 @@ select.fld {
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) close(); });
   }
 
-  /* ---- stockist search --------------------------------------------- */
-  var storeList = document.getElementById('store-list');
-  if (storeList && window.BUDS_STORES) {
-    var summary = document.getElementById('result-summary');
-    var pinWrap = document.getElementById('map-pins');
-    var input = document.getElementById('store-query');
-    var form = document.getElementById('store-form');
-
-    function matched(q) {
-      q = (q || '').trim().toLowerCase();
-      if (!q) return window.BUDS_STORES.slice(0, 4);
-      var hit = window.BUDS_STORES.filter(function (s) {
-        return s.areas.some(function (a) { return a.indexOf(q) === 0 || q.indexOf(a) === 0; });
-      });
-      if (!hit.length) return window.BUDS_STORES.slice(0, 4);
-      return hit.concat(window.BUDS_STORES.filter(function (s) { return hit.indexOf(s) < 0; })).slice(0, 4);
-    }
-
-    function el(tag, cls, text) {
-      var n = document.createElement(tag);
-      if (cls) n.className = cls;
-      if (text != null) n.textContent = text;
-      return n;
-    }
-
-    function render(applied) {
-      var stores = matched(applied);
-      var q = (applied || '').trim();
-      summary.textContent = q
-        ? stores.length + ' stockists near “' + q + '”'
-        : stores.length + ' stockists in Greater Melbourne';
-
-      storeList.innerHTML = '';
-      stores.forEach(function (s) {
-        var row = el('div', 'store-row');
-        row.appendChild(el('div', 'store-pin', s.pin));
-        var main = el('div', 'store-main');
-        var nameRow = el('div', 'store-name-row');
-        nameRow.appendChild(el('span', 'store-name', s.name));
-        nameRow.appendChild(el('span', 'store-type', s.type));
-        main.appendChild(nameRow);
-        main.appendChild(el('div', 'store-address', s.address));
-        row.appendChild(main);
-        var side = el('div', 'store-side');
-        side.appendChild(el('div', 'store-distance', s.distance));
-        var dir = el('a', null, 'Directions');
-        dir.href = '#stockists';
-        side.appendChild(dir);
-        row.appendChild(side);
-        storeList.appendChild(row);
-      });
-
-      if (pinWrap) {
-        pinWrap.innerHTML = '';
-        stores.forEach(function (s, i) {
-          var pin = el('div', 'map-pin');
-          pin.style.left = s.x + '%';
-          pin.style.top = s.y + '%';
-          pin.style.zIndex = String(10 - i);
-          var label = el('div', 'label');
-          label.appendChild(el('div', 'n', s.name));
-          label.appendChild(el('div', 'd', s.distance));
-          pin.appendChild(label);
-          pin.appendChild(el('div', 'dot'));
-          pinWrap.appendChild(pin);
-        });
-      }
-    }
-
-    form.addEventListener('submit', function (e) { e.preventDefault(); render(input.value); });
-    document.querySelectorAll('[data-quick-area]').forEach(function (b) {
-      b.addEventListener('click', function () {
-        var label = b.getAttribute('data-quick-area');
-        input.value = label;
-        render(label.replace(' CBD', ''));
-      });
-    });
-    render('');
-  }
 })();
 </script>
 </body>

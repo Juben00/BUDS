@@ -3,7 +3,8 @@
     "generated": "2026-09-03",
     "sources": [
       "pages/products.html — window.BUDS_PRODUCTS + product-card markup (the 9 existing products, unchanged)",
-      "pages/context/table.csv — 24 new foodservice products added"
+      "pages/context/table.csv — 24 new foodservice products added",
+      "pages/Love BUDS Poduct One Pagers.pdf — hero shots for 4 foodservice lines, cropped into pages/NEW_PRODUCTS/"
     ],
     "currency": "AUD",
     "priceBasis": "wholesale price per carton, ex GST",
@@ -13,7 +14,10 @@
       "price.perCarton is the CSV \"New Price\" column (the price to display); price.previousPerCarton is the CSV \"Price per Carton\" column.",
       "Three new lines (MFSL1001, MFSL2001, MFSC7002-AF) have no previous price in the CSV — previousPerCarton is null.",
       "The CSV S.N column restarts at the vEEF block (18-20 appear twice), so sku is the stable key, not S.N.",
-      "detail / nutrition / uses are empty for the new products — the CSV carries no nutritional panel data."
+      "detail / nutrition / uses are empty for the new products — the CSV carries no nutritional panel data.",
+      "NEW_PRODUCTS images are cropped from the Love BUDS one-pager PDF; chicken-pieces-allium-free reuses the CHOOK-FREE PIECES hero, as the PDF carries no separate allium-free shot.",
+      "Falafel (MFSF5001) and the two lamb lines (MFSL1001, MFSL2001) appear in no one-pager; the lamb lines are flagged comingSoon, falafel keeps the format plate.",
+      "comingSoon: true marks lines with no photography yet — the card and modal show a Coming soon plate instead of a pack shot."
     ]
   },
   "categories": [
@@ -352,7 +356,7 @@
       "pack": { "unitSize": "20g", "unitsPerCarton": 160, "unitLabel": "meatball", "packDescription": "160 × 20g", "kgPerCarton": 3.2, "cartonsPerPallet": 128 },
       "price": { "perCarton": 58, "previousPerCarton": 58, "changed": false, "perKg": 18.13 },
       "tags": ["Plant-based"],
-      "image": null,
+      "image": "NEW_PRODUCTS/beef-meatballs.jpg",
       "detail": null,
       "nutrition": [],
       "uses": []
@@ -436,7 +440,7 @@
       "pack": { "unitSize": "113g", "unitsPerCarton": 24, "unitLabel": "burger", "packDescription": "24 × 113g", "kgPerCarton": 2.7, "cartonsPerPallet": 128 },
       "price": { "perCarton": 60, "previousPerCarton": 60, "changed": false, "perKg": 22.22 },
       "tags": ["Plant-based", "Southern style"],
-      "image": null,
+      "image": "NEW_PRODUCTS/southern-chicken-burger.jpg",
       "detail": null,
       "nutrition": [],
       "uses": []
@@ -605,7 +609,7 @@
       "pack": { "unitSize": "1kg", "unitsPerCarton": 4, "unitLabel": "1kg bag", "packDescription": "4 × 1kg", "kgPerCarton": 4, "cartonsPerPallet": null },
       "price": { "perCarton": 79, "previousPerCarton": 69, "changed": true, "perKg": 19.75 },
       "tags": ["Plant-based"],
-      "image": null,
+      "image": "NEW_PRODUCTS/chicken-pieces.jpg",
       "detail": null,
       "nutrition": [],
       "uses": []
@@ -627,6 +631,7 @@
       "price": { "perCarton": 88, "previousPerCarton": null, "changed": false, "perKg": 22 },
       "tags": ["Plant-based"],
       "image": null,
+      "comingSoon": true,
       "detail": null,
       "nutrition": [],
       "uses": []
@@ -648,6 +653,7 @@
       "price": { "perCarton": 88, "previousPerCarton": null, "changed": false, "perKg": 22 },
       "tags": ["Plant-based"],
       "image": null,
+      "comingSoon": true,
       "detail": null,
       "nutrition": [],
       "uses": []
@@ -668,7 +674,7 @@
       "pack": { "unitSize": "1kg", "unitsPerCarton": 4, "unitLabel": "1kg bag", "packDescription": "4 × 1kg", "kgPerCarton": 4, "cartonsPerPallet": null },
       "price": { "perCarton": 79, "previousPerCarton": null, "changed": false, "perKg": 19.75 },
       "tags": ["Plant-based", "Allium free"],
-      "image": null,
+      "image": "NEW_PRODUCTS/chicken-pieces-allium-free.jpg",
       "detail": null,
       "nutrition": [],
       "uses": []
@@ -690,6 +696,7 @@
       "price": { "perCarton": 25, "previousPerCarton": 25, "changed": false, "perKg": 20.83 },
       "tags": ["Plant-based"],
       "image": null,
+      "comingSoon": true,
       "detail": null,
       "nutrition": [],
       "uses": []
@@ -711,6 +718,7 @@
       "price": { "perCarton": 25, "previousPerCarton": 25, "changed": false, "perKg": 20.83 },
       "tags": ["Plant-based"],
       "image": null,
+      "comingSoon": true,
       "detail": null,
       "nutrition": [],
       "uses": []
@@ -732,6 +740,7 @@
       "price": { "perCarton": 25, "previousPerCarton": 25, "changed": false, "perKg": 20.83 },
       "tags": ["Plant-based"],
       "image": null,
+      "comingSoon": true,
       "detail": null,
       "nutrition": [],
       "uses": []
@@ -753,6 +762,7 @@
       "price": { "perCarton": 25, "previousPerCarton": 25, "changed": false, "perKg": 20.83 },
       "tags": ["Plant-based", "Chorizo"],
       "image": null,
+      "comingSoon": true,
       "detail": null,
       "nutrition": [],
       "uses": []

@@ -87,6 +87,14 @@ function media(p) {
   if (p.image) {
     return '              <img src="' + esc(p.image) + '" alt="" loading="lazy" width="600" height="450" />';
   }
+  /* Photography still to come — say so, rather than implying the format is all
+     we have. Announced to screen readers because it is real product status. */
+  if (p.comingSoon) {
+    return '              <div class="pack-shot pack-shot-soon">\n'
+      + '                <span class="plate"><span class="mark">Coming soon</span>'
+      + '<span class="fmt">' + esc(p.pack.packDescription || 'Foodservice carton') + '</span></span>\n'
+      + '              </div>';
+  }
   /* No pack shot yet — a rotated label plate keeps the card intentional
      rather than empty, and states the format instead of faking a photo. */
   return '              <div class="pack-shot" aria-hidden="true">\n'
