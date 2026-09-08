@@ -6,6 +6,7 @@
 <title>Products — Love BUDS</title>
 <meta name="description" content="The full Love BUDS and vEEF® plant-based range — mince, burgers, schnitzels, sausages, bites and pieces, in retail packs and foodservice cartons." />
 <meta name="theme-color" content="#F7C51E" />
+<link rel="icon" href="assets/img/favicon.ico" sizes="any" />
 <link rel="stylesheet" href="assets/fonts/fonts.css" />
 <style>
 /* ==========================================================================
@@ -395,6 +396,7 @@ select.fld {
 
 /* Marquee strip */
 .marquee { overflow: hidden; white-space: nowrap; }
+.hero-marquee { border-top: 3px solid var(--navy-deep); border-bottom: 3px solid var(--navy-deep); }
 .marquee-track { display: inline-flex; gap: 0; animation: budsMarquee 32s linear infinite; }
 .marquee-item {
   display: inline-flex; align-items: center; gap: 22px; padding: 0 22px;
@@ -892,6 +894,19 @@ select.fld {
         </div>
       </div>
     </section>
+
+    <div class="marquee surface-navy hero-marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">You won’t believe it’s not meat <svg class="mark-yellow"><use href="#i-spark"/></svg></span>
+        <span class="marquee-item">100% plant-based <svg class="mark-coral"><use href="#i-spark"/></svg></span>
+        <span class="marquee-item">Non-GMO <svg class="mark-yellow"><use href="#i-spark"/></svg></span>
+        <span class="marquee-item">Chef formulated <svg class="mark-coral"><use href="#i-spark"/></svg></span>
+        <span class="marquee-item">You won’t believe it’s not meat <svg class="mark-yellow"><use href="#i-spark"/></svg></span>
+        <span class="marquee-item">100% plant-based <svg class="mark-coral"><use href="#i-spark"/></svg></span>
+        <span class="marquee-item">Non-GMO <svg class="mark-yellow"><use href="#i-spark"/></svg></span>
+        <span class="marquee-item">Chef formulated <svg class="mark-coral"><use href="#i-spark"/></svg></span>
+      </div>
+    </div>
 
     <!-- Products --------------------------------------------------------- -->
     <section class="section products-list" aria-labelledby="all-products-title">
