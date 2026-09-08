@@ -23,10 +23,7 @@
       ]
     }
   ],
-  "subscribe": {
-    "title": "Stay in the loop",
-    "copy": "New formats, new menu ideas, first look at what’s next. No spam, promise."
-  },
+  "extraTitle": "Get in Touch",
   "extra": [
     { "label": "Nutrition FAQs", "href": "products.html" },
     { "label": "orders@aussieplantbased.com", "href": "mailto:orders@aussieplantbased.com" }

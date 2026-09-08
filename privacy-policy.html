@@ -698,8 +698,6 @@ select.fld {
 .steps .num { width: 28px; height: 28px; border-radius: 50%; background: var(--yellow); color: var(--navy-deep); font-family: var(--font-display); font-size: 15px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
 
 /* Newsletter */
-.subscribe { display: flex; gap: 10px; margin-top: 18px; }
-.subscribe .fld { flex: 1; }
 
 @media (max-width: 1040px) {
   .hero .wrap { grid-template-columns: 1fr; }
@@ -740,7 +738,6 @@ select.fld {
   .table-row > :nth-child(4) { display: none; }
   .form-grid { grid-template-columns: 1fr; }
   .form-card { padding: 28px 20px; }
-  .subscribe { flex-direction: column; }
   .promo-visual .bubble { width: 120px; height: 120px; font-size: 14px; top: -10px; }
 }
 
@@ -1001,21 +998,8 @@ select.fld {
         </div>
         <!-- /@generated:footer-cols -->
         <div>
-          <!-- @generated:footer-subscribe -->
-          <h2 class="col-title">Stay in the loop</h2>
-          <p class="copy" style="margin-top:14px;font-size:15.5px">New formats, new menu ideas, first look at what’s next. No spam, promise.</p>
-          <!-- /@generated:footer-subscribe -->
-          <div id="subscribed-note" class="note note-success" hidden style="margin-top:18px">
-            <svg aria-hidden="true"><use href="#i-check"/></svg>
-            <span>You’re in. Welcome to BUDS.</span>
-          </div>
-          <form id="subscribe-form" class="subscribe" novalidate>
-            <label for="subscribe-email" class="sr-only">Email address</label>
-            <input id="subscribe-email" type="email" class="fld" placeholder="you@email.com" autocomplete="email" />
-            <button type="submit" class="btn btn-red">Sign up</button>
-          </form>
-          <p id="subscribe-error" class="small" hidden role="alert" style="margin-top:10px;color:var(--red);font-weight:600">Enter a valid email address, like you@email.com.</p>
-          <div style="display:flex;gap:18px;margin-top:22px">
+          <h2 class="col-title">Get in Touch</h2>
+          <div class="links">
             <!-- @generated:footer-extra -->
             <a href="products.html" class="flink">Nutrition FAQs</a>
             <a href="mailto:orders@aussieplantbased.com" class="flink">orders@aussieplantbased.com</a>
@@ -1089,31 +1073,6 @@ select.fld {
 (function () {
   'use strict';
 
-  /* ---- newsletter sign-up ------------------------------------------ */
-  var subForm = document.getElementById('subscribe-form');
-  if (subForm) {
-    var subInput = document.getElementById('subscribe-email');
-    var subError = document.getElementById('subscribe-error');
-    subForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!subInput.value || !/.+@.+\..+/.test(subInput.value)) {
-        subInput.focus();
-        subInput.setAttribute('aria-invalid', 'true');
-        if (subError) subError.hidden = false;
-        return;
-      }
-      subInput.removeAttribute('aria-invalid');
-      if (subError) subError.hidden = true;
-      subForm.hidden = true;
-      document.getElementById('subscribed-note').hidden = false;
-    });
-    subInput.addEventListener('input', function () {
-      if (subInput.getAttribute('aria-invalid') && /.+@.+\..+/.test(subInput.value)) {
-        subInput.removeAttribute('aria-invalid');
-        if (subError) subError.hidden = true;
-      }
-    });
-  }
 })();
 </script>
 </body>
