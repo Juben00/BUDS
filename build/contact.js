@@ -6,7 +6,7 @@
    are self-contained (no external fetch, so they work straight off the
    filesystem), so the markup is written in at build time.
 
-   Run after any edit to contact.json:   node pages/build-contact.js
+   Run after any edit to contact.json:   node build/contact.js
 
    Regions rewritten, each delimited by
    <!-- @generated:NAME --> … <!-- /@generated:NAME -->:
@@ -23,8 +23,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const dir = __dirname;
-const data = JSON.parse(fs.readFileSync(path.join(dir, 'contact.json'), 'utf8'));
+const root = path.join(__dirname, '..');   /* site root: the HTML lives here */
+const dir = root;                          /* pages are read from the root  */
+const dataDir = path.join(root, 'data');   /* JSON sources of truth         */
+const data = JSON.parse(fs.readFileSync(path.join(dataDir, 'contact.json'), 'utf8'));
 
 /* ---- helpers ------------------------------------------------------------ */
 

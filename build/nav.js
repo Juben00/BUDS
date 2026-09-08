@@ -7,7 +7,7 @@
    filesystem), which means the navbar has to be written into the markup.
    This script does that.
 
-   Run after any edit to nav.json:   node pages/build-nav.js
+   Run after any edit to nav.json:   node build/nav.js
 
    It rewrites three regions in every *.html that carries the markers, each
    delimited by <!-- @generated:NAME --> … <!-- /@generated:NAME -->:
@@ -29,8 +29,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const dir = __dirname;
-const nav = JSON.parse(fs.readFileSync(path.join(dir, 'nav.json'), 'utf8'));
+const root = path.join(__dirname, '..');   /* site root: the HTML lives here */
+const dir = root;                          /* pages are read from the root  */
+const dataDir = path.join(root, 'data');   /* JSON sources of truth         */
+const nav = JSON.parse(fs.readFileSync(path.join(dataDir, 'nav.json'), 'utf8'));
 
 /* ---- helpers ------------------------------------------------------------ */
 

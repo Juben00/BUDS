@@ -5,7 +5,7 @@
    external fetch, so they work straight off the filesystem), which means the
    catalogue has to be written into the markup. This script does that.
 
-   Run after any edit to products.json:   node pages/build-products.js
+   Run after any edit to products.json:   node build/products.js
 
    It rewrites four regions of products.html, each delimited by
    <!-- @generated:NAME --> … <!-- /@generated:NAME -->. Everything outside
@@ -20,8 +20,10 @@ const path = require('path');
    Pack sizes, carton weights and product codes still render. */
 const SHOW_PRICES = true;
 
-const dir = __dirname;
-const data = JSON.parse(fs.readFileSync(path.join(dir, 'products.json'), 'utf8'));
+const root = path.join(__dirname, '..');   /* site root: the HTML lives here */
+const dir = root;                          /* pages are read from the root  */
+const dataDir = path.join(root, 'data');   /* JSON sources of truth         */
+const data = JSON.parse(fs.readFileSync(path.join(dataDir, 'products.json'), 'utf8'));
 const htmlPath = path.join(dir, 'products.html');
 const samplePath = path.join(dir, 'request-a-sample.html');
 const indexPath = path.join(dir, 'index.html');

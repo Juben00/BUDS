@@ -1,0 +1,796 @@
+{
+  "_note": "Recipe data lifted from welovebuds.com/recipes/ (and /recipes/buds-mince/) for the site rebuild. \"instructions\" is null on every recipe because the source site publishes no written method - the steps only exist in the videos. Poster images are downloaded into assets/img; \"video.local\" stays null until the .mp4 files are pulled down (~90 MB for all 18). Fields left null were not published on the source page; fill them in here.",
+  "_source": "https://welovebuds.com/recipes/",
+  "_retrieved": "2026-09-08",
+  "recipes": [
+    {
+      "id": "bang-n-bolognese",
+      "name": "Bang’n bolognese",
+      "product": "BUDS Mince",
+      "serves": null,
+      "prepTime": null,
+      "cookTime": null,
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "500g BUDS Mince",
+            "2 tbsp olive oil",
+            "2 brown onions, finely chopped",
+            "2 pieces celery sticks, finely chopped",
+            "2 carrots, peeled and finely chopped",
+            "6 cloves of garlic, peeled and crushed",
+            "2 fresh bay leaves",
+            "5 sprigs fresh rosemary sprigs",
+            "½ bunch fresh thyme",
+            "1 cup red wine (plus another cup for you to enjoy along the way)",
+            "⅓ cup tomato paste",
+            "2 400g tins of crushed tomatoes",
+            "2 cups beef / vegetarian stock",
+            "½ cup good parmesan / substitute with vegan parmesan if necessary",
+            "Good quality dried or fresh pasta. We love pappardelle, but spaghetti, fettuccine and tagliatelle all work a treat."
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/Bang_N_Bolognese.jpg",
+        "local": "assets/img/Bang_N_Bolognese.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/BUDS_Bolognese_60s.mp4",
+        "local": "assets/video/BUDS_Bolognese_60s.mp4"
+      }
+    },
+    {
+      "id": "buds-lamb-kofta-and-flatbread",
+      "name": "Buds’ ‘lamb’ kofta and flatbread",
+      "product": "BUDS Mince",
+      "serves": "4",
+      "prepTime": "10 mins",
+      "cookTime": "10 mins",
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "500g BUDS Mince",
+            "1 tbsp cumin ground",
+            "1 tbsp ground cinnamon",
+            "½ red onion, finely diced",
+            "1 clove garlic, crushed",
+            "½ bunch parsley, picked and finely chopped",
+            "2 tbsp pine nuts, lightly toasted",
+            "canola or vegetable oil spray",
+            "1 gherkins / pickles",
+            "250g yoghurt",
+            "½ red onion, finely sliced",
+            "30ml olive oil",
+            "½ bunch mint, leaves picked",
+            "sumac for garnish",
+            "10 pieces of flatbreads"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/Lamb_Kofta_And_Flatbread.jpg",
+        "local": "assets/img/Lamb_Kofta_And_Flatbread.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/BUDS_Kofta_60s.mp4",
+        "local": "assets/video/BUDS_Kofta_60s.mp4"
+      }
+    },
+    {
+      "id": "classic-burgers",
+      "name": "Classic burgers",
+      "product": "BUDS Mince",
+      "serves": "5",
+      "prepTime": "10 mins",
+      "cookTime": "10 mins",
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "1kg BUDS Mince",
+            "5 soft burger buns",
+            "10 cheese slices",
+            "½ cup American mustard",
+            "½ cup tomato ketchup",
+            "½ brown onion, finely diced",
+            "3 dill pickles, sliced",
+            "1 whole baby cos lettuce, leaves washed and removed",
+            "2 good quality tomatoes, sliced",
+            "2 BUDS burger patties olive oil to brush",
+            "2 sesame milk buns",
+            "4 leaves butter lettuce",
+            "2 slices tasty cheese",
+            "1 roma tomato, sliced",
+            "1 small red onion, thinly sliced",
+            "4 dill pickles, sliced",
+            "¼ cup American mustard"
+          ]
+        },
+        {
+          "title": "AIOLI",
+          "items": [
+            "Spiced aioli",
+            "½ cup aioli",
+            "½ tsp smoked paprika",
+            "¼ tsp freshly ground black pepper",
+            "Pinch of salt"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/Untitled-8.jpg",
+        "local": "assets/img/Untitled-8.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/BUDS_Cheeseburgers_60s_Edit5.mp4",
+        "local": "assets/video/BUDS_Cheeseburgers_60s_Edit5.mp4"
+      }
+    },
+    {
+      "id": "get-the-party-pies-started",
+      "name": "Get the party ‘pies’ started",
+      "product": "BUDS Mince",
+      "serves": "12",
+      "prepTime": "10 mins",
+      "cookTime": "30 mins",
+      "ingredientGroups": [
+        {
+          "title": "The Filling",
+          "items": [
+            "500g BUDS Mince",
+            "100g butter",
+            "3 brown onions, finely diced",
+            "2 tbsp plain flour",
+            "500ml beef or vegetable stock",
+            "4 tbsp Worcestershire* sauce",
+            "2 tsp BBQ sauce",
+            "½ tsp black pepper ground",
+            "2 sprigs rosemary, finely chopped"
+          ]
+        },
+        {
+          "title": "The Pastry",
+          "items": [
+            "2 sheets of puff pastry",
+            "2 sheets of shortcrust pastry"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/Get_The_Party_Pies_Started.jpg",
+        "local": "assets/img/Get_The_Party_Pies_Started.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/BUDS_Party-Pies_60s.mp4",
+        "local": "assets/video/BUDS_Party-Pies_60s.mp4"
+      }
+    },
+    {
+      "id": "korean-burgers",
+      "name": "Korean burgers",
+      "product": "BUDS Burgers",
+      "serves": "2",
+      "prepTime": "14 mins",
+      "cookTime": "15 mins",
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "2 BUDS burger patties peanut oil to brush",
+            "2 sesame milk buns",
+            "1 Lebanese cucumber, sliced thinly lengthways",
+            "⅓ cup kimchi",
+            "4 spring onions, sliced thinly at an angle",
+            "¼ cup bbq sauce"
+          ]
+        },
+        {
+          "title": "SOY AND GINGER AIOLI",
+          "items": [
+            "Soy and ginger aioli",
+            "½ cup aioli",
+            "2 tbsp soy sauce",
+            "2 tbsp freshly grated ginger"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/Korean_Burgers.jpg",
+        "local": "assets/img/Korean_Burgers.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/Korean_Burger_Recipe.mp4",
+        "local": "assets/video/Korean_Burger_Recipe.mp4"
+      }
+    },
+    {
+      "id": "larb-salad-realness",
+      "name": "Larb salad realness",
+      "product": "BUDS Mince",
+      "serves": "4",
+      "prepTime": "10 mins",
+      "cookTime": "10 mins",
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "500g BUDS Mince",
+            "1 tbsp brown sugar",
+            "1 tbsp fish sauce",
+            "3 limes, juiced",
+            "2 tbs jasmine rice, uncooked",
+            "2 tbsp peanut oil",
+            "3 tbsp green curry paste",
+            "2 small red shallots, fine sliced",
+            "½ bunch coriander, picked",
+            "½ bunch mint, picked",
+            "1 continental cucumber, thin sliced",
+            "½ head lettuce leaves washed and picked",
+            "Glass noodles (optional)"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/Larb_Salad_Realness.jpg",
+        "local": "assets/img/Larb_Salad_Realness.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/BUDS_Larb-Salad_60s.mp4",
+        "local": "assets/video/BUDS_Larb-Salad_60s.mp4"
+      }
+    },
+    {
+      "id": "lasagne-love",
+      "name": "Lasagne love",
+      "product": "BUDS Mince",
+      "serves": "4-8 big and little mouths",
+      "prepTime": "20 mins",
+      "cookTime": "60 mins",
+      "ingredientGroups": [
+        {
+          "title": "The Bolognese Sauce",
+          "items": [
+            "500g BUDS Mince",
+            "2 whole brown onions peeled and diced",
+            "2 celery sticks",
+            "2 whole carrots, peeled and diced",
+            "6 garlic cloves, peeled and crushed",
+            "5 sprigs fresh rosemary sprigs",
+            "½ bunch fresh thyme",
+            "2 pieces fresh bay leaf",
+            "1 cup of good red wine",
+            "2 400g tins of good quality tomatoes",
+            "2 cups of stock",
+            "½ cup parmesan"
+          ]
+        },
+        {
+          "title": "The Bechamel Sauce",
+          "items": [
+            "60g butter",
+            "2 tbsp plain flour",
+            "1 litre milk",
+            "2 fresh bay leaves",
+            "Pinch of nutmeg",
+            "1 cup grated parmesan",
+            "1 whole egg"
+          ]
+        },
+        {
+          "title": "To Assemble",
+          "items": [
+            "16 lasagne sheets",
+            "A generous serve of grated mozzarella",
+            "A generous serve of grated parmesan",
+            "10 fresh basil leaves"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/BUDS_MINCE_RECIPE_LASAGNA_1_NEW.jpg",
+        "local": "assets/img/BUDS_MINCE_RECIPE_LASAGNA_1_NEW.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/BUDS_Lasagna_60s_Edit5_640_360.mp4",
+        "local": "assets/video/BUDS_Lasagna_60s_Edit5_640_360.mp4"
+      }
+    },
+    {
+      "id": "mexican-burgers",
+      "name": "Mexican burgers",
+      "product": "BUDS Mince",
+      "serves": "2",
+      "prepTime": "8 mins",
+      "cookTime": "10 mins",
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "1 roma tomato, chopped",
+            "½ small red onion, finely chopped",
+            "1 handful coriander leaves",
+            "½ lemon, juiced",
+            "Salt and freshly ground black pepper"
+          ]
+        },
+        {
+          "title": "SPICED AIOLI",
+          "items": [
+            "2 BUDS burger patties sunflower oil to brush",
+            "2 sesame milk buns",
+            "⅓ cup mayonnaise",
+            "½ tsp smoked paprika"
+          ]
+        },
+        {
+          "title": "Jalapeno guac",
+          "items": [
+            "1 small ripe avocado, flesh removed",
+            "1 tbsp drained pickled jalapeno chopped",
+            "1 tbsp pickling liquid from jalapeno",
+            "Freshly ground black pepper",
+            "½ garlic clove, finely grated 1 pinch salt",
+            "1 small ripe avocado, flash removed"
+          ]
+        },
+        {
+          "title": "QUICK LINKS",
+          "items": [
+            "Home",
+            "Products",
+            "Recipes",
+            "The Aussie Plant Based Co",
+            "Privacy Policy"
+          ]
+        },
+        {
+          "title": "Our Products",
+          "items": [
+            "BUDS Mince",
+            "BUDS Burgers",
+            "BUDS Arancini",
+            "BUDS Nuggets",
+            "BUDS Sausages"
+          ]
+        },
+        {
+          "title": "Follow Us",
+          "items": [
+            "Opens in a new tab",
+            "Opens in a new tab",
+            "Opens in a new tab"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/Mexican_Burgers.jpg",
+        "local": "assets/img/Mexican_Burgers.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/Mexican_Burger_Recipe.mp4",
+        "local": "assets/video/Mexican_Burger_Recipe.mp4"
+      }
+    },
+    {
+      "id": "nourish-burgers",
+      "name": "Nourish burgers",
+      "product": "BUDS Burgers",
+      "serves": null,
+      "prepTime": null,
+      "cookTime": null,
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "2 BUDS burger patties",
+            "Sunflower oil to brush",
+            "2 sesame milk buns",
+            "⅓ cup greek yoghurt",
+            "2 handfuls kale",
+            "½ lemon, juiced",
+            "½ avocado, thinly sliced",
+            "¼ cup sprouts",
+            "2 tbsp dairy free pesto"
+          ]
+        },
+        {
+          "title": "QUICK PICKLES",
+          "items": [
+            "2 radishes, thinly sliced",
+            "1 small carrot, shredded",
+            "¼ cup apple cider vinegar",
+            "1 tbsp honey",
+            "Pinch of salt"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/Nourish_Burgers.jpg",
+        "local": "assets/img/Nourish_Burgers.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/Nourish_Burger_Recipe.mp4",
+        "local": "assets/video/Nourish_Burger_Recipe.mp4"
+      }
+    },
+    {
+      "id": "sang-choy-bow-wow",
+      "name": "Sang choy bow ‘wow’",
+      "product": "BUDS Mince",
+      "serves": "5",
+      "prepTime": "10 mins",
+      "cookTime": "20 mins",
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "250g BUDS Mince",
+            "1 Iceberg lettuce",
+            "6 pieces dried shiitake mushrooms",
+            "2 tbsp peanut oil",
+            "8 pieces baby corn, sliced",
+            "8 pieces canned water chestnuts, sliced",
+            "2 pieces spring onions, finely chopped",
+            "4 tbsp Shaoxing wine",
+            "½ cup stock",
+            "2 tbsp light soy sauce",
+            "3 tbsp oyster sauce",
+            "1 tbsp sesame seeds"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/SANG_CHOY_BOW_‘WOW.jpg",
+        "local": "assets/img/SANG_CHOY_BOW_‘WOW.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/BUDS_Sang-Choy-Bow_60s.mp4",
+        "local": "assets/video/BUDS_Sang-Choy-Bow_60s.mp4"
+      }
+    },
+    {
+      "id": "sausage-broccoli-pastability",
+      "name": "Sausage & broccoli pastability",
+      "product": "BUDS Sausages",
+      "serves": "4",
+      "prepTime": "10 mins",
+      "cookTime": "20 mins",
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "4 BUDS sausages, casings removed",
+            "400g orecchiette pasta",
+            "400g broccoli, washed and chopped into large florets",
+            "1.5 tablespoons extra virgin olive oil",
+            "2 shallots, finely slices",
+            "1 medium garlic clove, crushed",
+            "½ teaspoon fennel seeds",
+            "½ teaspoon chilli flakes (add as much heat as you like)",
+            "3 tablespoons parmesan cheese / substitute, grated",
+            "Reserved pasta water",
+            "3-4 tablespoons lemon juice (about ½ a lemon)"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/08/SAUSAGE_BROCCOLI_PASTABILITY.jpg",
+        "local": "assets/img/SAUSAGE_BROCCOLI_PASTABILITY.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/08/Sausage_Broccoli_Pasta.mp4",
+        "local": "assets/video/Sausage_Broccoli_Pasta.mp4"
+      }
+    },
+    {
+      "id": "sausage-kale-d-it-soup",
+      "name": "Sausage & Kale’d it soup",
+      "product": "BUDS Mince",
+      "serves": "4-6",
+      "prepTime": "05 mins",
+      "cookTime": "30 mins",
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "2 BUDS sausages, halved longways and sliced",
+            "1 tablespoon extra virgin olive oil",
+            "1 medium brown onion, chopped",
+            "2 garlic cloves, crushed",
+            "2 medium carrots, chopped into 1cm pieces",
+            "1 celery stick, cut into 1cm pieces",
+            "1 400g can no-added-salt crushed tomatoes",
+            "4 cups reduced sodium chicken-style or vegetable stock",
+            "1 teaspoon smoked paprika",
+            "1 small bunch kale, stems removed and leaves roughly chopped",
+            "1 400g can no-added-salt cannellini beans, drained and rinsed",
+            "Salt and pepper to taste"
+          ]
+        },
+        {
+          "title": "QUICK LINKS",
+          "items": [
+            "Home",
+            "Products",
+            "Recipes",
+            "The Aussie Plant Based Co",
+            "Privacy Policy"
+          ]
+        },
+        {
+          "title": "Our Products",
+          "items": [
+            "BUDS Mince",
+            "BUDS Burgers",
+            "BUDS Arancini",
+            "BUDS Nuggets",
+            "BUDS Sausages"
+          ]
+        },
+        {
+          "title": "Follow Us",
+          "items": [
+            "Opens in a new tab",
+            "Opens in a new tab",
+            "Opens in a new tab"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/08/SAUSAGE_KALED_IT_SOUP.jpg",
+        "local": "assets/img/SAUSAGE_KALED_IT_SOUP.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/08/Sausage_Kaled_Soup.mp4",
+        "local": "assets/video/Sausage_Kaled_Soup.mp4"
+      }
+    },
+    {
+      "id": "slay-n-shanghai-noodles",
+      "name": "Slay’n shanghai noodles",
+      "product": "BUDS Mince",
+      "serves": "4",
+      "prepTime": "10 mins",
+      "cookTime": "10 mins",
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "500g BUDS Mince",
+            "50ml vegetable oil",
+            "8 pieces spring onions",
+            "2 tbsp ginger, fine grated",
+            "2 tbsp garlic cloves, crushed",
+            "2 tbsp Chinese brown bean sauce",
+            "2 tbsp dark soy sauce",
+            "3 tbsp Shaoxing wine",
+            "1 tbsp hoisin sauce",
+            "500ml water",
+            "500g fresh shanghai or udon noodles",
+            "10ml sesame oil",
+            "2 whole Lebanese cucumbers"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/SLAYN_SHANGHAI_NOODLES.jpg",
+        "local": "assets/img/SLAYN_SHANGHAI_NOODLES.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/BUDS_Shanghai-Noodles_60s.mp4",
+        "local": "assets/video/BUDS_Shanghai-Noodles_60s.mp4"
+      }
+    },
+    {
+      "id": "smash-n-sausage-rolls",
+      "name": "Smash’n sausage rolls",
+      "product": "BUDS Mince",
+      "serves": "12",
+      "prepTime": "5 mins",
+      "cookTime": null,
+      "ingredientGroups": [
+        {
+          "title": "The Filling",
+          "items": [
+            "500g BUDS Mince",
+            "1 tbsp fennel seeds, toasted and ground",
+            "½ tbsp dried sage",
+            "½ tsp sea salt",
+            "½ tsp black pepper",
+            "10 sprigs fresh rosemary, picked and chopped",
+            "1 clove of garlic, crushed"
+          ]
+        },
+        {
+          "title": "The Pastry",
+          "items": [
+            "2 sheets of puff pastry",
+            "2 egg yolks, beaten",
+            "1 tbsp Whole fennel seeds"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/SMASHN_SAUSAGE_ROLLS.jpg",
+        "local": "assets/img/SMASHN_SAUSAGE_ROLLS.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/BUDS_Sausage-Rolls_60s.mp4",
+        "local": "assets/video/BUDS_Sausage-Rolls_60s.mp4"
+      }
+    },
+    {
+      "id": "taco-tuesday-everyday",
+      "name": "Taco tuesday... everyday",
+      "product": "BUDS Mince",
+      "serves": "12",
+      "prepTime": "10 mins",
+      "cookTime": "20 mins",
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "500g BUDS Mince",
+            "1 brown onion, finely chopped",
+            "1 red capsicum, diced",
+            "2 cloves of garlic, crushed",
+            "2 tbsp canola oil",
+            "1 tbsp smoked paprika",
+            "1 tbsp cumin powder",
+            "1 tbsp coriander powder",
+            "250ml beef or vegetable stock",
+            "2 avocados",
+            "2 limes",
+            "200g hard feta cheese, crumbled (or substitute with a vegan-friendly cheese, if that’s your jam)",
+            "2 tomatoes, roughly chopped",
+            "½ bunch coriander, roughly chopped",
+            "12 soft taco tortillas"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/TACO_TUESDAY_EVERYDAY.jpg",
+        "local": "assets/img/TACO_TUESDAY_EVERYDAY.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/BUDS_Tacos_60s.mp4",
+        "local": "assets/video/BUDS_Tacos_60s.mp4"
+      }
+    },
+    {
+      "id": "veg-one-tray-wonder",
+      "name": "Veg one-tray wonder",
+      "product": "BUDS Sausages",
+      "serves": "4",
+      "prepTime": "20 mins",
+      "cookTime": "35 mins",
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "8 BUDS sausages",
+            "1 small red onion, sliced into thin wedges",
+            "1 small fennel bulb, thinly sliced",
+            "1 medium red capsicum, sliced",
+            "1 medium yellow capsicum, sliced",
+            "1 punnet (400-500g) baby Brussels sprouts, ends trimmed",
+            "1 tablespoon extra virgin olive oil",
+            "4 medium garlic cloves, crushed",
+            "½ teaspoon dried Italian herbs",
+            "¼ teaspoon black pepper",
+            "⅛ teaspoon salt"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/08/LoveBuds_Veg_Tray_2.jpg",
+        "local": "assets/img/LoveBuds_Veg_Tray_2.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/08/Sausage_Veg_Tray.mp4",
+        "local": "assets/video/Sausage_Veg_Tray.mp4"
+      }
+    },
+    {
+      "id": "wonton-warriors",
+      "name": "Wonton warriors",
+      "product": "BUDS Mince",
+      "serves": "2",
+      "prepTime": "15 mins",
+      "cookTime": "5 mins",
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "250g BUDS Mince",
+            "3 cloves of garlic, crushed",
+            "1 small knob of fresh ginger",
+            "6 pieces of green shallots",
+            "100ml peanut oil",
+            "1 tsp sugar",
+            "1 tbsp mushroom soy",
+            "25 wonton wrappers",
+            "Small bowl of room temperature water",
+            "½ cup black vinegar",
+            "½ cup light soy sauce",
+            "1 tsp sesame oil",
+            "¼ cup water",
+            "Sliced green shallots"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/WONTON_WARRIORS.jpg",
+        "local": "assets/img/WONTON_WARRIORS.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/BUDS_Wontons_60s.mp4",
+        "local": "assets/video/BUDS_Wontons_60s.mp4"
+      }
+    },
+    {
+      "id": "spicy-as-mapo-tofu",
+      "name": "‘Spicy as’ mapo tofu",
+      "product": "BUDS Mince",
+      "serves": "4",
+      "prepTime": "10 mins",
+      "cookTime": "15 mins",
+      "ingredientGroups": [
+        {
+          "title": "Ingredients",
+          "items": [
+            "250g BUDS Mince",
+            "600g firm tofu",
+            "50ml peanut oil",
+            "3 tbsp chilli bean paste (look for ‘Doubanjiang’ in a jar, in the Asian section of your supermarket)",
+            "4 garlic cloves, crushed",
+            "1 knob of fresh ginger, finely grated",
+            "6 spring onions – whites sliced thinly, greens saved for garnish",
+            "1 tsp sugar",
+            "1 tsp cornflour",
+            "1 tsp ground Sichuan pepper",
+            "50ml cold water",
+            "3 cups cooked jasmine rice",
+            "3 pieces coriander sprigs, to garnish"
+          ]
+        },
+        {
+          "title": "To Serve",
+          "items": [
+            "3 cups cooked jasmine rice",
+            "3 pieces coriander sprigs, to garnish"
+          ]
+        }
+      ],
+      "instructions": null,
+      "image": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/Spicy_Mapo_Tofu.jpg",
+        "local": "assets/img/Spicy_Mapo_Tofu.jpg"
+      },
+      "video": {
+        "source": "https://welovebuds.com/wp-content/uploads/2022/05/BUDS_Mapo-Tofu_60s.mp4",
+        "local": "assets/video/BUDS_Mapo-Tofu_60s.mp4"
+      }
+    }
+  ]
+}

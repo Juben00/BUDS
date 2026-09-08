@@ -7,7 +7,7 @@
    self-contained (no external fetch, so they work straight off the
    filesystem), so the markup is written in at build time.
 
-   Run after any edit to footer.json:   node pages/build-footer.js
+   Run after any edit to footer.json:   node build/footer.js
 
    Regions rewritten, each delimited by
    <!-- @generated:NAME --> … <!-- /@generated:NAME -->:
@@ -33,9 +33,11 @@
 const fs = require('fs');
 const path = require('path');
 
-const dir = __dirname;
-const foot = JSON.parse(fs.readFileSync(path.join(dir, 'footer.json'), 'utf8'));
-const nav = JSON.parse(fs.readFileSync(path.join(dir, 'nav.json'), 'utf8'));
+const root = path.join(__dirname, '..');   /* site root: the HTML lives here */
+const dir = root;                          /* pages are read from the root  */
+const dataDir = path.join(root, 'data');   /* JSON sources of truth         */
+const foot = JSON.parse(fs.readFileSync(path.join(dataDir, 'footer.json'), 'utf8'));
+const nav = JSON.parse(fs.readFileSync(path.join(dataDir, 'nav.json'), 'utf8'));
 
 /* Hrefs parked in nav.json — the single switch every surface reads. */
 const navHidden = new Set(nav.links.filter((l) => l.hidden).map((l) => l.href));
