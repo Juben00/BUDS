@@ -691,6 +691,14 @@ select.fld {
 .form-section .h3 .num { width: 34px; height: 34px; border-radius: 50%; background: var(--yellow); color: var(--navy-deep); font-size: 17px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 20px; }
 .form-foot { display: flex; align-items: center; gap: 20px; margin-top: 40px; padding-top: 28px; border-top: 2px solid var(--coral); flex-wrap: wrap; }
+.field-error { display: block; margin-top: 7px; font-size: 13.5px; font-weight: 600; color: var(--red); }
+.fld[aria-invalid="true"] { border-color: var(--red); box-shadow: 0 0 0 4px var(--red-100); }
+.req-legend { font-size: 13.5px; color: var(--muted); margin: 0 0 24px; }
+.req-legend b { color: var(--red); }
+/* Honeypot: off-screen rather than display:none, which some bots skip. */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.btn[aria-busy="true"] { opacity: 0.75; pointer-events: none; }
+.field textarea.fld { min-height: 120px; resize: vertical; font-family: inherit; }
 .aside-card { border-radius: var(--radius-xl); padding: 32px 30px; }
 .steps { display: flex; flex-direction: column; gap: 18px; margin: 22px 0 0; padding: 0; list-style: none; }
 .steps li { display: flex; gap: 14px; align-items: flex-start; }
@@ -885,6 +893,12 @@ select.fld {
               <span id="sample-error-text"></span>
             </div>
 
+            <p class="req-legend">Fields marked <b>*</b> are required.</p>
+
+            <div class="hp" aria-hidden="true">
+              <label>Do not fill this in<input id="f-hp" type="text" tabindex="-1" autocomplete="off" /></label>
+            </div>
+
             <div class="form-section">
               <h2 class="h3"><span class="num" aria-hidden="true">1</span>About you</h2>
               <div class="form-grid">
@@ -899,6 +913,10 @@ select.fld {
                 <label class="field">
                   <span>Work email *</span>
                   <input id="f-email" class="fld" type="email" placeholder="alex@venue.com.au" required autocomplete="email" />
+                </label>
+                <label class="field">
+                  <span>Phone</span>
+                  <input id="f-phone" class="fld" type="tel" inputmode="tel" placeholder="03 9000 0000" autocomplete="tel" />
                 </label>
                 <label class="field">
                   <span>I am a *</span>
@@ -1101,9 +1119,18 @@ select.fld {
               </div>
             </div>
 
+            <div class="form-section">
+              <h2 class="h3"><span class="num" aria-hidden="true">5</span>Anything else?</h2>
+              <label class="field" style="margin-top:20px">
+                <span>Notes for the team</span>
+                <textarea id="f-notes" class="fld" rows="4" placeholder="Allergen needs, delivery windows, how many covers you do a week…"></textarea>
+              </label>
+            </div>
+
             <div class="form-foot">
-              <button type="submit" class="btn btn-coral btn-lg">Send my request <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+              <button type="submit" id="sample-submit" class="btn btn-coral btn-lg">Send my request <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
               <span class="small" style="max-width:32ch">We’ll only use these details to organise your samples.</span>
+              <span id="sample-status" class="sr-only" role="status" aria-live="polite"></span>
             </div>
           </form>
         </div>
@@ -1190,7 +1217,7 @@ select.fld {
           <div style="display:flex;gap:18px;margin-top:22px">
             <!-- @generated:footer-extra -->
             <a href="products.html" class="flink">Nutrition FAQs</a>
-            <a href="request-a-sample.html" class="flink">Contact</a>
+            <a href="mailto:orders@aussieplantbased.com" class="flink">orders@aussieplantbased.com</a>
             <!-- /@generated:footer-extra -->
           </div>
         </div>
@@ -1199,9 +1226,7 @@ select.fld {
         <!-- @generated:footer-legal -->
         <span>© 2026 welovebuds.com · The Aussie Plant Based Co.</span>
         <div style="display:flex;gap:22px">
-          <a href="#top">Privacy Policy</a>
-          <a href="#top">Terms</a>
-          <a href="#top">Accessibility</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
         </div>
         <!-- /@generated:footer-legal -->
       </div>
@@ -1322,45 +1347,191 @@ select.fld {
       field.addEventListener(evt, function () { field.removeAttribute('aria-invalid'); });
     });
 
+    /* --- where submissions go --------------------------------------------
+       Point ENDPOINT at a form service (Formspree, Web3Forms, Basin) or your
+       own function. While it is empty the form never pretends to have sent
+       anything: it hands the visitor a pre-filled email instead, so a request
+       is never silently lost. */
+    var ENDPOINT = '';
+    var FALLBACK_EMAIL = 'orders@aussieplantbased.com';
+
+    var REQUIRED = {
+      'f-first': { label: 'First name' },
+      'f-last': { label: 'Last name' },
+      'f-email': {
+        label: 'Work email',
+        test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); },
+        hint: 'Enter a full email address, like alex@venue.com.au.'
+      },
+      'f-company': { label: 'Company' },
+      'f-region': { label: 'State / region' },
+      'f-city': { label: 'City' }
+    };
+
+    function errorSlot(field) {
+      var id = field.id + '-err';
+      var node = document.getElementById(id);
+      if (!node) {
+        node = document.createElement('span');
+        node.id = id;
+        node.className = 'field-error';
+        node.hidden = true;
+        field.parentNode.appendChild(node);
+      }
+      return node;
+    }
+
+    /* The message sits next to the field and is announced with it, rather than
+       only in the summary at the top of the form. */
+    function markField(field, message) {
+      var slot = errorSlot(field);
+      if (message) {
+        slot.textContent = message;
+        slot.hidden = false;
+        field.setAttribute('aria-invalid', 'true');
+        field.setAttribute('aria-describedby', slot.id);
+      } else {
+        slot.textContent = '';
+        slot.hidden = true;
+        field.removeAttribute('aria-invalid');
+        field.removeAttribute('aria-describedby');
+      }
+    }
+
+    function checkField(id) {
+      var spec = REQUIRED[id];
+      var field = document.getElementById(id);
+      if (!spec || !field) return true;
+      var value = (field.value || '').trim();
+      var ok = spec.test ? spec.test(value) : !!value;
+      markField(field, ok ? '' : (value && spec.hint ? spec.hint : spec.label + ' is required.'));
+      return ok;
+    }
+
+    /* Check on blur, not on every keystroke; once a field is flagged, let the
+       visitor see it clear as they fix it. */
+    Object.keys(REQUIRED).forEach(function (id) {
+      var field = document.getElementById(id);
+      if (!field) return;
+      field.addEventListener('blur', function () { checkField(id); });
+      field.addEventListener('input', function () {
+        if (field.getAttribute('aria-invalid') === 'true') checkField(id);
+      });
+      field.addEventListener('change', function () { checkField(id); });
+    });
+
+    function currentIntent() {
+      var on = sampleForm.querySelector('[data-intent][aria-pressed="true"]');
+      return on ? on.getAttribute('data-intent') : 'Request a Sample';
+    }
+
+    function payload() {
+      var val = function (id) {
+        var el = document.getElementById(id);
+        return el ? (el.value || '').trim() : '';
+      };
+      return {
+        firstName: val('f-first'), lastName: val('f-last'), email: val('f-email'),
+        phone: val('f-phone'), iAmA: val('f-iam'), company: val('f-company'),
+        website: val('f-website'), businessSubType: val('f-subtype'),
+        region: val('f-region'), city: val('f-city'), address: val('f-address'),
+        buyingGroup: val('f-buying-group'), distributor: val('f-distributor'),
+        intent: currentIntent(), products: chosen.slice(), notes: val('f-notes'),
+        submittedAt: new Date().toISOString()
+      };
+    }
+
+    function mailtoFallback(data) {
+      var lines = [];
+      Object.keys(data).forEach(function (k) {
+        var v = data[k];
+        if (Array.isArray(v)) v = v.join(', ');
+        if (v) lines.push(k + ': ' + v);
+      });
+      return 'mailto:' + FALLBACK_EMAIL +
+        '?subject=' + encodeURIComponent('Sample request — ' + (data.company || data.email)) +
+        '&body=' + encodeURIComponent(lines.join('\n'));
+    }
+
+    function showSent(data) {
+      document.getElementById('sent-name').textContent = data.firstName;
+      var wrap = document.getElementById('sent-products');
+      wrap.innerHTML = '';
+      data.products.forEach(function (c, i) {
+        var tag = document.createElement('span');
+        tag.className = 'tag' + (i % 2 ? ' tag-yellow' : '');
+        tag.textContent = c;
+        wrap.appendChild(tag);
+      });
+      sampleForm.hidden = true;
+      sentPanel.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function fail(html) {
+      errorText.innerHTML = html;
+      errorBox.hidden = false;
+      errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      errorBox.focus({ preventScroll: true });
+    }
+
     sampleForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      var v = function (id) { return (document.getElementById(id).value || '').trim(); };
-      var missing = [];
-      var invalid = [];
-      if (!v('f-first')) { missing.push('first name'); invalid.push('f-first'); }
-      if (!v('f-last')) { missing.push('last name'); invalid.push('f-last'); }
-      if (!/.+@.+\..+/.test(v('f-email'))) { missing.push('a valid email'); invalid.push('f-email'); }
-      if (!v('f-company')) { missing.push('company'); invalid.push('f-company'); }
-      if (!v('f-region')) { missing.push('state/region'); invalid.push('f-region'); }
-      if (!v('f-city')) { missing.push('city'); invalid.push('f-city'); }
-      if (!chosen.length) missing.push('at least one product');
 
-      ['f-first', 'f-last', 'f-email', 'f-company', 'f-region', 'f-city'].forEach(function (id) {
-        var field = document.getElementById(id);
-        if (invalid.indexOf(id) > -1) { field.setAttribute('aria-invalid', 'true'); } else { field.removeAttribute('aria-invalid'); }
-      });
+      /* Bots fill hidden inputs; people do not. Fail quietly. */
+      var hp = document.getElementById('f-hp');
+      if (hp && hp.value) return;
+
+      var bad = Object.keys(REQUIRED).filter(function (id) { return !checkField(id); });
+      var missing = bad.map(function (id) { return REQUIRED[id].label.toLowerCase(); });
+      if (!chosen.length) missing.push('at least one product');
 
       if (missing.length) {
         errorText.textContent = 'Still needed: ' + missing.join(', ') + '.';
         errorBox.hidden = false;
         errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
         errorBox.focus({ preventScroll: true });
+        if (bad.length) document.getElementById(bad[0]).focus({ preventScroll: true });
         return;
       }
 
       errorBox.hidden = true;
-      document.getElementById('sent-name').textContent = v('f-first');
-      var wrap = document.getElementById('sent-products');
-      wrap.innerHTML = '';
-      chosen.forEach(function (c, i) {
-        var s = document.createElement('span');
-        s.className = 'tag' + (i % 2 ? ' tag-yellow' : '');
-        s.textContent = c;
-        wrap.appendChild(s);
+      var data = payload();
+      var button = document.getElementById('sample-submit');
+      var status = document.getElementById('sample-status');
+      var label = button.innerHTML;
+
+      /* No endpoint yet: hand over a pre-filled email rather than claim
+         a request was sent that nothing received. */
+      if (!ENDPOINT) {
+        fail('This form is not connected to a mailbox yet. ' +
+             '<a href="' + mailtoFallback(data) + '">Send your request by email instead</a> — ' +
+             'we have filled it in for you.');
+        return;
+      }
+
+      button.setAttribute('aria-busy', 'true');
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      if (status) status.textContent = 'Sending your request.';
+
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        if (status) status.textContent = 'Request sent.';
+        showSent(data);
+      }).catch(function () {
+        fail('Sorry — that did not send. Please try again, or ' +
+             '<a href="' + mailtoFallback(data) + '">email your request</a> instead.');
+        if (status) status.textContent = 'Sending failed.';
+      }).then(function () {
+        button.removeAttribute('aria-busy');
+        button.disabled = false;
+        button.innerHTML = label;
       });
-      sampleForm.hidden = true;
-      sentPanel.hidden = false;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     var reset = document.getElementById('sample-reset');

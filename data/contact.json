@@ -1,17 +1,28 @@
 {
-  "_note": "Source of truth for the contact section and the footer social links. Run: node pages/build-contact.js. A channel with \"value\": null is not rendered — fill it in and rebuild to make the row appear.",
+  "_note": "Source of truth for the contact section on index.html, the contact block in every footer, and the footer social links. Run: node build/contact.js. A channel with \"value\": null is not rendered. A channel with \"placeholder\": true renders as plain text instead of a mailto:/tel: link, so nobody can act on a stand-in value.",
   "heading": { "lead": "Let’s talk", "accent": "BUDS" },
   "intro": "Foodservice, retail, media or just a question about the range — here is how to reach the team.",
   "channels": [
     {
-      "id": "sales",
+      "id": "orders",
       "type": "email",
       "icon": "i-mail",
-      "label": "Sales & foodservice",
-      "value": "salesenquiries@allgfoods.com",
+      "label": "Orders & enquiries",
+      "value": "orders@aussieplantbased.com",
       "note": "Menus, wholesale pricing and distribution",
       "verified": true,
-      "source": "All G Foods trade press, 2022"
+      "source": "Supplied by the client, 2026-09-08"
+    },
+    {
+      "id": "phone",
+      "type": "text",
+      "icon": "i-phone",
+      "label": "Telephone",
+      "value": "+61 0 0000 0000",
+      "note": "Placeholder — replace with the real number",
+      "placeholder": true,
+      "verified": false,
+      "todo": "type is \"text\" on purpose: the builder only linkifies email/phone/link, so a stand-in number renders as plain text and cannot be dialled. Once the real number is in, change type to \"phone\" and drop \"placeholder\" to make it a tel: link."
     },
     {
       "id": "samples",
@@ -24,25 +35,14 @@
       "verified": true
     },
     {
-      "id": "phone",
-      "type": "phone",
-      "icon": "i-phone",
-      "label": "Telephone",
-      "value": null,
-      "note": "Mon–Fri, 9am–5pm AEST",
-      "verified": false,
-      "todo": "No phone number is published publicly. Add it as \"value\" (e.g. \"+61 2 8000 0000\") and rebuild."
-    },
-    {
       "id": "office",
       "type": "address",
       "icon": "i-pin",
       "label": "Head office",
       "value": null,
-      "note": "All G Foods",
       "verified": false,
       "suggested": "723–725 Elizabeth St, Waterloo NSW 2017",
-      "todo": "Address comes from a third-party business directory, not from Love BUDS. Confirm it, then move it into \"value\"."
+      "todo": "Address came from a third-party business directory, not from the brand. Confirm it, then move it into \"value\"."
     }
   ],
   "socials": [
@@ -68,6 +68,10 @@
       "url": "https://www.facebook.com/welovebuds/"
     }
   ],
+  "footer": {
+    "title": "Get in touch",
+    "channels": ["orders", "phone"]
+  },
   "invite": {
     "title": "Want to taste first?",
     "copy": "Foodservice samples are free of charge. Pick your formats and we will get them to your kitchen.",

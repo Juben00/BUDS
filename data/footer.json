@@ -29,14 +29,15 @@
   },
   "extra": [
     { "label": "Nutrition FAQs", "href": "products.html" },
-    { "label": "Contact", "href": "request-a-sample.html" }
+    { "label": "orders@aussieplantbased.com", "href": "mailto:orders@aussieplantbased.com" }
   ],
   "legal": {
     "copyright": "© 2026 welovebuds.com · The Aussie Plant Based Co.",
     "links": [
-      { "label": "Privacy Policy", "href": "#top" },
-      { "label": "Terms", "href": "#top" },
-      { "label": "Accessibility", "href": "#top" }
+      { "label": "Privacy Policy", "href": "privacy-policy.html" },
+      { "label": "Accessibility", "href": "accessibility.html", "hidden": true },
+      { "label": "Terms", "href": "terms.html", "hidden": true,
+        "todo": "No terms of use exist on welovebuds.com and none should be invented — they bind your customers. Supply the text from your lawyer, create terms.html, then remove \"hidden\" to show this link." }
     ]
   }
 }

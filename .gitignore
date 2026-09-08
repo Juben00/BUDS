@@ -1,0 +1,18 @@
+# Secrets — never commit these. The mailer reads credentials from server/.env,
+# which is created by copying server/.env.example. Only the example is tracked.
+.env
+.env.*
+!.env.example
+server/.env
+server/.env.*
+!server/.env.example
+
+# Dependencies
+node_modules/
+server/node_modules/
+
+# Logs and OS noise
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
