@@ -772,33 +772,199 @@ select.fld {
 </style>
 <style>
   /* page-only tweaks */
-  .sample-layout { display: grid; grid-template-columns: 1.55fr 0.95fr; gap: 32px; align-items: start; }
-  .sample-aside { display: flex; flex-direction: column; gap: 20px; }
-  .sample-aside .aside-card.is-white { background: #fff; border: 2px solid var(--line); }
-  .sample-aside .photo { aspect-ratio: 4 / 3; border-radius: var(--radius-xl); }
-  .sample-aside .photo img { width: 100%; height: 100%; object-fit: cover; }
+  /* The form runs one full-width column the whole way down. The three things
+     a chef still wants to know — what happens next, what to do if they are not
+     foodservice, what the food looks like — close the page as a band rather
+     than as a ragged right-hand rail. */
+  .sample-band { margin-top: 34px; display: grid; gap: 20px; }
+  .sample-band .photo { aspect-ratio: 4 / 3; border-radius: var(--radius-xl); }
+  .sample-band .photo img { width: 100%; height: 100%; object-fit: cover; }
   .hero-frame { width: min(440px, 100%); border-radius: var(--radius-lg); overflow: hidden; transform: rotate(-3deg); box-shadow: var(--shadow-lg); border: 6px solid #fff; }
   .hero-frame img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; animation: none; filter: none; }
   .page-hero-art .sticker { left: 0; bottom: -18px; }
   .sent-icon { background: var(--yellow); color: var(--navy-deep); }
-  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  .chosen { font-family: var(--font-display); font-size: 16px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--red); }
+  /* Section 3 is one-of-four, so its marker is round: square reads as
+     "tick as many as you like", which is section 4's job, not this one. */
   .pill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
-  /* 33 lines is too many for one flat list — group them so the range stays
-     scannable and a chef can find a format without reading every pill. */
-  .pill-group:first-child { margin-top: 22px; }
-  .pill-group + .pill-group { margin-top: 26px; }
-  .pill-group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 10px; border-bottom: 2px solid var(--line); }
-  .pill-group-title { font-family: var(--font-display); font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin: 0; }
-  .pill-group-count { font-size: 12.5px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
-  .pill-group .pill-grid { margin-top: 14px; }
-  .pill .pill-note { display: block; font-size: 12.5px; font-weight: 600; color: var(--muted); margin-top: 3px; }
-  .pill[aria-pressed="true"] .pill-note { color: var(--navy); }
-  .pill > span { min-width: 0; }
+  .pill::before { border-radius: 50%; }
+
   .sent-label { font-family: var(--font-display); font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-top: 30px; }
   .steps li span:last-child { font-size: 15.5px; line-height: 1.5; color: var(--navy-deep); }
+
+  /* ── Section 4: the sample box ─────────────────────────────────────────────
+     Thirty-two lines as a flat checkbox list asked a chef to read every SKU
+     name. They recognise the pack, not the name — so the picker breaks out of
+     the form column, every line carries its own shot on the brand's rotating
+     tone plate, search and category chips cut the range down, and a tray
+     pinned to the bottom keeps the running box in view while the grid scrolls
+     past. */
+  #picker { margin-top: 48px; }
+  .picker-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px 28px; flex-wrap: wrap; }
+  .picker-title { display: flex; align-items: center; gap: 12px; font-size: clamp(26px, 2.6vw, 34px); }
+  .picker-title:focus { outline: none; }
+  .picker-title .num {
+    width: 34px; height: 34px; border-radius: 50%; background: var(--yellow); color: var(--navy-deep);
+    font-size: 17px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .picker-lede { font-size: 15.5px; line-height: 1.55; color: var(--body); margin-top: 12px; max-width: 58ch; }
+  .chosen { font-family: var(--font-display); font-size: 16px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+  .chosen.is-on { color: var(--red); }
+
+  .remove-padding-bottom { padding-bottom: 0 !important; }
+
+  /* Toolbar ---------------------------------------------------------------- */
+  .picker-bar { display: flex; align-items: center; gap: 12px 16px; flex-wrap: wrap; margin-top: 26px; }
+  .picker-search { position: relative; flex: 1 1 280px; min-width: 0; max-width: 400px; }
+  .picker-search > svg { position: absolute; left: 16px; top: 50%; margin-top: -10px; width: 20px; height: 20px; color: var(--muted); pointer-events: none; }
+  .picker-search .fld { padding-left: 46px; padding-right: 46px; font-size: 15.5px; }
+  .picker-search input[type="search"]::-webkit-search-cancel-button,
+  .picker-search input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
+  .search-clear {
+    position: absolute; right: 9px; top: 50%; margin-top: -16px;
+    width: 32px; height: 32px; border: 0; border-radius: 50%; background: transparent; color: var(--muted);
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  }
+  .search-clear:hover { background: var(--red-100); color: var(--red); }
+  .search-clear svg { width: 15px; height: 15px; }
+
+  .picker-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .picker-filters .chip { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; padding: 9px 14px; }
+  .chip-n { font-family: var(--font-body); font-size: 11.5px; font-weight: 700; letter-spacing: 0; opacity: 0.6; font-variant-numeric: tabular-nums; }
+
+  .picker-note { margin-top: 20px; }
+
+  /* Category bands --------------------------------------------------------- */
+  .pgroup { margin-top: 32px; }
+  .pgroup:first-child { margin-top: 26px; }
+  .pgroup-head { display: flex; align-items: baseline; gap: 12px; padding-bottom: 11px; border-bottom: 2px solid var(--line-strong); }
+  .pgroup-title { font-family: var(--font-display); font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin: 0; }
+  .pgroup-count { margin-left: auto; font-size: 12.5px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .pgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(196px, 1fr)); gap: 16px; margin-top: 18px; }
+
+  /* Product card ----------------------------------------------------------- */
+  .pcard {
+    position: relative; display: flex; flex-direction: column; text-align: left; padding: 0;
+    background: var(--cream); border: 2px solid var(--line-strong); border-radius: var(--radius-lg);
+    overflow: hidden; color: var(--ink); -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+    transition: border-color 0.18s ease, background-color 0.18s ease,
+                transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease-out);
+  }
+  .pcard:hover { border-color: var(--coral); transform: translateY(-4px); box-shadow: var(--shadow); }
+  .pcard:active { transform: translateY(-1px) scale(0.985); }
+  .pcard-plate { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; }
+  .pcard-plate img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease-out); }
+  .pcard:hover .pcard-plate img { transform: scale(1.05); }
+  .pcard-mark {
+    position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; border-radius: 50%;
+    background: rgba(255, 255, 255, 0.94); border: 2px solid #fff; color: transparent;
+    display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 6px rgba(23, 34, 74, 0.24);
+    transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.3s var(--ease-spring);
+  }
+  .pcard-mark svg { width: 16px; height: 16px; }
+  .pcard-body { flex: 1; display: flex; flex-direction: column; gap: 4px; padding: 14px 15px 16px; }
+  .pcard-name { font-size: 15px; font-weight: 700; line-height: 1.3; color: var(--ink); overflow-wrap: anywhere; }
+  .pcard-pack { font-size: 12.5px; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; margin-top: auto; padding-top: 6px; }
+
+  .pcard[aria-checked="true"] { border-color: var(--red); background: var(--coral-100); }
+  .pcard[aria-checked="true"] .pcard-mark { background: var(--red); color: #fff; transform: scale(1.08); }
+  .pcard[aria-checked="true"] .pcard-pack { color: var(--navy); }
+
+  /* The card runs full width, but the notes field keeps a readable measure. */
+  .notes-field { max-width: 72ch; }
+  .form-foot { justify-content: space-between; }
+  .form-foot .small { text-align: right; }
+  @media (max-width: 760px) { .form-foot .small { text-align: left; } }
+
+  .picker-empty { margin-top: 34px; padding: 46px 20px 50px; text-align: center; border: 2px dashed var(--line-strong); border-radius: var(--radius-lg); }
+  .picker-empty .h4 { display: block; }
+  .picker-empty p { margin-top: 10px; font-size: 15.5px; color: var(--muted); }
+  .linkish { background: none; border: 0; padding: 0; font: inherit; color: var(--red); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+  .linkish:hover { color: var(--red-deep); }
+
+  /* The tray — what is in the box, wherever you are on the page ------------- */
+  .tray {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+    background: var(--navy-deep); border-top: 3px solid var(--coral);
+    box-shadow: 0 -14px 34px rgba(23, 34, 74, 0.26);
+    transform: translateY(100%);
+    transition: transform 0.4s var(--ease-out);
+  }
+  .tray.is-open { transform: translateY(0); }
+  .tray-inner { display: flex; align-items: center; gap: 16px; padding-top: 13px; padding-bottom: 13px; }
+  .tray-count { font-family: var(--font-display); font-size: 16px; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; white-space: nowrap; }
+  .tray-count b { display: inline-block; color: var(--yellow); font-variant-numeric: tabular-nums; }
+  .tray-count b.pop { animation: trayPop 0.36s var(--ease-spring); }
+  @keyframes trayPop { 0% { transform: scale(1); } 42% { transform: scale(1.26); } 100% { transform: scale(1); } }
+
+  .tray-list { flex: 1; min-width: 0; display: flex; gap: 8px; list-style: none; margin: 0; padding: 3px 2px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
+  .tray-list::-webkit-scrollbar { height: 6px; }
+  .tray-list::-webkit-scrollbar-track { background: transparent; }
+  .tray-list::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.28); border: 0; border-radius: 999px; }
+  .tray-list li { flex: 0 0 auto; animation: trayIn 0.32s var(--ease-out) both; }
+  @keyframes trayIn { from { opacity: 0; transform: scale(0.72); } to { opacity: 1; transform: none; } }
+  .tray-chip {
+    display: inline-flex; align-items: center; gap: 9px; max-width: 250px;
+    padding: 4px 13px 4px 4px; border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.24);
+    color: #fff; font-size: 13px; font-weight: 600; line-height: 1.2; white-space: nowrap;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  }
+  .tray-chip:hover { background: var(--red); border-color: var(--red); }
+  .tray-chip .th { width: 30px; height: 30px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: var(--coral); }
+  .tray-chip .th img { width: 100%; height: 100%; object-fit: cover; }
+  .tray-chip .tx { overflow: hidden; text-overflow: ellipsis; }
+  .tray-chip svg { width: 13px; height: 13px; flex-shrink: 0; opacity: 0.75; }
+  .tray-acts { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .tray .btn-ghost { background: transparent; border-color: rgba(255, 255, 255, 0.42); color: #fff; box-shadow: none; }
+  .tray .btn-ghost:hover { background: #fff; border-color: #fff; color: var(--navy-deep); }
+  .tray :focus-visible { outline-color: var(--yellow); }
+
+  /* Success panel: the box you asked for, as packs rather than a word list -- */
+  .sent-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .sent-chip {
+    display: inline-flex; align-items: center; gap: 10px; max-width: 100%;
+    padding: 5px 15px 5px 5px; border-radius: 999px;
+    background: var(--cream); border: 2px solid var(--line-strong);
+    font-size: 14px; font-weight: 700; color: var(--ink);
+  }
+  .sent-chip .th { width: 32px; height: 32px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: var(--coral); }
+  .sent-chip .th img { width: 100%; height: 100%; object-fit: cover; }
+
   @media (max-width: 1040px) {
-    .sample-layout { grid-template-columns: 1fr; }
+    .pgrid { grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 14px; }
+  }
+  @media (max-width: 720px) {
+    .tray-inner { flex-wrap: wrap; gap: 10px 14px; }
+    .tray-list { order: 3; flex-basis: 100%; }
+    .tray-acts { margin-left: auto; }
+  }
+  @media (max-width: 560px) {
+    .pgrid { grid-template-columns: repeat(auto-fill, minmax(138px, 1fr)); gap: 12px; }
+    .pcard-body { padding: 12px 12px 14px; }
+    .pcard-name { font-size: 14px; }
+    .picker-search { max-width: none; }
+    /* Three honest rows beat one row that overflows: count + clear, the box
+       itself, then the send button across the full thumb-width. */
+    .tray-inner { gap: 10px 12px; padding-top: 11px; padding-bottom: 12px; }
+    .tray-acts { display: contents; }
+    .tray-count { order: 1; flex: 1 1 auto; font-size: 14px; }
+    #tray-clear { order: 2; padding: 10px 14px; font-size: 15px; }
+    .tray-list { order: 3; flex-basis: 100%; }
+    #tray-go { order: 4; flex-basis: 100%; }
+    .tray-chip { max-width: 190px; }
+  }
+
+  @media (min-width: 1041px) {
+    .sample-band { grid-template-columns: 1.15fr 0.85fr; align-items: stretch; }
+    .sample-band .photo { aspect-ratio: auto; min-height: 100%; }
+    /* At full width, two columns of form fields would stretch past a
+       comfortable target; three keeps each field the width of its content. */
+    .form-grid { grid-template-columns: repeat(3, 1fr); }
+    .pill-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 1040px) {
     .hero-frame { width: min(360px, 90%); }
   }
   @media (max-width: 760px) {
@@ -816,6 +982,7 @@ select.fld {
     <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
     <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.7-3.7"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
     <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></symbol>
     <symbol id="i-tt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v10.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.5 2.5 4 5 4"/></symbol>
@@ -871,21 +1038,23 @@ select.fld {
     </section>
 
     <!-- Form --------------------------------------------------------------- -->
-    <section class="section" aria-label="Sample request form">
-      <div class="wrap sample-layout" data-r="split">
+    <section class="section remove-padding-bottom" aria-label="Sample request form">
 
-        <div class="form-card reveal">
-
-          <div id="sample-sent" hidden>
+      <div class="wrap">
+        <div id="sample-sent" class="form-card" hidden>
             <span class="ico-box sent-icon" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
             <h2 class="h2" style="font-size:clamp(32px,4vw,40px);margin-top:20px">Thanks, <span id="sent-name"></span> — request received.</h2>
             <p class="copy" style="margin-top:14px">Our foodservice team will be in touch within two business days to confirm your sample pack and delivery window.</p>
             <p class="sent-label">You asked for</p>
-            <div id="sent-products" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"></div>
+            <div id="sent-products" class="sent-grid"></div>
             <button type="button" id="sample-reset" class="btn btn-outline" style="margin-top:32px">Submit another request</button>
-          </div>
+        </div>
+      </div>
 
-          <form id="sample-form" novalidate>
+      <form id="sample-form" novalidate>
+
+        <div class="wrap">
+          <div class="form-card reveal">
             <div id="sample-error" class="note note-error" hidden role="alert" tabindex="-1" style="margin-bottom:28px">
               <svg aria-hidden="true"><use href="#i-alert"/></svg>
               <span id="sample-error-text"></span>
@@ -1034,92 +1203,198 @@ select.fld {
               </div>
             </div>
 
-            <div class="form-section">
-              <div class="section-head">
-                <h2 class="h3"><span class="num" aria-hidden="true">4</span>Products to try *</h2>
-                <span id="chosen-count" class="chosen" role="status">0 selected</span>
+            <!-- Section 4 sits in the same card as the rest of the form: one
+                 sheet of paper, five numbered steps, no nested slabs. -->
+            <div class="form-section" id="picker">
+              <div class="picker-head">
+                <div>
+                  <h2 class="h3 picker-title" id="picker-title" tabindex="-1"><span class="num" aria-hidden="true">4</span>Products to try <span class="mark-red" aria-hidden="true">*</span></h2>
+                  <p class="picker-lede">Tap a pack to drop it in your box, and take as many as you want to cook with. We confirm the formats that suit your menu before anything ships.</p>
+                </div>
+                <p id="chosen-count" class="chosen" role="status">Nothing picked yet</p>
               </div>
-              <div role="group" aria-label="Products to try">
-                <!-- @generated:sample-pills -->
-                <div class="pill-group">
-                  <div class="pill-group-head">
-                    <h3 class="pill-group-title">Mince</h3>
-                    <span class="pill-group-count">4</span>
-                  </div>
-                  <div class="pill-grid">
-                    <button type="button" class="pill" data-sample-product="BUDS Mince" aria-pressed="false"><span>BUDS Mince<span class="pill-note">400g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Beef Mince 500g" aria-pressed="false"><span>BUDS Beef Mince 500g<span class="pill-note">9 × 500g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Lamb-Flavoured Mince" aria-pressed="false"><span>BUDS Lamb-Flavoured Mince<span class="pill-note">4 × 1kg</span></span></button>
-                    <button type="button" class="pill" data-sample-product="vEEF® Beef Mince" aria-pressed="false"><span>vEEF® Beef Mince<span class="pill-note">4 × 300g</span></span></button>
-                  </div>
+
+              <div class="picker-bar">
+                <div class="picker-search">
+                  <svg aria-hidden="true"><use href="#i-search"/></svg>
+                  <input id="product-search" class="fld" type="search" placeholder="Search the range…" autocomplete="off" aria-label="Search the product range" />
+                  <button type="button" id="search-clear" class="search-clear" aria-label="Clear search" hidden><svg aria-hidden="true"><use href="#i-close"/></svg></button>
                 </div>
-                <div class="pill-group">
-                  <div class="pill-group-head">
-                    <h3 class="pill-group-title">Burgers &amp; Patties</h3>
-                    <span class="pill-group-count">11</span>
-                  </div>
-                  <div class="pill-grid">
-                    <button type="button" class="pill" data-sample-product="BUDS Burger Patties" aria-pressed="false"><span>BUDS Burger Patties<span class="pill-note">2 × 113g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Crumbed Burger Patties" aria-pressed="false"><span>BUDS Crumbed Burger Patties<span class="pill-note">72 × 100g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Slider Patties" aria-pressed="false"><span>BUDS Slider Patties<span class="pill-note">8 × 40g tray</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Chook Free Big Schnitzel" aria-pressed="false"><span>BUDS Chook Free Big Schnitzel<span class="pill-note">24 × 220g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Beef Burger 125g" aria-pressed="false"><span>BUDS Beef Burger 125g<span class="pill-note">36 × 125g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Beef Burger 90g" aria-pressed="false"><span>BUDS Beef Burger 90g<span class="pill-note">48 × 90g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Chicken Schnitzel Burger" aria-pressed="false"><span>BUDS Chicken Schnitzel Burger<span class="pill-note">30 × 113g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Chicken Schnitzel 220g" aria-pressed="false"><span>BUDS Chicken Schnitzel 220g<span class="pill-note">16 × 220g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Southern Chicken Burger" aria-pressed="false"><span>BUDS Southern Chicken Burger<span class="pill-note">24 × 113g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Lamb-Flavoured Patty" aria-pressed="false"><span>BUDS Lamb-Flavoured Patty<span class="pill-note">4 × 1kg</span></span></button>
-                    <button type="button" class="pill" data-sample-product="vEEF® Premium Beef Burger" aria-pressed="false"><span>vEEF® Premium Beef Burger<span class="pill-note">5 × 240g</span></span></button>
-                  </div>
+                <div class="picker-filters" role="group" aria-label="Filter products by category">
+                  <button type="button" class="chip" data-cat="all" aria-pressed="true">All <span class="chip-n">26</span></button>
+                  <button type="button" class="chip" data-cat="mince" aria-pressed="false">Mince <span class="chip-n">2</span></button>
+                  <button type="button" class="chip" data-cat="burgers" aria-pressed="false">Burgers &amp; Patties <span class="chip-n">9</span></button>
+                  <button type="button" class="chip" data-cat="bites" aria-pressed="false">Bites &amp; Bakes <span class="chip-n">10</span></button>
+                  <button type="button" class="chip" data-cat="sausages" aria-pressed="false">Sausages <span class="chip-n">3</span></button>
+                  <button type="button" class="chip" data-cat="pieces" aria-pressed="false">Pieces &amp; Strips <span class="chip-n">2</span></button>
                 </div>
-                <div class="pill-group">
-                  <div class="pill-group-head">
-                    <h3 class="pill-group-title">Bites &amp; Bakes</h3>
-                    <span class="pill-group-count">11</span>
+              </div>
+
+              <p id="picker-result-count" class="sr-only" role="status"></p>
+
+              <div id="products-error" class="note note-error picker-note" hidden role="alert">
+                <svg aria-hidden="true"><use href="#i-alert"/></svg>
+                <span>Pick at least one product for your sample box.</span>
+              </div>
+
+              <div id="picker-groups" role="group" aria-label="Products to try">
+                <!-- @generated:sample-products -->
+                <section class="pgroup" data-cat="mince">
+                  <div class="pgroup-head">
+                    <h3 class="pgroup-title">Mince</h3>
+                    <span class="pgroup-count">2</span>
                   </div>
-                  <div class="pill-grid">
-                    <button type="button" class="pill" data-sample-product="BUDS Bolognese &amp; Cheese Arancini" aria-pressed="false"><span>BUDS Bolognese &amp; Cheese Arancini<span class="pill-note">240g (8 × 30g)</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Nuggets" aria-pressed="false"><span>BUDS Nuggets<span class="pill-note">250g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Garlic, Ginger &amp; Chive Dumplings" aria-pressed="false"><span>BUDS Garlic, Ginger &amp; Chive Dumplings<span class="pill-note">4 × 1kg</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Arancini Bolognese Balls" aria-pressed="false"><span>BUDS Arancini Bolognese Balls<span class="pill-note">4 × 1kg</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Beef Meatballs" aria-pressed="false"><span>BUDS Beef Meatballs<span class="pill-note">160 × 20g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Drumsticks" aria-pressed="false"><span>BUDS Drumsticks<span class="pill-note">4 × 1kg</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Vegan Cheese Poppers" aria-pressed="false"><span>BUDS Vegan Cheese Poppers<span class="pill-note">4kg carton</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Vegan Jalapeño Cheese Poppers" aria-pressed="false"><span>BUDS Vegan Jalapeño Cheese Poppers<span class="pill-note">4kg carton</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Vegan Chorizo Bites" aria-pressed="false"><span>BUDS Vegan Chorizo Bites<span class="pill-note">4kg carton</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Popcorn Chicken" aria-pressed="false"><span>BUDS Popcorn Chicken<span class="pill-note">4 × 1kg</span></span></button>
+                  <div class="pgrid">
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Mince" data-cat="mince" data-search="buds mince buds mince mince beef love buds 400g" data-thumb="assets/img/BUDS_MINCE_1.png">
+                      <span class="pcard-plate tone-yellow"><img src="assets/img/BUDS_MINCE_1.png" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Mince</span><span class="pcard-pack">400g</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Beef Mince 500g" data-cat="mince" data-search="buds beef mince 500g buds beef mince 500g mince beef love buds 9 × 500g" data-thumb="assets/products/_cards/beef-mince-pack.jpg">
+                      <span class="pcard-plate tone-red"><img src="assets/products/_cards/beef-mince-pack.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Beef Mince 500g</span><span class="pcard-pack">9 × 500g</span></span>
+                    </button>
                   </div>
-                </div>
-                <div class="pill-group">
-                  <div class="pill-group-head">
-                    <h3 class="pill-group-title">Sausages</h3>
-                    <span class="pill-group-count">5</span>
+                </section>
+                <section class="pgroup" data-cat="burgers">
+                  <div class="pgroup-head">
+                    <h3 class="pgroup-title">Burgers &amp; Patties</h3>
+                    <span class="pgroup-count">9</span>
                   </div>
-                  <div class="pill-grid">
-                    <button type="button" class="pill" data-sample-product="BUDS Italian Seasoning Sausages" aria-pressed="false"><span>BUDS Italian Seasoning Sausages<span class="pill-note">5 × 75g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Italian Beef Sausages" aria-pressed="false"><span>BUDS Italian Beef Sausages<span class="pill-note">8 × 600g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Smokey Beef-Style Sausage" aria-pressed="false"><span>BUDS Smokey Beef-Style Sausage<span class="pill-note">4.8kg carton</span></span></button>
-                    <button type="button" class="pill" data-sample-product="vEEF® Classic Sausages" aria-pressed="false"><span>vEEF® Classic Sausages<span class="pill-note">4 × 300g</span></span></button>
-                    <button type="button" class="pill" data-sample-product="vEEF® Chorizo Sausages" aria-pressed="false"><span>vEEF® Chorizo Sausages<span class="pill-note">4 × 300g</span></span></button>
+                  <div class="pgrid">
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Burger Patties" data-cat="burgers" data-search="buds burger patties buds burgers burgers &amp; patties beef love buds 2 × 113g" data-thumb="assets/img/BUDS_BURGER_1st.jpg">
+                      <span class="pcard-plate tone-navy"><img src="assets/img/BUDS_BURGER_1st.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Burger Patties</span><span class="pcard-pack">2 × 113g</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Crumbed Burger Patties" data-cat="burgers" data-search="buds crumbed burger patties buds crumbed burger patties burgers &amp; patties chicken love buds 72 × 100g" data-thumb="assets/img/BUDS-Hero-Chicken-Burger-on-BUDS-Paper-img.png">
+                      <span class="pcard-plate tone-yellow"><img src="assets/img/BUDS-Hero-Chicken-Burger-on-BUDS-Paper-img.png" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Crumbed Burger Patties</span><span class="pcard-pack">72 × 100g</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Slider Patties" data-cat="burgers" data-search="buds slider patties buds slider patties burgers &amp; patties beef love buds 8 × 40g tray" data-thumb="assets/img/slider-patties_img.png">
+                      <span class="pcard-plate tone-coral"><img src="assets/img/slider-patties_img.png" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Slider Patties</span><span class="pcard-pack">8 × 40g tray</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Chook Free Big Schnitzel" data-cat="burgers" data-search="buds chook free big schnitzel buds chook-free schnitzel burgers &amp; patties chicken love buds 24 × 220g" data-thumb="assets/img/BUDS-Schnitzel-NEW.png">
+                      <span class="pcard-plate tone-red"><img src="assets/img/BUDS-Schnitzel-NEW.png" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Chook Free Big Schnitzel</span><span class="pcard-pack">24 × 220g</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Beef Burger 125g" data-cat="burgers" data-search="buds beef burger 125g buds beef burger 125g burgers &amp; patties beef love buds 36 × 125g" data-thumb="assets/products/_cards/beef-burger-125.jpg">
+                      <span class="pcard-plate tone-navy"><img src="assets/products/_cards/beef-burger-125.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Beef Burger 125g</span><span class="pcard-pack">36 × 125g</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Beef Burger 90g" data-cat="burgers" data-search="buds beef burger 90g buds beef burger 90g burgers &amp; patties beef love buds 48 × 90g" data-thumb="assets/products/_cards/beef-burger-90.jpg">
+                      <span class="pcard-plate tone-coral"><img src="assets/products/_cards/beef-burger-90.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Beef Burger 90g</span><span class="pcard-pack">48 × 90g</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Chicken Schnitzel Burger" data-cat="burgers" data-search="buds chicken schnitzel burger buds chicken schnitzel burger burgers &amp; patties chicken love buds 30 × 113g" data-thumb="assets/products/_cards/chicken-schnitzel-burger.jpg">
+                      <span class="pcard-plate tone-navy"><img src="assets/products/_cards/chicken-schnitzel-burger.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Chicken Schnitzel Burger</span><span class="pcard-pack">30 × 113g</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Chicken Schnitzel 220g" data-cat="burgers" data-search="buds chicken schnitzel 220g buds chicken schnitzel 220g burgers &amp; patties chicken love buds 16 × 220g" data-thumb="assets/products/_cards/schnitzel-parma.jpg">
+                      <span class="pcard-plate tone-coral"><img src="assets/products/_cards/schnitzel-parma.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Chicken Schnitzel 220g</span><span class="pcard-pack">16 × 220g</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Southern Chicken Burger" data-cat="burgers" data-search="buds southern chicken burger buds southern chicken burger burgers &amp; patties chicken love buds 24 × 113g" data-thumb="assets/products-new/southern-chicken-burger.jpg">
+                      <span class="pcard-plate tone-red"><img src="assets/products-new/southern-chicken-burger.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Southern Chicken Burger</span><span class="pcard-pack">24 × 113g</span></span>
+                    </button>
                   </div>
-                </div>
-                <div class="pill-group">
-                  <div class="pill-group-head">
-                    <h3 class="pill-group-title">Pieces &amp; Strips</h3>
-                    <span class="pill-group-count">2</span>
+                </section>
+                <section class="pgroup" data-cat="bites">
+                  <div class="pgroup-head">
+                    <h3 class="pgroup-title">Bites &amp; Bakes</h3>
+                    <span class="pgroup-count">10</span>
                   </div>
-                  <div class="pill-grid">
-                    <button type="button" class="pill" data-sample-product="BUDS Chicken-Flavoured Pieces" aria-pressed="false"><span>BUDS Chicken-Flavoured Pieces<span class="pill-note">4 × 1kg</span></span></button>
-                    <button type="button" class="pill" data-sample-product="BUDS Chicken Pieces, Allium-Free" aria-pressed="false"><span>BUDS Chicken Pieces, Allium-Free<span class="pill-note">4 × 1kg</span></span></button>
+                  <div class="pgrid">
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Bolognese &amp; Cheese Arancini" data-cat="bites" data-search="buds bolognese &amp; cheese arancini buds arancini bites &amp; bakes beef love buds 240g (8 × 30g)" data-thumb="assets/img/BUDS_Arancini_2.png">
+                      <span class="pcard-plate tone-coral"><img src="assets/img/BUDS_Arancini_2.png" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Bolognese &amp; Cheese Arancini</span><span class="pcard-pack">240g (8 × 30g)</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Nuggets" data-cat="bites" data-search="buds nuggets buds “chicken” nuggets bites &amp; bakes chicken love buds 250g" data-thumb="assets/img/BUDS_Nuggets_2.png">
+                      <span class="pcard-plate tone-red"><img src="assets/img/BUDS_Nuggets_2.png" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Nuggets</span><span class="pcard-pack">250g</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Garlic, Ginger &amp; Chive Dumplings" data-cat="bites" data-search="buds garlic, ginger &amp; chive dumplings buds garlic, ginger &amp; chive dumplings bites &amp; bakes other love buds 4 × 1kg" data-thumb="assets/img/BUDS-Dumplings-on-BUDS-paper-image.png">
+                      <span class="pcard-plate tone-navy"><img src="assets/img/BUDS-Dumplings-on-BUDS-paper-image.png" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Garlic, Ginger &amp; Chive Dumplings</span><span class="pcard-pack">4 × 1kg</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Arancini Bolognese Balls" data-cat="bites" data-search="buds arancini bolognese balls buds arancini bolognese balls bites &amp; bakes beef love buds 4 × 1kg" data-thumb="assets/products/_cards/arancini-balls.jpg">
+                      <span class="pcard-plate tone-yellow"><img src="assets/products/_cards/arancini-balls.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Arancini Bolognese Balls</span><span class="pcard-pack">4 × 1kg</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Beef Meatballs" data-cat="bites" data-search="buds beef meatballs buds beef meatballs bites &amp; bakes beef love buds 160 × 20g" data-thumb="assets/products-new/beef-meatballs.jpg">
+                      <span class="pcard-plate tone-orange"><img src="assets/products-new/beef-meatballs.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Beef Meatballs</span><span class="pcard-pack">160 × 20g</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Drumsticks" data-cat="bites" data-search="buds drumsticks buds drumsticks bites &amp; bakes chicken love buds 4 × 1kg" data-thumb="assets/products/_cards/drumsticks.jpg">
+                      <span class="pcard-plate tone-orange"><img src="assets/products/_cards/drumsticks.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Drumsticks</span><span class="pcard-pack">4 × 1kg</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Vegan Cheese Poppers" data-cat="bites" data-search="buds vegan cheese poppers buds vegan cheese poppers bites &amp; bakes other love buds 4kg carton" data-thumb="assets/products/_cards/cheese-poppers.jpg">
+                      <span class="pcard-plate tone-yellow"><img src="assets/products/_cards/cheese-poppers.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Vegan Cheese Poppers</span><span class="pcard-pack">4kg carton</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Vegan Jalapeño Cheese Poppers" data-cat="bites" data-search="buds vegan jalapeño cheese poppers buds vegan jalapeño cheese poppers bites &amp; bakes other love buds 4kg carton" data-thumb="assets/products/_cards/jalapeno-poppers.jpg">
+                      <span class="pcard-plate tone-navy"><img src="assets/products/_cards/jalapeno-poppers.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Vegan Jalapeño Cheese Poppers</span><span class="pcard-pack">4kg carton</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Vegan Chorizo Bites" data-cat="bites" data-search="buds vegan chorizo bites buds vegan chorizo bites bites &amp; bakes pork love buds 4kg carton" data-thumb="assets/products/_cards/chorizo-bites.jpg">
+                      <span class="pcard-plate tone-red"><img src="assets/products/_cards/chorizo-bites.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Vegan Chorizo Bites</span><span class="pcard-pack">4kg carton</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Popcorn Chicken" data-cat="bites" data-search="buds popcorn chicken buds popcorn chicken bites &amp; bakes chicken love buds 4 × 1kg" data-thumb="assets/products/_cards/popcorn-chicken.jpg">
+                      <span class="pcard-plate tone-orange"><img src="assets/products/_cards/popcorn-chicken.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Popcorn Chicken</span><span class="pcard-pack">4 × 1kg</span></span>
+                    </button>
                   </div>
-                </div>
-                <!-- /@generated:sample-pills -->
+                </section>
+                <section class="pgroup" data-cat="sausages">
+                  <div class="pgroup-head">
+                    <h3 class="pgroup-title">Sausages</h3>
+                    <span class="pgroup-count">3</span>
+                  </div>
+                  <div class="pgrid">
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Italian Seasoning Sausages" data-cat="sausages" data-search="buds italian seasoning sausages buds sausages sausages beef love buds 5 × 75g" data-thumb="assets/img/BUDS_SAUSAGES_Italian.png">
+                      <span class="pcard-plate tone-orange"><img src="assets/img/BUDS_SAUSAGES_Italian.png" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Italian Seasoning Sausages</span><span class="pcard-pack">5 × 75g</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Italian Beef Sausages" data-cat="sausages" data-search="buds italian beef sausages buds italian beef sausages sausages beef love buds 8 × 600g" data-thumb="assets/products/_cards/italian-sausage-sub.jpg">
+                      <span class="pcard-plate tone-yellow"><img src="assets/products/_cards/italian-sausage-sub.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Italian Beef Sausages</span><span class="pcard-pack">8 × 600g</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Smokey Beef-Style Sausage" data-cat="sausages" data-search="buds smokey beef-style sausage buds smokey beef-style sausage sausages beef love buds 4.8kg carton" data-thumb="assets/products/_cards/smokey-sausage-dog.jpg">
+                      <span class="pcard-plate tone-yellow"><img src="assets/products/_cards/smokey-sausage-dog.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Smokey Beef-Style Sausage</span><span class="pcard-pack">4.8kg carton</span></span>
+                    </button>
+                  </div>
+                </section>
+                <section class="pgroup" data-cat="pieces">
+                  <div class="pgroup-head">
+                    <h3 class="pgroup-title">Pieces &amp; Strips</h3>
+                    <span class="pgroup-count">2</span>
+                  </div>
+                  <div class="pgrid">
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Chicken-Flavoured Pieces" data-cat="pieces" data-search="buds chicken-flavoured pieces buds chicken-flavoured pieces pieces &amp; strips chicken love buds 4 × 1kg" data-thumb="assets/products-new/chicken-pieces.jpg">
+                      <span class="pcard-plate tone-navy"><img src="assets/products-new/chicken-pieces.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Chicken-Flavoured Pieces</span><span class="pcard-pack">4 × 1kg</span></span>
+                    </button>
+                    <button type="button" class="pcard" role="checkbox" aria-checked="false" data-sample-product="BUDS Chicken Pieces, Allium-Free" data-cat="pieces" data-search="buds chicken pieces, allium-free buds chicken pieces, allium-free pieces &amp; strips chicken love buds 4 × 1kg" data-thumb="assets/products-new/chicken-pieces-allium-free.jpg">
+                      <span class="pcard-plate tone-orange"><img src="assets/products-new/chicken-pieces-allium-free.jpg" alt="" loading="lazy" decoding="async" width="400" height="300" /><span class="pcard-mark" aria-hidden="true"><svg><use href="#i-check"/></svg></span></span>
+                      <span class="pcard-body"><span class="pcard-name">BUDS Chicken Pieces, Allium-Free</span><span class="pcard-pack">4 × 1kg</span></span>
+                    </button>
+                  </div>
+                </section>
+                <!-- /@generated:sample-products -->
+              </div>
+
+              <div class="picker-empty" id="picker-empty" hidden>
+                <span class="h4">Nothing matches that</span>
+                <p>Try another word, or <button type="button" class="linkish" id="picker-reset">show the whole range</button>.</p>
               </div>
             </div>
 
             <div class="form-section">
               <h2 class="h3"><span class="num" aria-hidden="true">5</span>Anything else?</h2>
-              <label class="field" style="margin-top:20px">
+              <label class="field notes-field" style="margin-top:20px">
                 <span>Notes for the team</span>
                 <textarea id="f-notes" class="fld" rows="4" placeholder="Allergen needs, delivery windows, how many covers you do a week…"></textarea>
               </label>
@@ -1130,29 +1405,37 @@ select.fld {
               <span class="small" style="max-width:32ch">We’ll only use these details to organise your samples.</span>
               <span id="sample-status" class="sr-only" role="status" aria-live="polite"></span>
             </div>
-          </form>
+
+          </div>
         </div>
 
-        <aside class="sample-aside" aria-label="About your sample request">
-          <div class="aside-card surface-yellow paper reveal">
-            <span class="badge badge-red">Free of charge</span>
-            <h2 class="h3" style="margin-top:16px">What happens next</h2>
-            <ol class="steps">
-              <li><span class="num" aria-hidden="true">1</span><span>We confirm your details and the formats that suit your menu.</span></li>
-              <li><span class="num" aria-hidden="true">2</span><span>Samples ship frozen to your venue, with cook cards.</span></li>
-              <li><span class="num" aria-hidden="true">3</span><span>Optional cookup — we come in and run it with your team.</span></li>
-            </ol>
+        <div class="tray" id="sample-tray" role="region" aria-label="Your sample box" hidden>
+          <div class="wrap tray-inner">
+            <p class="tray-count"><b id="tray-n">0</b> <span id="tray-noun">products</span> in your box</p>
+            <ul class="tray-list" id="tray-list"></ul>
+            <div class="tray-acts">
+              <button type="button" id="tray-clear" class="btn btn-sm btn-ghost">Clear</button>
+              <button type="button" id="tray-go" class="btn btn-sm btn-coral">Finish request <svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
           </div>
-          <div class="aside-card is-white reveal">
-            <h2 class="h3">Not foodservice?</h2>
-            <p class="copy" style="margin-top:10px;font-size:16px">If you cook for yourself, find BUDS in store instead.</p>
-          </div>
-          <div class="tone tone-coral photo reveal">
-            <img src="assets/img/BUDS_NUGGETS_1.png" alt="BUDS Nuggets" loading="lazy" width="600" height="450" />
-          </div>
-        </aside>
+        </div>
 
-      </div>
+      </form>
+
+      <aside class="wrap sample-band" aria-label="About your sample request">
+        <div class="aside-card surface-yellow paper reveal">
+          <span class="badge badge-red">Free of charge</span>
+          <h2 class="h3" style="margin-top:16px">What happens next</h2>
+          <ol class="steps">
+            <li><span class="num" aria-hidden="true">1</span><span>We confirm your details and the formats that suit your menu.</span></li>
+            <li><span class="num" aria-hidden="true">2</span><span>Samples ship frozen to your venue, with cook cards.</span></li>
+            <li><span class="num" aria-hidden="true">3</span><span>Optional cookup — we come in and run it with your team.</span></li>
+          </ol>
+        </div>
+        <div class="tone tone-coral photo reveal">
+          <img src="assets/img/BUDS_NUGGETS_1.png" alt="BUDS Nuggets" loading="lazy" width="600" height="450" />
+        </div>
+      </aside>
     </section>
 
   </main>
@@ -1289,15 +1572,219 @@ select.fld {
       });
     });
 
-    document.querySelectorAll('[data-sample-product]').forEach(function (b) {
-      b.addEventListener('click', function () {
-        var name = b.getAttribute('data-sample-product');
-        var i = chosen.indexOf(name);
-        if (i > -1) { chosen.splice(i, 1); } else { chosen.push(name); }
-        b.setAttribute('aria-pressed', String(i === -1));
-        chosenCount.textContent = chosen.length + ' selected';
+    function icon(id) {
+      var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('aria-hidden', 'true');
+      var use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+      use.setAttribute('href', id);
+      svg.appendChild(use);
+      return svg;
+    }
+
+    /* ---- the sample box --------------------------------------------------
+       One picker doing three jobs: recognise the pack (a photo card, not a
+       SKU name), narrow 32 lines down (search + category), and see what is
+       already in the box without scrolling back up (the tray). `chosen` is
+       the single source of truth — filtering only ever changes what is
+       visible, never what is picked. */
+    var picker = document.getElementById('picker');
+    var cardByName = {};
+    var flagProducts = function () {};
+    var clearProductFlag = function () {};
+    var repaintTray = function () {};
+
+    if (picker) {
+      var cards = Array.prototype.slice.call(picker.querySelectorAll('.pcard'));
+      var bands = Array.prototype.slice.call(picker.querySelectorAll('.pgroup'));
+      var chips = Array.prototype.slice.call(picker.querySelectorAll('.picker-filters .chip'));
+      var search = document.getElementById('product-search');
+      var searchClear = document.getElementById('search-clear');
+      var emptyState = document.getElementById('picker-empty');
+      var resultCount = document.getElementById('picker-result-count');
+      var productsError = document.getElementById('products-error');
+      var pickerTitle = document.getElementById('picker-title');
+      var tray = document.getElementById('sample-tray');
+      var trayList = document.getElementById('tray-list');
+      var trayN = document.getElementById('tray-n');
+      var trayNoun = document.getElementById('tray-noun');
+      var activeCat = 'all';
+
+      cards.forEach(function (c) { cardByName[c.getAttribute('data-sample-product')] = c; });
+
+      var plural = function (n) { return n === 1 ? 'product' : 'products'; };
+
+      var paintCount = function () {
+        chosenCount.textContent = chosen.length
+          ? chosen.length + ' ' + plural(chosen.length) + ' picked'
+          : 'Nothing picked yet';
+        chosenCount.classList.toggle('is-on', chosen.length > 0);
+      };
+
+      var trayChip = function (name) {
+        var card = cardByName[name];
+        var thumb = card ? card.getAttribute('data-thumb') : '';
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'tray-chip';
+        btn.setAttribute('aria-label', 'Remove ' + name + ' from your box');
+
+        var th = document.createElement('span');
+        th.className = 'th';
+        if (thumb) {
+          var img = document.createElement('img');
+          img.src = thumb;
+          img.alt = '';
+          img.loading = 'lazy';
+          th.appendChild(img);
+        }
+        var tx = document.createElement('span');
+        tx.className = 'tx';
+        tx.textContent = name;
+
+        btn.appendChild(th);
+        btn.appendChild(tx);
+        btn.appendChild(icon('#i-close'));
+        btn.addEventListener('click', function () { pick(name, false, btn); });
+        return btn;
+      };
+
+      /* The tray is fixed, so the page has to reserve its real height — a
+         guessed value either leaves a gap or lets the tray sit over the
+         footer and over whatever the keyboard has just focused. */
+      var syncTrayInset = function () {
+        var on = chosen.length > 0;
+        document.body.style.paddingBottom = on ? (tray.offsetHeight + 8) + 'px' : '';
+        document.documentElement.style.scrollPaddingBottom = on ? (tray.offsetHeight + 28) + 'px' : '';
+      };
+
+      var paintTray = function () {
+        var n = chosen.length;
+        trayList.textContent = '';
+        chosen.forEach(function (name) {
+          var li = document.createElement('li');
+          li.appendChild(trayChip(name));
+          trayList.appendChild(li);
+        });
+        trayN.textContent = String(n);
+        trayNoun.textContent = plural(n);
+        document.body.classList.toggle('has-tray', n > 0);
+
+        if (n) {
+          tray.hidden = false;
+          void tray.offsetWidth;              /* paint it off-screen, then slide */
+          tray.classList.add('is-open');
+          trayN.classList.remove('pop');
+          void trayN.offsetWidth;
+          trayN.classList.add('pop');
+        } else {
+          tray.classList.remove('is-open');
+          tray.hidden = true;
+        }
+        syncTrayInset();
+      };
+
+      var insetTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(insetTimer);
+        insetTimer = setTimeout(syncTrayInset, 120);
       });
-    });
+
+      /* Focus has to land somewhere sensible when a chip removes itself. */
+      var pick = function (name, on, from) {
+        var i = chosen.indexOf(name);
+        if (on && i === -1) { chosen.push(name); }
+        if (!on && i > -1) { chosen.splice(i, 1); }
+        var card = cardByName[name];
+        if (card) card.setAttribute('aria-checked', on ? 'true' : 'false');
+        paintCount();
+        paintTray();
+        if (chosen.length) clearProductFlag();
+        if (from && from.classList.contains('tray-chip')) {
+          var next = trayList.querySelector('.tray-chip');
+          if (next) { next.focus(); }
+          else if (card && !card.hidden) { card.focus(); }
+          else { pickerTitle.focus(); }
+        }
+      };
+
+      var applyFilter = function () {
+        var term = (search.value || '').trim().toLowerCase();
+        var shown = 0;
+        bands.forEach(function (band) {
+          var visible = 0;
+          Array.prototype.forEach.call(band.querySelectorAll('.pcard'), function (c) {
+            var show = (activeCat === 'all' || c.getAttribute('data-cat') === activeCat) &&
+                       (!term || c.getAttribute('data-search').indexOf(term) > -1);
+            c.hidden = !show;
+            if (show) visible++;
+          });
+          band.hidden = visible === 0;
+          shown += visible;
+        });
+        emptyState.hidden = shown > 0;
+        searchClear.hidden = !term;
+        resultCount.textContent = shown
+          ? shown + ' ' + plural(shown) + ' shown'
+          : 'No products match your search';
+      };
+
+      cards.forEach(function (c) {
+        c.addEventListener('click', function () {
+          pick(c.getAttribute('data-sample-product'), c.getAttribute('aria-checked') !== 'true', c);
+        });
+      });
+
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          activeCat = chip.getAttribute('data-cat');
+          chips.forEach(function (o) { o.setAttribute('aria-pressed', String(o === chip)); });
+          applyFilter();
+        });
+      });
+
+      search.addEventListener('input', applyFilter);
+      search.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && search.value) { e.preventDefault(); search.value = ''; applyFilter(); }
+      });
+      searchClear.addEventListener('click', function () { search.value = ''; applyFilter(); search.focus(); });
+
+      document.getElementById('picker-reset').addEventListener('click', function () {
+        search.value = '';
+        activeCat = 'all';
+        chips.forEach(function (o) { o.setAttribute('aria-pressed', String(o.getAttribute('data-cat') === 'all')); });
+        applyFilter();
+        search.focus();
+      });
+
+      document.getElementById('tray-clear').addEventListener('click', function () {
+        chosen.slice().forEach(function (name) {
+          var c = cardByName[name];
+          if (c) c.setAttribute('aria-checked', 'false');
+        });
+        chosen.length = 0;
+        paintCount();
+        paintTray();
+        pickerTitle.focus();
+      });
+
+      document.getElementById('tray-go').addEventListener('click', function () {
+        var submit = document.getElementById('sample-submit');
+        submit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        submit.focus({ preventScroll: true });
+      });
+
+      flagProducts = function (move) {
+        productsError.hidden = false;
+        if (move) {
+          productsError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          pickerTitle.focus({ preventScroll: true });
+        }
+      };
+      clearProductFlag = function () { productsError.hidden = true; };
+      repaintTray = paintTray;
+
+      paintCount();
+    }
 
     /* clear invalid state as soon as the user edits a field */
     ['f-first', 'f-last', 'f-email', 'f-company', 'f-region', 'f-city'].forEach(function (id) {
@@ -1416,14 +1903,31 @@ select.fld {
     function showSent(data) {
       document.getElementById('sent-name').textContent = data.firstName;
       var wrap = document.getElementById('sent-products');
-      wrap.innerHTML = '';
-      data.products.forEach(function (c, i) {
-        var tag = document.createElement('span');
-        tag.className = 'tag' + (i % 2 ? ' tag-yellow' : '');
-        tag.textContent = c;
-        wrap.appendChild(tag);
+      wrap.textContent = '';
+      data.products.forEach(function (name) {
+        var card = cardByName[name];
+        var thumb = card ? card.getAttribute('data-thumb') : '';
+        var chip = document.createElement('span');
+        chip.className = 'sent-chip';
+        var th = document.createElement('span');
+        th.className = 'th';
+        if (thumb) {
+          var img = document.createElement('img');
+          img.src = thumb;
+          img.alt = '';
+          img.loading = 'lazy';
+          th.appendChild(img);
+        }
+        var tx = document.createElement('span');
+        tx.textContent = name;
+        chip.appendChild(th);
+        chip.appendChild(tx);
+        wrap.appendChild(chip);
       });
       sampleForm.hidden = true;
+      document.body.classList.remove('has-tray');
+      document.body.style.paddingBottom = '';
+      document.documentElement.style.scrollPaddingBottom = '';
       sentPanel.hidden = false;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1444,18 +1948,26 @@ select.fld {
 
       var bad = Object.keys(REQUIRED).filter(function (id) { return !checkField(id); });
       var missing = bad.map(function (id) { return REQUIRED[id].label.toLowerCase(); });
-      if (!chosen.length) missing.push('at least one product');
+      var noProducts = !chosen.length;
+      if (noProducts) missing.push('at least one product');
 
+      /* Send the visitor to the one place that needs them, not to two competing
+         scroll targets: the summary when fields are wrong, the picker when the
+         box is simply empty. */
       if (missing.length) {
+        var fieldsBad = bad.length > 0;
         errorText.textContent = 'Still needed: ' + missing.join(', ') + '.';
-        errorBox.hidden = false;
-        errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        errorBox.focus({ preventScroll: true });
-        if (bad.length) document.getElementById(bad[0]).focus({ preventScroll: true });
+        errorBox.hidden = !fieldsBad;
+        if (noProducts) flagProducts(!fieldsBad);
+        if (fieldsBad) {
+          errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          document.getElementById(bad[0]).focus({ preventScroll: true });
+        }
         return;
       }
 
       errorBox.hidden = true;
+      clearProductFlag();
       var data = payload();
       var button = document.getElementById('sample-submit');
       var status = document.getElementById('sample-status');
@@ -1500,6 +2012,7 @@ select.fld {
         sentPanel.hidden = true;
         sampleForm.hidden = false;
         errorBox.hidden = true;
+        repaintTray();
         document.getElementById('f-first').focus();
       });
     }
