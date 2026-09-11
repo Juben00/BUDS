@@ -1,15 +1,5 @@
-# Line endings: keep the source as LF so Windows checkouts do not rewrite
-# every file and produce noise in diffs.
 * text=auto eol=lf
 
-# NOTE: assets/video/*.mp4 is deliberately NOT tracked by Git LFS.
-# GitHub Pages does not resolve LFS objects — it serves the pointer file
-# verbatim, so an LFS-tracked video plays as a 133-byte text file on the live
-# site. assets/video/LOVE-BUDS.mp4 is embedded in about-us.html, so it has to
-# be a real blob in the repo.
-#
-# If the videos ever move to object storage (Cloudflare R2 or similar), drop
-# them from the repo entirely rather than re-enabling LFS here.
 *.mp4 -text
 *.jpg -text
 *.jpeg -text

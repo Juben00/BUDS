@@ -1,6 +1,3 @@
-/* SMTP transport for sample requests.
-   Credentials come from the environment and never leave the server.
-   Message rendering lives in templates/sample-request.js. */
 'use strict';
 
 const nodemailer = require('nodemailer');
@@ -14,8 +11,6 @@ const required = (name) => {
 
 let transport;
 
-/* Built once, lazily, so importing this file never throws before config
-   is loaded. */
 function getTransport() {
   if (transport) return transport;
   transport = nodemailer.createTransport({
@@ -38,8 +33,6 @@ async function sendSampleRequest(data) {
     html,
   };
 
-  /* Let the team hit reply and reach the venue directly. The address has
-     already been validated and stripped of line breaks. */
   if (String(process.env.REPLY_TO_SUBMITTER).toLowerCase() === 'true') {
     message.replyTo = `${data.firstName} ${data.lastName} <${data.email}>`;
   }
@@ -48,7 +41,6 @@ async function sendSampleRequest(data) {
   return info.messageId;
 }
 
-/* Fails fast at boot with a clear message instead of at the first submission. */
 async function verifyTransport() {
   await getTransport().verify();
 }

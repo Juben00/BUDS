@@ -1,7 +1,3 @@
-/* Internal notification for a sample request.
-   Email clients are not browsers: this is table-based with inline styles, a
-   600px shell, and no web fonts, flexbox or grid — Outlook renders none of
-   them. Every interpolated value is attacker-controlled and gets escaped. */
 'use strict';
 
 const escapeHtml = (value) => String(value)
@@ -11,8 +7,6 @@ const escapeHtml = (value) => String(value)
   .replace(/"/g, '&quot;')
   .replace(/'/g, '&#39;');
 
-/* Anton is the brand display face but no mail client will load it; this stack
-   degrades to a condensed system face and finally to the default sans. */
 const DISPLAY = "'Haettenschweiler','Arial Narrow',Impact,Charcoal,sans-serif";
 const BODY = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
 
@@ -22,7 +16,6 @@ const C = {
   body: '#3B4262', white: '#FFFFFF',
 };
 
-/* Ordered so the team can act from the first screen: who, where, what. */
 const CONTACT_FIELDS = [
   ['email', 'Email'], ['phone', 'Phone'], ['iAmA', 'They are a'],
 ];
@@ -46,7 +39,6 @@ function detailRows(data, fields) {
     .join('');
 }
 
-/* Product chips as a table: floated/inline-block pills collapse in Outlook. */
 function productChips(products) {
   return products.map((p) => `
               <td style="padding:0 8px 8px 0" valign="top">
@@ -61,7 +53,6 @@ function renderSampleRequest(data) {
   const where = [data.city, data.region].filter(Boolean).join(', ');
   const subject = `Sample request — ${data.company}${where ? ` (${where})` : ''}`;
 
-  /* Shown in the inbox preview line, after the subject. */
   const preheader = `${name} at ${data.company} — ${data.products.length} product${data.products.length === 1 ? '' : 's'}`;
 
   const html = `<!doctype html>
@@ -163,8 +154,6 @@ function renderSampleRequest(data) {
 </body>
 </html>`;
 
-  /* Plain-text alternative. Not optional: some clients show only this, and
-     a missing text part pushes spam scores up. */
   const line = (label, value) => `${label}: ${value}`;
   const textParts = [
     'NEW SAMPLE REQUEST',

@@ -74,8 +74,3 @@ Add the site's origin to `ALLOWED_ORIGINS` or the browser will block the POST.
 
 Any Node host works — Render, Railway, Fly.io, a VPS. Set the same variables as
 environment config rather than shipping a `.env` file.
-
-If you move the site to Cloudflare Pages (worth considering — it also resolves
-the Git LFS problem with the videos), this can become a Pages Function instead.
-The validation logic ports as-is; swap `mailer.js` for an HTTP call to a
-transactional email API, since Workers cannot open raw SMTP connections.

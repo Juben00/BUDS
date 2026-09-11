@@ -9,15 +9,6 @@
 <link rel="icon" href="assets/img/favicon.ico" sizes="any" />
 <link rel="stylesheet" href="assets/fonts/fonts.css" />
 <style>
-/* ==========================================================================
-   Love BUDS — shared design system
-   Colour roles mirror welovebuds.com:
-     navy   #224289  headings, wordmark "LOVE", body ink
-     red    #DE1F35  wordmark "BUDS", active nav, text links, social squares
-     coral  #F3817D  filled CTA buttons, hero label blocks, hairline rules
-     yellow / orange  photography backdrops and promo bands
-   Type: Anton (display, uppercase) + Figtree (body)
-   ========================================================================== */
 
 :root {
   --red: #DE1F35;
@@ -64,8 +55,6 @@
   --gutter: 32px;
   --section: clamp(80px, 10vw, 128px);
 
-  /* Hero banner band. Every .has-banner hero resolves to this one height so
-     the full-bleed banner plates line up page to page, whatever the copy. */
   --banner-h: 640px;
   --banner-pad-t: 56px;
   --banner-pad-b: 48px;
@@ -73,9 +62,6 @@
   --paper: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* --------------------------------------------------------------------------
-   Base
-   -------------------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 html, body { margin: 0; padding: 0; background: var(--white); }
@@ -119,9 +105,6 @@ p { margin: 0; }
 .section { padding-top: var(--section); padding-bottom: var(--section); }
 .section-tight { padding-top: calc(var(--section) * 0.6); padding-bottom: calc(var(--section) * 0.6); }
 
-/* --------------------------------------------------------------------------
-   Typography
-   -------------------------------------------------------------------------- */
 .display, .h1, .h2, .h3, .h4 {
   font-family: var(--font-display);
   font-weight: 400;
@@ -144,7 +127,6 @@ p { margin: 0; }
 .mark-yellow { color: var(--yellow); }
 .mark-white { color: #fff; }
 
-/* Block highlight, echoing the coral hero label on the live site */
 .block {
   display: inline-block;
   padding: 0.02em 0.22em 0.08em;
@@ -158,14 +140,10 @@ p { margin: 0; }
 .block-yellow { background: var(--yellow); color: var(--navy-deep); }
 .block-navy { background: var(--navy); color: #fff; }
 
-/* Section title rows: heading + optional action, no eyebrow labels */
 .title-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
 .title-row .lede { margin-top: 18px; }
 .h1 + .lede, .h2 + .lede, .h2 + .copy, .h3 + .copy { margin-top: 18px; }
 
-/* --------------------------------------------------------------------------
-   Header
-   -------------------------------------------------------------------------- */
 .site-header {
   position: sticky; top: 0; z-index: 60;
   background: rgba(255, 255, 255, 0.94);
@@ -210,9 +188,6 @@ p { margin: 0; }
 .nav-toggle[aria-expanded="true"] .ico-close { display: block; }
 .nav-toggle[aria-expanded="true"] .ico-menu { display: none; }
 
-/* --------------------------------------------------------------------------
-   Buttons & links
-   -------------------------------------------------------------------------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   font-family: var(--font-display); font-weight: 400; font-size: 18px; letter-spacing: 0.05em; text-transform: uppercase;
@@ -251,9 +226,6 @@ p { margin: 0; }
 .link-arrow.on-dark { color: var(--yellow); }
 .link-arrow.on-dark:hover { color: #fff; }
 
-/* --------------------------------------------------------------------------
-   Chips, pills, quick buttons, fields
-   -------------------------------------------------------------------------- */
 .chip {
   background: #fff; border: 2px solid var(--navy-200); color: var(--navy);
   font-family: var(--font-display); font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase;
@@ -306,9 +278,6 @@ select.fld {
 .field > span { font-size: 14px; font-weight: 700; color: var(--ink); }
 .field .hint { font-size: 13px; font-weight: 500; color: var(--muted); }
 
-/* --------------------------------------------------------------------------
-   Surfaces
-   -------------------------------------------------------------------------- */
 .paper { position: relative; isolation: isolate; }
 .paper::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
@@ -335,7 +304,6 @@ select.fld {
 .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--coral); }
 .card-btn { display: block; width: 100%; text-align: left; font: inherit; color: inherit; padding: 0; cursor: pointer; }
 
-/* Product / recipe card image tones (rotating colour backdrops as on the live site) */
 .tone { position: relative; overflow: hidden; }
 .tone img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease-out); }
 .card:hover .tone img { transform: scale(1.04); }
@@ -379,7 +347,6 @@ select.fld {
 .note-success { background: #E7F6EC; border-color: #35A853; color: #14532D; }
 .note-success svg { color: #1E8E3E; }
 
-/* Sticker – a rotated circular label */
 .sticker {
   display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
   width: 128px; height: 128px; border-radius: 50%;
@@ -394,7 +361,6 @@ select.fld {
 .sticker-navy { background: var(--navy); color: #fff; }
 .sticker-coral { background: var(--coral); color: var(--navy-deep); }
 
-/* Marquee strip */
 .marquee { overflow: hidden; white-space: nowrap; }
 .marquee-track { display: inline-flex; gap: 0; animation: budsMarquee 32s linear infinite; }
 .marquee-item {
@@ -405,16 +371,12 @@ select.fld {
 .marquee:hover .marquee-track { animation-play-state: paused; }
 @keyframes budsMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* Icons */
 .ico { width: 24px; height: 24px; flex-shrink: 0; }
 .ico-box {
   width: 52px; height: 52px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .ico-box svg { width: 26px; height: 26px; }
 
-/* --------------------------------------------------------------------------
-   Footer
-   -------------------------------------------------------------------------- */
 .site-footer { margin-top: var(--section); border-top: 3px solid var(--coral); background: #fff; }
 .site-footer .cols { display: grid; grid-template-columns: 1.4fr 0.8fr 0.8fr 1.4fr; gap: 48px; padding-top: 72px; }
 .site-footer .col-title { font-family: var(--font-display); font-size: 20px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); }
@@ -437,9 +399,6 @@ select.fld {
 .site-footer .legal a { color: var(--muted); font-weight: 600; }
 .site-footer .legal a:hover { color: var(--red); }
 
-/* --------------------------------------------------------------------------
-   Modal
-   -------------------------------------------------------------------------- */
 .modal {
   position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; padding: 24px;
   background: rgba(23, 34, 74, 0.62); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
@@ -466,9 +425,6 @@ select.fld {
 .nutrition .lab { font-size: 12.5px; font-weight: 700; color: #5C4A00; margin-top: 4px; }
 @keyframes budsPop { from { opacity: 0; transform: translateY(18px) scale(0.98); } to { opacity: 1; transform: none; } }
 
-/* --------------------------------------------------------------------------
-   Motion
-   -------------------------------------------------------------------------- */
 @keyframes budsFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-14px) rotate(1.2deg); } }
 @keyframes budsRise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
 @keyframes budsSpin { to { transform: rotate(360deg); } }
@@ -501,9 +457,6 @@ select.fld {
   .marquee-track { animation: none; }
 }
 
-/* --------------------------------------------------------------------------
-   Responsive
-   -------------------------------------------------------------------------- */
 @media (max-width: 1040px) {
   .site-footer .cols { grid-template-columns: 1fr 1fr; gap: 40px; }
   [data-r="split"] { grid-template-columns: 1fr !important; }
@@ -538,11 +491,6 @@ select.fld {
   .sticker .big { font-size: 26px; }
 }
 
-/* ==========================================================================
-   Page sections (shared across pages)
-   ========================================================================== */
-
-/* Home hero */
 .hero { overflow: hidden; }
 .hero .wrap { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 48px; align-items: center; padding-top: var(--banner-pad-t); padding-bottom: var(--banner-pad-b); min-height: var(--banner-h); }
 .hero .h1 { max-width: 11ch; font-size: clamp(52px, 7vw, 96px); }
@@ -565,7 +513,6 @@ select.fld {
 .float-card.fc-b { right: 0; top: 40px; transform: rotate(3deg); animation: budsRise 0.9s var(--ease-out) 0.7s both; }
 .hero-visual .sticker { position: absolute; right: -8px; bottom: 24px; animation: budsRise 0.9s var(--ease-out) 0.9s both; }
 
-/* Why strip */
 .why { border-bottom: 2px solid var(--coral); }
 .why .grid { display: grid; grid-template-columns: repeat(4, 1fr); }
 .why .item { display: flex; align-items: center; gap: 16px; padding: 30px 28px 30px 0; border-right: 2px solid var(--coral-200); margin-right: 28px; }
@@ -574,7 +521,6 @@ select.fld {
 .why .item .h4 { color: var(--navy); }
 .why .item .small { margin-top: 3px; color: var(--muted); }
 
-/* Product cards */
 .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
 .product-card .tone { aspect-ratio: 4 / 3; }
 .product-card .body { padding: 24px 24px 22px; }
@@ -589,7 +535,6 @@ select.fld {
 .product-card .foot .go svg { width: 18px; height: 18px; }
 .product-card:hover .foot .go { background: var(--red); color: #fff; transform: translateX(4px); }
 
-/* Recipe cards */
 .recipe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
 .recipe-card { color: inherit; }
 .recipe-card .tone { aspect-ratio: 3 / 2; }
@@ -601,7 +546,6 @@ select.fld {
 .recipe-card .times svg { width: 17px; height: 17px; color: var(--red); }
 .recipe-card .serves { position: absolute; right: 14px; bottom: 14px; }
 
-/* Promo band (sausage) */
 .promo { overflow: hidden; }
 .promo .wrap { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: center; padding-top: 64px; padding-bottom: 64px; }
 .promo .h2 { color: var(--navy-deep); font-size: clamp(52px, 7vw, 108px); line-height: 0.88; }
@@ -617,7 +561,6 @@ select.fld {
 }
 .promo-visual .bubble::after { content: ""; position: absolute; left: 22px; bottom: -10px; width: 26px; height: 26px; background: #fff; clip-path: polygon(0 0, 100% 0, 30% 100%); }
 
-/* Stockists */
 .stockists-card { background: #fff; border: 2px solid var(--line); border-radius: var(--radius-xl); overflow: hidden; display: grid; grid-template-columns: 1fr 0.85fr; box-shadow: var(--shadow); }
 .stockists-card .panel { padding: 48px 44px; }
 .stockists-card .h2 { font-size: clamp(38px, 4vw, 52px); }
@@ -650,7 +593,6 @@ select.fld {
 .map-pin .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--red); border: 3px solid #fff; box-shadow: 0 3px 8px rgba(23, 34, 74, 0.3); margin: 6px auto 0; }
 .map .map-note { position: absolute; left: 20px; right: 20px; bottom: 20px; }
 
-/* About split */
 .about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .about .stats { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 34px; }
 .about .stats .sticker:nth-child(2) { transform: rotate(-6deg); }
@@ -660,12 +602,10 @@ select.fld {
 .about-visual .frame img, .about-visual .frame video { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 .about-visual .backdrop { position: absolute; inset: 8% -4% -6% 6%; border-radius: var(--radius-xl); z-index: -1; transform: rotate(-3deg); }
 
-/* CTA band */
 .cta-band .wrap { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 40px; align-items: center; padding-top: 72px; padding-bottom: 72px; }
 .cta-band .actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
 .cta-band .lede { margin-top: 16px; }
 
-/* Inner page hero (colored header) */
 .page-hero { overflow: hidden; }
 .page-hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; padding-top: var(--banner-pad-t); padding-bottom: var(--banner-pad-b); min-height: var(--banner-h); }
 .page-hero .h1 { font-size: clamp(52px, 7vw, 96px); }
@@ -674,7 +614,6 @@ select.fld {
 .page-hero-art img { width: min(420px, 100%); filter: drop-shadow(0 26px 30px rgba(23, 34, 74, 0.28)); animation: budsFloat 7s ease-in-out infinite; }
 .page-hero-art .sticker { position: absolute; left: 6%; bottom: 0; }
 
-/* Table */
 .table { border: 2px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; margin-top: 36px; }
 .table-row { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.6fr; gap: 16px; padding: 16px 24px; border-bottom: 2px solid var(--line); align-items: center; }
 .table-row:last-child { border-bottom: 0; }
@@ -684,7 +623,6 @@ select.fld {
 .table-row .num { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--body); }
 .table-row .protein { font-family: var(--font-display); font-size: 20px; color: var(--red); }
 
-/* Forms */
 .form-card { background: #fff; border: 2px solid var(--line); border-radius: var(--radius-xl); box-shadow: var(--shadow); padding: 44px 42px; }
 .form-section { margin-top: 40px; }
 .form-section:first-of-type { margin-top: 0; }
@@ -696,8 +634,6 @@ select.fld {
 .steps { display: flex; flex-direction: column; gap: 18px; margin: 22px 0 0; padding: 0; list-style: none; }
 .steps li { display: flex; gap: 14px; align-items: flex-start; }
 .steps .num { width: 28px; height: 28px; border-radius: 50%; background: var(--yellow); color: var(--navy-deep); font-family: var(--font-display); font-size: 15px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
-
-/* Newsletter */
 
 @media (max-width: 1040px) {
   .hero .wrap { grid-template-columns: 1fr; }
@@ -741,12 +677,6 @@ select.fld {
   .promo-visual .bubble { width: 120px; height: 120px; font-size: 14px; top: -10px; }
 }
 
-
-/* Hero banner artwork -------------------------------------------------------
-   The live BUDS website banner plates (the text-free V1-V4 hero masters) sit
-   full-bleed behind the hero; the page keeps its own headline and copy on top.
-   The scrim is the banner's own paper colour, so the copy holds its contrast
-   wherever the image crops. */
 .has-banner > .banner-art { position: absolute; inset: 0 var(--banner-pull, -15%) 0 0; z-index: -2; overflow: hidden; }
 .has-banner > .banner-art img { width: 100%; height: 100%; object-fit: cover; object-position: 0% 38%; display: block; }
 .has-banner > .banner-art::after {
@@ -754,7 +684,6 @@ select.fld {
   background: linear-gradient(94deg, var(--banner-paper) 0 30%, var(--banner-fade) 66%);
 }
 @media (max-width: 1040px) {
-  /* Stacked: no pull; copy sits on solid paper, the food shows below it. */
   .has-banner > .banner-art { --banner-pull: 0px; }
   .has-banner > .banner-art img { object-position: 50% 34%; }
   .has-banner > .banner-art::after { background: linear-gradient(180deg, var(--banner-paper) 0 58%, var(--banner-fade) 88%); }
@@ -763,7 +692,6 @@ select.fld {
 
 </style>
 <style>
-  /* page-only tweaks */
   .surface-red .h1 { color: #fff; }
   .surface-red .lede { color: #FFE4E1; }
   .surface-red .block-yellow { box-shadow: 0 6px 0 rgba(23, 34, 74, 0.22); }
@@ -838,7 +766,6 @@ select.fld {
 
   <main id="main">
 
-    <!-- Page hero -------------------------------------------------------- -->
     <section class="page-hero surface-red paper has-banner" style="--banner-paper:#1F4588;--banner-fade:#1F458800" aria-labelledby="about-hero-title">
       <div class="banner-art">
         <img src="assets/banners/_hero/hero-burger-navy.jpg" alt="A Love BUDS plant-based burger stacked with cheese, tomato, pickles and lettuce" width="1914" height="789" fetchpriority="high" />
@@ -864,7 +791,6 @@ select.fld {
       </div>
     </div>
 
-    <!-- Our story -------------------------------------------------------- -->
     <section class="section about" aria-labelledby="story-title">
       <div class="wrap">
         <div class="reveal">
@@ -886,8 +812,6 @@ select.fld {
       </div>
     </section>
 
-
-    <!-- Gallery ---------------------------------------------------------- -->
     <section class="section surface-cream" aria-labelledby="gallery-title">
       <div class="wrap">
         <h2 id="gallery-title" class="h2 reveal">Feast <span class="mark-red">your eyes</span></h2>
@@ -902,7 +826,6 @@ select.fld {
       </div>
     </section>
 
-    <!-- Let’s get naked -------------------------------------------------- -->
     <section class="section" aria-labelledby="naked-title">
       <div class="wrap">
         <div class="naked-panel surface-coral paper reveal">
@@ -917,7 +840,6 @@ select.fld {
 
   </main>
 
-  <!-- Footer ------------------------------------------------------------ -->
   <footer class="site-footer">
     <div class="wrap">
       <div class="cols">
@@ -981,12 +903,10 @@ select.fld {
 </div>
 
 <script>
-/* Love BUDS — shared behaviour: mobile nav, scroll reveals */
 (function () {
   'use strict';
   document.documentElement.classList.add('js');
 
-  /* ---- mobile navigation ------------------------------------------- */
   var toggle = document.querySelector('[data-nav-toggle]');
   var nav = document.getElementById('primary-nav');
   if (toggle && nav) {
@@ -1009,7 +929,30 @@ select.fld {
     });
   }
 
-  /* ---- scroll reveals ---------------------------------------------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.marquee-track'), function (track) {
+    var set = Array.prototype.slice.call(track.children, 0, track.children.length / 2);
+    var baseDuration = parseFloat(getComputedStyle(track).animationDuration) || 32;
+    var sets = 2;
+    function fill() {
+      var setWidth = track.scrollWidth / sets;
+      if (!setWidth) return;
+      var perHalf = Math.max(1, Math.ceil(track.parentNode.clientWidth / setWidth));
+      if (perHalf * 2 !== sets) {
+        var frag = document.createDocumentFragment();
+        for (var i = 0; i < perHalf * 2; i++) {
+          set.forEach(function (item) { frag.appendChild(item.cloneNode(true)); });
+        }
+        track.textContent = '';
+        track.appendChild(frag);
+        sets = perHalf * 2;
+      }
+      track.style.animationDuration = (baseDuration * perHalf) + 's';
+    }
+    fill();
+    window.addEventListener('resize', fill);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fill);
+  });
+
   var targets = document.querySelectorAll('.reveal, .reveal-stagger');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!targets.length) return;

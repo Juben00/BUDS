@@ -9,15 +9,6 @@
 <link rel="icon" href="assets/img/favicon.ico" sizes="any" />
 <link rel="stylesheet" href="assets/fonts/fonts.css" />
 <style>
-/* ==========================================================================
-   Love BUDS — shared design system
-   Colour roles mirror welovebuds.com:
-     navy   #224289  headings, wordmark "LOVE", body ink
-     red    #DE1F35  wordmark "BUDS", active nav, text links, social squares
-     coral  #F3817D  filled CTA buttons, hero label blocks, hairline rules
-     yellow / orange  photography backdrops and promo bands
-   Type: Anton (display, uppercase) + Figtree (body)
-   ========================================================================== */
 
 :root {
   --red: #DE1F35;
@@ -64,8 +55,6 @@
   --gutter: 32px;
   --section: clamp(80px, 10vw, 128px);
 
-  /* Hero banner band. Every .has-banner hero resolves to this one height so
-     the full-bleed banner plates line up page to page, whatever the copy. */
   --banner-h: 640px;
   --banner-pad-t: 56px;
   --banner-pad-b: 48px;
@@ -73,9 +62,6 @@
   --paper: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* --------------------------------------------------------------------------
-   Base
-   -------------------------------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 html, body { margin: 0; padding: 0; background: var(--white); }
@@ -119,9 +105,6 @@ p { margin: 0; }
 .section { padding-top: var(--section); padding-bottom: var(--section); }
 .section-tight { padding-top: calc(var(--section) * 0.6); padding-bottom: calc(var(--section) * 0.6); }
 
-/* --------------------------------------------------------------------------
-   Typography
-   -------------------------------------------------------------------------- */
 .display, .h1, .h2, .h3, .h4 {
   font-family: var(--font-display);
   font-weight: 400;
@@ -144,7 +127,6 @@ p { margin: 0; }
 .mark-yellow { color: var(--yellow); }
 .mark-white { color: #fff; }
 
-/* Block highlight, echoing the coral hero label on the live site */
 .block {
   display: inline-block;
   padding: 0.02em 0.22em 0.08em;
@@ -158,14 +140,10 @@ p { margin: 0; }
 .block-yellow { background: var(--yellow); color: var(--navy-deep); }
 .block-navy { background: var(--navy); color: #fff; }
 
-/* Section title rows: heading + optional action, no eyebrow labels */
 .title-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
 .title-row .lede { margin-top: 18px; }
 .h1 + .lede, .h2 + .lede, .h2 + .copy, .h3 + .copy { margin-top: 18px; }
 
-/* --------------------------------------------------------------------------
-   Header
-   -------------------------------------------------------------------------- */
 .site-header {
   position: sticky; top: 0; z-index: 60;
   background: rgba(255, 255, 255, 0.94);
@@ -210,9 +188,6 @@ p { margin: 0; }
 .nav-toggle[aria-expanded="true"] .ico-close { display: block; }
 .nav-toggle[aria-expanded="true"] .ico-menu { display: none; }
 
-/* --------------------------------------------------------------------------
-   Buttons & links
-   -------------------------------------------------------------------------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   font-family: var(--font-display); font-weight: 400; font-size: 18px; letter-spacing: 0.05em; text-transform: uppercase;
@@ -251,9 +226,6 @@ p { margin: 0; }
 .link-arrow.on-dark { color: var(--yellow); }
 .link-arrow.on-dark:hover { color: #fff; }
 
-/* --------------------------------------------------------------------------
-   Chips, pills, quick buttons, fields
-   -------------------------------------------------------------------------- */
 .chip {
   background: #fff; border: 2px solid var(--navy-200); color: var(--navy);
   font-family: var(--font-display); font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase;
@@ -306,9 +278,6 @@ select.fld {
 .field > span { font-size: 14px; font-weight: 700; color: var(--ink); }
 .field .hint { font-size: 13px; font-weight: 500; color: var(--muted); }
 
-/* --------------------------------------------------------------------------
-   Surfaces
-   -------------------------------------------------------------------------- */
 .paper { position: relative; isolation: isolate; }
 .paper::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
@@ -335,7 +304,6 @@ select.fld {
 .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--coral); }
 .card-btn { display: block; width: 100%; text-align: left; font: inherit; color: inherit; padding: 0; cursor: pointer; }
 
-/* Product / recipe card image tones (rotating colour backdrops as on the live site) */
 .tone { position: relative; overflow: hidden; }
 .tone img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease-out); }
 .card:hover .tone img { transform: scale(1.04); }
@@ -379,7 +347,6 @@ select.fld {
 .note-success { background: #E7F6EC; border-color: #35A853; color: #14532D; }
 .note-success svg { color: #1E8E3E; }
 
-/* Sticker – a rotated circular label */
 .sticker {
   display: inline-flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
   width: 128px; height: 128px; border-radius: 50%;
@@ -394,7 +361,6 @@ select.fld {
 .sticker-navy { background: var(--navy); color: #fff; }
 .sticker-coral { background: var(--coral); color: var(--navy-deep); }
 
-/* Marquee strip */
 .marquee { overflow: hidden; white-space: nowrap; }
 .marquee-track { display: inline-flex; gap: 0; animation: budsMarquee 32s linear infinite; }
 .marquee-item {
@@ -405,16 +371,12 @@ select.fld {
 .marquee:hover .marquee-track { animation-play-state: paused; }
 @keyframes budsMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* Icons */
 .ico { width: 24px; height: 24px; flex-shrink: 0; }
 .ico-box {
   width: 52px; height: 52px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .ico-box svg { width: 26px; height: 26px; }
 
-/* --------------------------------------------------------------------------
-   Footer
-   -------------------------------------------------------------------------- */
 .site-footer { margin-top: var(--section); border-top: 3px solid var(--coral); background: #fff; }
 .site-footer .cols { display: grid; grid-template-columns: 1.4fr 0.8fr 0.8fr 1.4fr; gap: 48px; padding-top: 72px; }
 .site-footer .col-title { font-family: var(--font-display); font-size: 20px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy); }
@@ -437,9 +399,6 @@ select.fld {
 .site-footer .legal a { color: var(--muted); font-weight: 600; }
 .site-footer .legal a:hover { color: var(--red); }
 
-/* --------------------------------------------------------------------------
-   Modal
-   -------------------------------------------------------------------------- */
 .modal {
   position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; padding: 24px;
   background: rgba(23, 34, 74, 0.62); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
@@ -466,9 +425,6 @@ select.fld {
 .nutrition .lab { font-size: 12.5px; font-weight: 700; color: #5C4A00; margin-top: 4px; }
 @keyframes budsPop { from { opacity: 0; transform: translateY(18px) scale(0.98); } to { opacity: 1; transform: none; } }
 
-/* --------------------------------------------------------------------------
-   Motion
-   -------------------------------------------------------------------------- */
 @keyframes budsFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-14px) rotate(1.2deg); } }
 @keyframes budsRise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
 @keyframes budsSpin { to { transform: rotate(360deg); } }
@@ -501,9 +457,6 @@ select.fld {
   .marquee-track { animation: none; }
 }
 
-/* --------------------------------------------------------------------------
-   Responsive
-   -------------------------------------------------------------------------- */
 @media (max-width: 1040px) {
   .site-footer .cols { grid-template-columns: 1fr 1fr; gap: 40px; }
   [data-r="split"] { grid-template-columns: 1fr !important; }
@@ -538,11 +491,6 @@ select.fld {
   .sticker .big { font-size: 26px; }
 }
 
-/* ==========================================================================
-   Page sections (shared across pages)
-   ========================================================================== */
-
-/* Home hero */
 .hero { overflow: hidden; }
 .hero .wrap { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 48px; align-items: center; padding-top: var(--banner-pad-t); padding-bottom: var(--banner-pad-b); min-height: var(--banner-h); }
 .hero .h1 { max-width: 11ch; font-size: clamp(52px, 7vw, 96px); }
@@ -565,7 +513,6 @@ select.fld {
 .float-card.fc-b { right: 0; top: 40px; transform: rotate(3deg); animation: budsRise 0.9s var(--ease-out) 0.7s both; }
 .hero-visual .sticker { position: absolute; right: -8px; bottom: 24px; animation: budsRise 0.9s var(--ease-out) 0.9s both; }
 
-/* Why strip */
 .why { border-bottom: 2px solid var(--coral); }
 .why .grid { display: grid; grid-template-columns: repeat(4, 1fr); }
 .why .item { display: flex; align-items: center; gap: 16px; padding: 30px 28px 30px 0; border-right: 2px solid var(--coral-200); margin-right: 28px; }
@@ -574,7 +521,6 @@ select.fld {
 .why .item .h4 { color: var(--navy); }
 .why .item .small { margin-top: 3px; color: var(--muted); }
 
-/* Product cards */
 .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
 .product-card .tone { aspect-ratio: 4 / 3; }
 .product-card .body { padding: 24px 24px 22px; }
@@ -589,7 +535,6 @@ select.fld {
 .product-card .foot .go svg { width: 18px; height: 18px; }
 .product-card:hover .foot .go { background: var(--red); color: #fff; transform: translateX(4px); }
 
-/* Recipe cards */
 .recipe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
 .recipe-card { color: inherit; }
 .recipe-card .tone { aspect-ratio: 3 / 2; }
@@ -601,7 +546,6 @@ select.fld {
 .recipe-card .times svg { width: 17px; height: 17px; color: var(--red); }
 .recipe-card .serves { position: absolute; right: 14px; bottom: 14px; }
 
-/* Promo band (sausage) */
 .promo { overflow: hidden; }
 .promo .wrap { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: center; padding-top: 64px; padding-bottom: 64px; }
 .promo .h2 { color: var(--navy-deep); font-size: clamp(52px, 7vw, 108px); line-height: 0.88; }
@@ -617,7 +561,6 @@ select.fld {
 }
 .promo-visual .bubble::after { content: ""; position: absolute; left: 22px; bottom: -10px; width: 26px; height: 26px; background: #fff; clip-path: polygon(0 0, 100% 0, 30% 100%); }
 
-/* Stockists */
 .stockists-card { background: #fff; border: 2px solid var(--line); border-radius: var(--radius-xl); overflow: hidden; display: grid; grid-template-columns: 1fr 0.85fr; box-shadow: var(--shadow); }
 .stockists-card .panel { padding: 48px 44px; }
 .stockists-card .h2 { font-size: clamp(38px, 4vw, 52px); }
@@ -650,7 +593,6 @@ select.fld {
 .map-pin .dot { width: 16px; height: 16px; border-radius: 50%; background: var(--red); border: 3px solid #fff; box-shadow: 0 3px 8px rgba(23, 34, 74, 0.3); margin: 6px auto 0; }
 .map .map-note { position: absolute; left: 20px; right: 20px; bottom: 20px; }
 
-/* About split */
 .about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .about .stats { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 34px; }
 .about .stats .sticker:nth-child(2) { transform: rotate(-6deg); }
@@ -660,12 +602,10 @@ select.fld {
 .about-visual .frame img, .about-visual .frame video { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 .about-visual .backdrop { position: absolute; inset: 8% -4% -6% 6%; border-radius: var(--radius-xl); z-index: -1; transform: rotate(-3deg); }
 
-/* CTA band */
 .cta-band .wrap { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 40px; align-items: center; padding-top: 72px; padding-bottom: 72px; }
 .cta-band .actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
 .cta-band .lede { margin-top: 16px; }
 
-/* Inner page hero (colored header) */
 .page-hero { overflow: hidden; }
 .page-hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; padding-top: var(--banner-pad-t); padding-bottom: var(--banner-pad-b); min-height: var(--banner-h); }
 .page-hero .h1 { font-size: clamp(52px, 7vw, 96px); }
@@ -674,7 +614,6 @@ select.fld {
 .page-hero-art img { width: min(420px, 100%); filter: drop-shadow(0 26px 30px rgba(23, 34, 74, 0.28)); animation: budsFloat 7s ease-in-out infinite; }
 .page-hero-art .sticker { position: absolute; left: 6%; bottom: 0; }
 
-/* Table */
 .table { border: 2px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; margin-top: 36px; }
 .table-row { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.6fr; gap: 16px; padding: 16px 24px; border-bottom: 2px solid var(--line); align-items: center; }
 .table-row:last-child { border-bottom: 0; }
@@ -684,7 +623,6 @@ select.fld {
 .table-row .num { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--body); }
 .table-row .protein { font-family: var(--font-display); font-size: 20px; color: var(--red); }
 
-/* Forms */
 .form-card { background: #fff; border: 2px solid var(--line); border-radius: var(--radius-xl); box-shadow: var(--shadow); padding: 44px 42px; }
 .form-section { margin-top: 40px; }
 .form-section:first-of-type { margin-top: 0; }
@@ -696,7 +634,6 @@ select.fld {
 .fld[aria-invalid="true"] { border-color: var(--red); box-shadow: 0 0 0 4px var(--red-100); }
 .req-legend { font-size: 13.5px; color: var(--muted); margin: 0 0 24px; }
 .req-legend b { color: var(--red); }
-/* Honeypot: off-screen rather than display:none, which some bots skip. */
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .btn[aria-busy="true"] { opacity: 0.75; pointer-events: none; }
 .field textarea.fld { min-height: 120px; resize: vertical; font-family: inherit; }
@@ -704,8 +641,6 @@ select.fld {
 .steps { display: flex; flex-direction: column; gap: 18px; margin: 22px 0 0; padding: 0; list-style: none; }
 .steps li { display: flex; gap: 14px; align-items: flex-start; }
 .steps .num { width: 28px; height: 28px; border-radius: 50%; background: var(--yellow); color: var(--navy-deep); font-family: var(--font-display); font-size: 15px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
-
-/* Newsletter */
 
 @media (max-width: 1040px) {
   .hero .wrap { grid-template-columns: 1fr; }
@@ -749,12 +684,6 @@ select.fld {
   .promo-visual .bubble { width: 120px; height: 120px; font-size: 14px; top: -10px; }
 }
 
-
-/* Hero banner artwork -------------------------------------------------------
-   The live BUDS website banner plates (the text-free V1-V4 hero masters) sit
-   full-bleed behind the hero; the page keeps its own headline and copy on top.
-   The scrim is the banner's own paper colour, so the copy holds its contrast
-   wherever the image crops. */
 .has-banner > .banner-art { position: absolute; inset: 0 var(--banner-pull, -15%) 0 0; z-index: -2; overflow: hidden; }
 .has-banner > .banner-art img { width: 100%; height: 100%; object-fit: cover; object-position: 0% 38%; display: block; }
 .has-banner > .banner-art::after {
@@ -762,7 +691,6 @@ select.fld {
   background: linear-gradient(94deg, var(--banner-paper) 0 30%, var(--banner-fade) 66%);
 }
 @media (max-width: 1040px) {
-  /* Stacked: no pull; copy sits on solid paper, the food shows below it. */
   .has-banner > .banner-art { --banner-pull: 0px; }
   .has-banner > .banner-art img { object-position: 50% 34%; }
   .has-banner > .banner-art::after { background: linear-gradient(180deg, var(--banner-paper) 0 58%, var(--banner-fade) 88%); }
@@ -771,11 +699,6 @@ select.fld {
 
 </style>
 <style>
-  /* page-only tweaks */
-  /* The form runs one full-width column the whole way down. The three things
-     a chef still wants to know — what happens next, what to do if they are not
-     foodservice, what the food looks like — close the page as a band rather
-     than as a ragged right-hand rail. */
   .sample-band { margin-top: 34px; display: grid; gap: 20px; }
   .sample-band .photo { aspect-ratio: 4 / 3; border-radius: var(--radius-xl); }
   .sample-band .photo img { width: 100%; height: 100%; object-fit: cover; }
@@ -783,21 +706,12 @@ select.fld {
   .hero-frame img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; animation: none; filter: none; }
   .page-hero-art .sticker { left: 0; bottom: -18px; }
   .sent-icon { background: var(--yellow); color: var(--navy-deep); }
-  /* Section 3 is one-of-four, so its marker is round: square reads as
-     "tick as many as you like", which is section 4's job, not this one. */
   .pill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
   .pill::before { border-radius: 50%; }
 
   .sent-label { font-family: var(--font-display); font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-top: 30px; }
   .steps li span:last-child { font-size: 15.5px; line-height: 1.5; color: var(--navy-deep); }
 
-  /* ── Section 4: the sample box ─────────────────────────────────────────────
-     Thirty-two lines as a flat checkbox list asked a chef to read every SKU
-     name. They recognise the pack, not the name — so the picker breaks out of
-     the form column, every line carries its own shot on the brand's rotating
-     tone plate, search and category chips cut the range down, and a tray
-     pinned to the bottom keeps the running box in view while the grid scrolls
-     past. */
   #picker { margin-top: 48px; }
   .picker-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px 28px; flex-wrap: wrap; }
   .picker-title { display: flex; align-items: center; gap: 12px; font-size: clamp(26px, 2.6vw, 34px); }
@@ -812,7 +726,6 @@ select.fld {
 
   .remove-padding-bottom { padding-bottom: 0 !important; }
 
-  /* Toolbar ---------------------------------------------------------------- */
   .picker-bar { display: flex; align-items: center; gap: 12px 16px; flex-wrap: wrap; margin-top: 26px; }
   .picker-search { position: relative; flex: 1 1 280px; min-width: 0; max-width: 400px; }
   .picker-search > svg { position: absolute; left: 16px; top: 50%; margin-top: -10px; width: 20px; height: 20px; color: var(--muted); pointer-events: none; }
@@ -834,7 +747,6 @@ select.fld {
 
   .picker-note { margin-top: 20px; }
 
-  /* Category bands --------------------------------------------------------- */
   .pgroup { margin-top: 32px; }
   .pgroup:first-child { margin-top: 26px; }
   .pgroup-head { display: flex; align-items: baseline; gap: 12px; padding-bottom: 11px; border-bottom: 2px solid var(--line-strong); }
@@ -842,7 +754,6 @@ select.fld {
   .pgroup-count { margin-left: auto; font-size: 12.5px; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
   .pgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(196px, 1fr)); gap: 16px; margin-top: 18px; }
 
-  /* Product card ----------------------------------------------------------- */
   .pcard {
     position: relative; display: flex; flex-direction: column; text-align: left; padding: 0;
     background: var(--cream); border: 2px solid var(--line-strong); border-radius: var(--radius-lg);
@@ -871,7 +782,6 @@ select.fld {
   .pcard[aria-checked="true"] .pcard-mark { background: var(--red); color: #fff; transform: scale(1.08); }
   .pcard[aria-checked="true"] .pcard-pack { color: var(--navy); }
 
-  /* The card runs full width, but the notes field keeps a readable measure. */
   .notes-field { max-width: 72ch; }
   .form-foot { justify-content: space-between; }
   .form-foot .small { text-align: right; }
@@ -883,7 +793,6 @@ select.fld {
   .linkish { background: none; border: 0; padding: 0; font: inherit; color: var(--red); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
   .linkish:hover { color: var(--red-deep); }
 
-  /* The tray — what is in the box, wherever you are on the page ------------- */
   .tray {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
     background: var(--navy-deep); border-top: 3px solid var(--coral);
@@ -921,7 +830,6 @@ select.fld {
   .tray .btn-ghost:hover { background: #fff; border-color: #fff; color: var(--navy-deep); }
   .tray :focus-visible { outline-color: var(--yellow); }
 
-  /* Success panel: the box you asked for, as packs rather than a word list -- */
   .sent-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
   .sent-chip {
     display: inline-flex; align-items: center; gap: 10px; max-width: 100%;
@@ -945,8 +853,6 @@ select.fld {
     .pcard-body { padding: 12px 12px 14px; }
     .pcard-name { font-size: 14px; }
     .picker-search { max-width: none; }
-    /* Three honest rows beat one row that overflows: count + clear, the box
-       itself, then the send button across the full thumb-width. */
     .tray-inner { gap: 10px 12px; padding-top: 11px; padding-bottom: 12px; }
     .tray-acts { display: contents; }
     .tray-count { order: 1; flex: 1 1 auto; font-size: 14px; }
@@ -959,8 +865,6 @@ select.fld {
   @media (min-width: 1041px) {
     .sample-band { grid-template-columns: 1.15fr 0.85fr; align-items: stretch; }
     .sample-band .photo { aspect-ratio: auto; min-height: 100%; }
-    /* At full width, two columns of form fields would stretch past a
-       comfortable target; three keeps each field the width of its content. */
     .form-grid { grid-template-columns: repeat(3, 1fr); }
     .pill-grid { grid-template-columns: repeat(4, 1fr); }
   }
@@ -1021,7 +925,6 @@ select.fld {
 
   <main id="main">
 
-    <!-- Page hero -------------------------------------------------------- -->
     <section class="page-hero surface-navy paper has-banner" style="--banner-paper:#1F4588;--banner-fade:#1F458800" aria-labelledby="page-title">
       <div class="banner-art">
         <img src="assets/banners/_hero/hero-burger-navy.jpg" alt="A Love BUDS plant-based burger stacked with cheese, tomato, pickles and lettuce" width="1914" height="789" fetchpriority="high" />
@@ -1037,7 +940,6 @@ select.fld {
       </div>
     </section>
 
-    <!-- Form --------------------------------------------------------------- -->
     <section class="section remove-padding-bottom" aria-label="Sample request form">
 
       <div class="wrap">
@@ -1203,8 +1105,6 @@ select.fld {
               </div>
             </div>
 
-            <!-- Section 4 sits in the same card as the rest of the form: one
-                 sheet of paper, five numbered steps, no nested slabs. -->
             <div class="form-section" id="picker">
               <div class="picker-head">
                 <div>
@@ -1440,7 +1340,6 @@ select.fld {
 
   </main>
 
-  <!-- Footer ------------------------------------------------------------ -->
   <footer class="site-footer">
     <div class="wrap">
       <div class="cols">
@@ -1504,12 +1403,10 @@ select.fld {
 </div>
 
 <script>
-/* Love BUDS — shared behaviour: mobile nav, scroll reveals */
 (function () {
   'use strict';
   document.documentElement.classList.add('js');
 
-  /* ---- mobile navigation ------------------------------------------- */
   var toggle = document.querySelector('[data-nav-toggle]');
   var nav = document.getElementById('primary-nav');
   if (toggle && nav) {
@@ -1532,7 +1429,30 @@ select.fld {
     });
   }
 
-  /* ---- scroll reveals ---------------------------------------------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.marquee-track'), function (track) {
+    var set = Array.prototype.slice.call(track.children, 0, track.children.length / 2);
+    var baseDuration = parseFloat(getComputedStyle(track).animationDuration) || 32;
+    var sets = 2;
+    function fill() {
+      var setWidth = track.scrollWidth / sets;
+      if (!setWidth) return;
+      var perHalf = Math.max(1, Math.ceil(track.parentNode.clientWidth / setWidth));
+      if (perHalf * 2 !== sets) {
+        var frag = document.createDocumentFragment();
+        for (var i = 0; i < perHalf * 2; i++) {
+          set.forEach(function (item) { frag.appendChild(item.cloneNode(true)); });
+        }
+        track.textContent = '';
+        track.appendChild(frag);
+        sets = perHalf * 2;
+      }
+      track.style.animationDuration = (baseDuration * perHalf) + 's';
+    }
+    fill();
+    window.addEventListener('resize', fill);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fill);
+  });
+
   var targets = document.querySelectorAll('.reveal, .reveal-stagger');
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!targets.length) return;
@@ -1556,8 +1476,6 @@ select.fld {
 (function () {
   'use strict';
 
-
-  /* ---- sample request form ----------------------------------------- */
   var sampleForm = document.getElementById('sample-form');
   if (sampleForm) {
     var errorBox = document.getElementById('sample-error');
@@ -1581,12 +1499,6 @@ select.fld {
       return svg;
     }
 
-    /* ---- the sample box --------------------------------------------------
-       One picker doing three jobs: recognise the pack (a photo card, not a
-       SKU name), narrow 32 lines down (search + category), and see what is
-       already in the box without scrolling back up (the tray). `chosen` is
-       the single source of truth — filtering only ever changes what is
-       visible, never what is picked. */
     var picker = document.getElementById('picker');
     var cardByName = {};
     var flagProducts = function () {};
@@ -1648,9 +1560,6 @@ select.fld {
         return btn;
       };
 
-      /* The tray is fixed, so the page has to reserve its real height — a
-         guessed value either leaves a gap or lets the tray sit over the
-         footer and over whatever the keyboard has just focused. */
       var syncTrayInset = function () {
         var on = chosen.length > 0;
         document.body.style.paddingBottom = on ? (tray.offsetHeight + 8) + 'px' : '';
@@ -1671,7 +1580,7 @@ select.fld {
 
         if (n) {
           tray.hidden = false;
-          void tray.offsetWidth;              /* paint it off-screen, then slide */
+          void tray.offsetWidth;
           tray.classList.add('is-open');
           trayN.classList.remove('pop');
           void trayN.offsetWidth;
@@ -1689,7 +1598,6 @@ select.fld {
         insetTimer = setTimeout(syncTrayInset, 120);
       });
 
-      /* Focus has to land somewhere sensible when a chip removes itself. */
       var pick = function (name, on, from) {
         var i = chosen.indexOf(name);
         if (on && i === -1) { chosen.push(name); }
@@ -1786,7 +1694,6 @@ select.fld {
       paintCount();
     }
 
-    /* clear invalid state as soon as the user edits a field */
     ['f-first', 'f-last', 'f-email', 'f-company', 'f-region', 'f-city'].forEach(function (id) {
       var field = document.getElementById(id);
       if (!field) return;
@@ -1794,11 +1701,6 @@ select.fld {
       field.addEventListener(evt, function () { field.removeAttribute('aria-invalid'); });
     });
 
-    /* --- where submissions go --------------------------------------------
-       Point ENDPOINT at a form service (Formspree, Web3Forms, Basin) or your
-       own function. While it is empty the form never pretends to have sent
-       anything: it hands the visitor a pre-filled email instead, so a request
-       is never silently lost. */
     var ENDPOINT = '';
     var FALLBACK_EMAIL = 'orders@aussieplantbased.com';
 
@@ -1828,8 +1730,6 @@ select.fld {
       return node;
     }
 
-    /* The message sits next to the field and is announced with it, rather than
-       only in the summary at the top of the form. */
     function markField(field, message) {
       var slot = errorSlot(field);
       if (message) {
@@ -1855,8 +1755,6 @@ select.fld {
       return ok;
     }
 
-    /* Check on blur, not on every keystroke; once a field is flagged, let the
-       visitor see it clear as they fix it. */
     Object.keys(REQUIRED).forEach(function (id) {
       var field = document.getElementById(id);
       if (!field) return;
@@ -1942,7 +1840,6 @@ select.fld {
     sampleForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      /* Bots fill hidden inputs; people do not. Fail quietly. */
       var hp = document.getElementById('f-hp');
       if (hp && hp.value) return;
 
@@ -1951,9 +1848,6 @@ select.fld {
       var noProducts = !chosen.length;
       if (noProducts) missing.push('at least one product');
 
-      /* Send the visitor to the one place that needs them, not to two competing
-         scroll targets: the summary when fields are wrong, the picker when the
-         box is simply empty. */
       if (missing.length) {
         var fieldsBad = bad.length > 0;
         errorText.textContent = 'Still needed: ' + missing.join(', ') + '.';
@@ -1973,8 +1867,6 @@ select.fld {
       var status = document.getElementById('sample-status');
       var label = button.innerHTML;
 
-      /* No endpoint yet: hand over a pre-filled email rather than claim
-         a request was sent that nothing received. */
       if (!ENDPOINT) {
         fail('This form is not connected to a mailbox yet. ' +
              '<a href="' + mailtoFallback(data) + '">Send your request by email instead</a> — ' +
